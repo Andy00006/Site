@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creation de compte</title>
+<link rel="stylesheet" type="text/css" href="creation_de_compte.css">
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Creation de compte</legend>
+        <a href="site de page d'accueil.com">
+  <img src="image.jpg" alt="logo de notre truc">
+</a> </br>
+        <label id="prenom">Prenom:</label>
+        <input type="text" id="prenom" required name="prenom" placeholder="Entrer votre prenom" autofocus></br>
+        <label id="nom">nom:</label>
+        <input type="text" id="nom" required name="nom" placeholder="Entrer votre nom"></br>
+        <label id="email">Email:</label>
+        <input type="email" id="email" required name="email" placeholder="Entrer votre email"></br>
+        <label id="tel">numéro de telephone:</label>
+        <input type="tel" id="tel" required placeholder="numéro de telephone"></br>
+        <label id="code_postal">Code postal:</label>
+        <input type="number" id="code_postal" required placeholder="Entrer votre code postal" size="5" min="1"></br>
+        <label id="ville">Ville:</label>
+        <input type="text" id="ville" required placeholder="Entrer votre ville"></br>
+        <label id="rue">Rue,Boulevard,avenue,...:</label>
+        <input type="text" id="rue" required placeholder="Entrer votre rue,boulevard,Avenue,..."></br>
+        <label id="numero">Numero de rue:</label>
+        <input type="number" id="numero" required placeholder="Entrer votre numero de rue" size="4" min="1"></br>
+        <label id="type">complet de numéro:</label>
+        <input type="radio" id="type" value="aucun" checked name="cdn"><label id="type">aucun</label>
+        <input type="radio" id="type" value="bis" name="cdn"><label id="type">Bis</label>
+        <input type="radio" id="type" value="ter" name="cdn"><label id="type" >Ter</label></br>
+        <label id="etage">numéro de l'étage(si dans un immeuble):</label>
+        <input type="number" id="etage" placeholder="Entrer votre etage" min="0" size="2"></br>
+        <label id="numero_digicode">Numero du digicode(si dans un immeuble):</label>
+        <input type="number" id="numero_digicode" placeholder="Entrer votre digicode"></br>
+        <label>Mot de passe :<input type="password" id="mdp1" required placeholder="mot de passe"></label>
+        <label>Confirmer le mot de passe :<input type="password" id="mdp2" required placeholder=" même mot de passe"></label> </br><!-- le mdp2 pareil que le mdp1 et doit avoir une majuscule,un chiffre,...-->
+        <label id="mention_legal">j'ai lu et j'accepte les <a href="condition-d'utilisation.text">conditions d'utilisation:</a></label>
+        <input type="checkbox" id="mention_legal" value="oui" name="validation" required></br>
+        <label id="envoie_de_message">je souhaite recevoir des informations sur mon adresse email:</label>
+        <input type="checkbox" id="envoie_de_message" value="oui" name="accord"></br>
+        <button type="submit">Envoyer</button></br>
+        <button type="reset">Réinitialiser</button>
+        <button onclick="window.location.href='site de page d_accueil.com'">revenir sur la page d'accueil</button>
+        <!-- certaine cases des input sont trop petites pour le placeholder,a modifier en css -->
+    </fieldset>
+    </form>
+</body>
+</html>
