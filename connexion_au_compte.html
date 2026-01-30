@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page de connexion au compte</title>
-    <link rel="stylesheet" type="text/css" href="connexion_au_compte.css">
+    <title>Document</title>
 </head>
 <body>
-    <form action="traitement.php" method="post">
+    <form>
         <fieldset>
             <legend>connexion au site</legend>
             <a href="site de page d'accueil.com">
   <img src="image.jpg" alt="logo de notre truc">
 </a> </br><p>(Titre du site)</p>
             <label id="email">Email:</label>
-        <input type="email" id="email" required name="email"></br>
-        <label>Mot de passe :<input type="password" id="mdp1" required></label></br>
+        <input type="email" id="email" name="email"></br>
+        <label>Mot de passe :<input type="password" id="mdp1"></label></br>
      <a href="site du menu.com">continuer en tant qu'invité</a></br>
         <button type="submit">Envoyer</button></br>
-    <button onclick="window.location.href='site de page d_accueil.com'">revenir sur la page d'accueil</button>
+  <label>Je n'ai pas de compte:<button onclick="href='creation_de_compte.html'">creer un compte</button></label><!-- le onclick ne fonctionne que avec le JS-->
+</br>
+   <button onclick="window.location.href='site de page d_accueil.com'">revenir sur la page d'accueil</button>
 </fieldset>
     </form>
 </body>
