@@ -14,31 +14,31 @@
   <img src="image.jpg" alt="logo de notre truc">
 </a> </br>
         <label id="prenom">Prenom:</label>
-        <input type="text" id="prenom" required name="prenom" placeholder="Entrer votre prenom" autofocus></br>
+        <input type="text" id="prenom" required name="prenom" placeholder="ex:diakite" autofocus></br>
         <label id="nom">nom:</label>
-        <input type="text" id="nom" required name="nom" placeholder="Entrer votre nom"></br>
+        <input type="text" id="nom" required name="nom" placeholder="ex:Da silva"></br>
         <label id="email">Email:</label>
-        <input type="email" id="email" required name="email" placeholder="Entrer votre email"></br>
+        <input type="email" id="email" required name="email" placeholder="ex:diakite.Dasilva@icloud"></br>
         <label id="tel">numéro de telephone:</label>
-        <input type="tel" id="tel" required placeholder="numéro de telephone"></br>
+        <input type="tel" id="tel" required placeholder="ex:06 87 90 34 19" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"></br>
         <label id="code_postal">Code postal:</label>
-        <input type="number" id="code_postal" required placeholder="Entrer votre code postal" size="5" min="1"></br>
+        <input type="number" id="code_postal" required placeholder="ex:94280" size="5" min="1"></br>
         <label id="ville">Ville:</label>
-        <input type="text" id="ville" required placeholder="Entrer votre ville"></br>
+        <input type="text" id="ville" required placeholder="ex:Le fion"></br>
         <label id="rue">Rue,Boulevard,avenue,...:</label>
-        <input type="text" id="rue" required placeholder="Entrer votre rue,boulevard,Avenue,..."></br>
+        <input type="text" id="rue" required placeholder="ex:general de gaulle"></br>
         <label id="numero">Numero de rue:</label>
-        <input type="number" id="numero" required placeholder="Entrer votre numero de rue" size="4" min="1"></br>
-        <label id="type">complet de numéro:</label>
+        <input type="number" id="numero" required placeholder="ex:23" size="4" min="1"></br>
+        <label id="type">complement de numéro:</label>
         <input type="radio" id="type" value="aucun" checked name="cdn"><label id="type">aucun</label>
         <input type="radio" id="type" value="bis" name="cdn"><label id="type">Bis</label>
         <input type="radio" id="type" value="ter" name="cdn"><label id="type" >Ter</label></br>
         <label id="etage">numéro de l'étage(si dans un immeuble):</label>
-        <input type="number" id="etage" placeholder="Entrer votre etage" min="0" size="2"></br>
+        <input type="number" id="etage" placeholder="ex:4" min="0" size="2"></br>
         <label id="numero_digicode">Numero du digicode(si dans un immeuble):</label>
-        <input type="number" id="numero_digicode" placeholder="Entrer votre digicode"></br>
+        <input type="number" id="numero_digicode" placeholder="ex:1234"></br>
         <label>Mot de passe :<input type="password" id="mdp1" required placeholder="mot de passe"></label>
-        <label>Confirmer le mot de passe :<input type="password" id="mdp2" required placeholder=" même mot de passe"></label> </br><!-- le mdp2 pareil que le mdp1 et doit avoir une majuscule,un chiffre,...-->
+        <label>Confirmer le mot de passe :<input type="password" id="mdp2" required placeholder="même mot de passe"></label> </br><!-- le mdp2 pareil que le mdp1 et doit avoir une majuscule,un chiffre,...-->
         <label id="mention_legal">j'ai lu et j'accepte les <a href="condition-d'utilisation.text">conditions d'utilisation:</a></label>
         <input type="checkbox" id="mention_legal" value="oui" name="validation" required></br>
         <label id="envoie_de_message">je souhaite recevoir des informations sur mon adresse email:</label>
