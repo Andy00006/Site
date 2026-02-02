@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Avis livraison</title>
+    <link rel="stylesheet" type="text.css" href="validation_client.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Avis sur votre livraison</h2>
+
+    <!-- Notation étoiles -->
+    <div class="section">
+        <p>Noter le livreur :</p>
+
+        <div class="rating">
+            <input type="radio" name="star" id="star5"><label for="star5">★</label>
+            <input type="radio" name="star" id="star4"><label for="star4">★</label>
+            <input type="radio" name="star" id="star3"><label for="star3">★</label>
+            <input type="radio" name="star" id="star2"><label for="star2">★</label>
+            <input type="radio" name="star" id="star1"><label for="star1">★</label>
+        </div>
+    </div>
+
+    <!-- Commentaire -->
+    <div class="section">
+        <p>Laisser un commentaire :</p>
+        <textarea placeholder="Votre commentaire..."></textarea>
+    </div>
+
+    <!-- Pourboire -->
+    <div class="section">
+        <p>Donner un pourboire :</p>
+
+        <label><input type="radio" name="tip" checked> 0%</label><br>
+        <label><input type="radio" name="tip"> 10%</label><br>
+        <label><input type="radio" name="tip"> 20%</label><br>
+        <label><input type="radio" name="tip"> 30%</label>
+    </div>
+<div class="section">
+    <p><strong>Total à payer :</strong> <span id="total">15,00 €</span></p>
+</div>
+    <!-- Bouton -->
+    <button class="submit">Valider et payer</button>
+    <button type="reset" class="resetAll">
+    Réinitialiser tout le formulaire
+</button>
+
+</div>
+
+</body>
+</html>
