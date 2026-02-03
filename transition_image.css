@@ -1,0 +1,122 @@
+.card-plat{
+    width:380px;
+    height:260px;
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:white;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.info-plat h3,
+.info-plat p,
+.info-plat ul,
+.info-plat .prix,
+.allergenes h4,
+.allergenes p {
+    opacity: 0;              /* invisible */
+    transition: opacity 0.5s ease
+/* Effet levé */}
+
+.card-plat:hover .info-plat h3,
+.card-plat:hover .info-plat p,
+.card-plat:hover .info-plat ul,
+.card-plat:hover .info-plat .prix,
+.card-plat:hover .allergenes h4,
+.card-plat:hover .allergenes p {
+    opacity: 1;              /* devient visible */
+}
+
+/* Texte invisible + décalé */
+.info-plat h3,
+.info-plat p,
+.info-plat ul,
+.info-plat .prix,
+.allergenes h4,
+.allergenes p {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Texte visible + position normale */
+.card-plat:hover .info-plat h3,
+.card-plat:hover .info-plat p,
+.card-plat:hover .info-plat ul,
+.card-plat:hover .info-plat .prix,
+.card-plat:hover .allergenes h4,
+.card-plat:hover .allergenes p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-plat:hover{
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    transform: translateY(-5px);
+}
+
+/* Image */
+.image-plat{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.3s;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+/* Hover → image se réduit et se colle en haut à gauche */
+.card-plat:hover .image-plat{
+    width:50%;      /* moitié de la carte */
+    height:50%;     /* moitié de la carte */
+    top:0;
+    left:0;
+}
+
+/* Zone ingrédients (droite) */
+.info-plat{
+    position:absolute;
+    top:0;
+    right:0;
+    width:50%;      /* prend la moitié droite */
+    height:100%;
+    background:transparent;
+    padding:15px;
+    box-sizing:border-box;
+    transition:0.3s;
+}
+
+/* Prix */
+.prix{
+    position:absolute;
+    bottom:10px;
+    right:15px;
+    font-weight:bold;
+    color:#e63946;
+}
+
+/* Allergènes */
+.allergenes{
+    position:absolute;
+    bottom:10px;         /* petit carré en bas */
+    left:10px;           /* petit décalage à gauche */
+    width:40%;           /* petit carré */
+    background:white;    /* fond blanc */
+    padding:10px;
+    text-align:center;
+    font-size:14px;
+    border-radius:8px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    opacity:0;
+    transform: translateY(20px);
+    transition:0.4s;
+}
+
+/* Hover → afficher allergènes */
+.card-plat:hover .allergenes{
+    opacity:1;
+    transform: translateY(0);
+}
