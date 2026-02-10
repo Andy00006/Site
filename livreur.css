@@ -1,0 +1,117 @@
+/* Structure page pour pouvoir coller le footer en bas */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenu principal */
+body {
+    padding: 20px;
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+caption {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Centrer numéro commande + heure */
+td:first-child,
+td:nth-child(4) {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Boutons */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Bouton accident centré sous le tableau */
+a:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+a:nth-of-type(1) button {
+    background-color: #e74c3c;
+}
+
+a:nth-of-type(1) button:hover {
+    background-color: #c0392b;
+}
+
+/* Lien se déconnecter tout en bas */
+a[href="connexion_au_compte.html"] {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Permet de pousser le bouton en bas */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tableau garde sa largeur normale */
+table {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+/* Bouton déconnexion en bas centré */
+button[onclick="rupturedeservice()"] {
+    margin-top: auto;
+    margin-bottom: 20px;
+    align-self: center;
+    width: auto;        /* empêche pleine largeur */
+    padding: 12px 25px; /* taille normale */
+}
