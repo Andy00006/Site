@@ -3,55 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page de creation de compte</title>
-<link rel="stylesheet" type="text/css" href="creation_de_compte.css">
+    <title>Utopik Fruit | Création de compte</title>
+    <link rel="stylesheet" href="creation_de_compte.css">
 </head>
 <body>
-<form action="traitement.php" method="post">
-    <fieldset>
-        <legend>Creation de compte</legend>
-        <a href="site de page d'accueil.com">
-  <img src="image.jpg" alt="logo de notre truc">
-</a> </br>
-        <label id="prenom">Prenom:</label>
-        <input type="text" id="prenom" required name="prenom" placeholder="ex:diakite" autofocus></br>
-        <label id="nom">nom:</label>
-        <input type="text" id="nom" required name="nom" placeholder="ex:Da silva"></br>
-        <label id="anniversaire">date d'anniversaire:</label>
-        <input type="date" id="anniversaire" name="anniversaire" required></br><!--limiter l'age en JS-->
-        <label id="email">Email:</label>
-        <input type="email" id="email" required name="email" placeholder="ex:diakite.Dasilva@icloud"></br>
-        <label id="tel">numéro de telephone:</label>
-        <input type="tel" id="tel" required placeholder="ex:06 87 90 34 19" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"></br>
-        <label id="code_postal">Code postal:</label>
-        <input type="number" id="code_postal" required placeholder="ex:94280" size="5" min="1"></br>
-        <label id="ville">Ville:</label>
-        <input type="text" id="ville" required placeholder="ex:Le fion"></br>
-        <label id="rue">Rue,Boulevard,avenue,...:</label>
-        <input type="text" id="rue" required placeholder="ex:general de gaulle"></br>
-        <label id="numero">Numero de rue:</label>
-        <input type="number" id="numero" required placeholder="ex:23" size="4" min="1"></br>
-        <label id="type">complement de numéro:</label>
-        <input type="radio" id="type" value="aucun" checked name="cdn"><label id="type">aucun</label>
-        <input type="radio" id="type" value="bis" name="cdn"><label id="type">Bis</label>
-        <input type="radio" id="type" value="ter" name="cdn"><label id="type" >Ter</label></br>
-        <label id="etage">numéro de l'étage(si dans un immeuble):</label>
-        <input type="number" id="etage" placeholder="ex:4" min="0" size="2"></br>
-        <label id="numero_digicode">Numero du digicode(si dans un immeuble):</label>
-        <input type="number" id="numero_digicode" placeholder="ex:1234"></br>
-        <label>Mot de passe :<input type="password" id="mdp1" required placeholder="mot de passe"></label>
-        <label>Confirmer le mot de passe :<input type="password" id="mdp2" required placeholder="même mot de passe"></label> </br><!-- le mdp2 pareil que le mdp1 et doit avoir une majuscule,un chiffre,...-->
-        <label id="mention_legal">j'ai lu et j'accepte les <a href="condition-d'utilisation.text">conditions d'utilisation:</a></label>
-        <input type="checkbox" id="mention_legal" value="oui" name="validation" required></br>
-        <label id="envoie_de_message">je souhaite recevoir des informations sur mon adresse email:</label>
-        <input type="checkbox" id="envoie_de_message" value="oui" name="accord"></br>
-        <button type="submit">Envoyer</button></br>
-        <button type="reset">Réinitialiser</button>
-        <button onclick="window.location.href='site de page d_accueil.com'">revenir sur la page d'accueil</button>
-        <!-- certaine cases des input sont trop petites pour le placeholder,a modifier en css -->
-         
+
+<div class="boite-inscription">
+    <form action="traitement.php" method="post" class="formulaire-utopik">
         
-    </fieldset>
+        <div class="entete-form">
+            <a href="index.html">
+                <div class="logo">Utopik<span>Fruit</span></div>
+            </a>
+            <h1>Rejoignez l'aventure</h1>
+            <p>Créez votre profil vitaminé en quelques secondes.</p>
+        </div>
+
+        <div class="section-form">
+            <div class="groupe-ligne">
+                <div class="groupe-saisie">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="ex: Diakite" required autofocus>
+                </div>
+                <div class="groupe-saisie">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="ex: Da Silva" required>
+                </div>
+            </div>
+
+            <div class="groupe-saisie">
+                <label for="anniversaire">Date d'anniversaire</label>
+                <input type="date" id="anniversaire" name="anniversaire" required>
+            </div>
+        </div>
+
+        <div class="section-form">
+            <div class="groupe-saisie">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="diakite.dasilva@utopik.com" required>
+            </div>
+            <div class="groupe-saisie">
+                <label for="tel">Numéro de téléphone</label>
+                <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" required>
+            </div>
+        </div>
+
+        <div class="section-form">
+            <div class="groupe-ligne">
+                <div class="groupe-saisie" style="flex: 2;">
+                    <label for="rue">Rue, Boulevard, Avenue...</label>
+                    <input type="text" id="rue" name="rue" placeholder="ex: Avenue du Général de Gaulle" required>
+                </div>
+                <div class="groupe-saisie" style="flex: 1;">
+                    <label for="numero">N°</label>
+                    <input type="number" id="numero" name="numero" placeholder="23" min="1" required>
+                </div>
+            </div>
+
+            <div class="groupe-radio">
+                <label>Complément de numéro :</label>
+                <div class="choix-radio">
+                    <input type="radio" id="aucun" value="aucun" name="cdn" checked> <label for="aucun">Aucun</label>
+                    <input type="radio" id="bis" value="bis" name="cdn"> <label for="bis">Bis</label>
+                    <input type="radio" id="ter" value="ter" name="cdn"> <label for="ter">Ter</label>
+                </div>
+            </div>
+
+            <div class="groupe-ligne">
+                <div class="groupe-saisie">
+                    <label for="code_postal">Code postal</label>
+                    <input type="number" id="code_postal" name="code_postal" placeholder="94280" required>
+                </div>
+                <div class="groupe-saisie">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" placeholder="ex: Paris" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-form">
+            <div class="groupe-ligne">
+                <div class="groupe-saisie">
+                    <label for="mdp1">Mot de passe</label>
+                    <input type="password" id="mdp1" name="mdp1" placeholder="Mot de passe" required>
+                </div>
+                <div class="groupe-saisie">
+                    <label for="mdp2">Confirmation</label>
+                    <input type="password" id="mdp2" name="mdp2" placeholder="Confirmer" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-consentement">
+            <div class="case-cocher">
+                <input type="checkbox" id="mention_legal" name="validation" required>
+                <label for="mention_legal">J'accepte les <a href="#">conditions d'utilisation</a></label>
+            </div>
+            <div class="case-cocher">
+                <input type="checkbox" id="accord" name="accord">
+                <label for="accord">Je souhaite recevoir des newsletters vitaminées</label>
+            </div>
+        </div>
+
+        <div class="actions-form">
+            <button type="submit" class="btn-principal">Créer mon compte</button>
+            <div class="boutons-secondaires">
+                <button type="reset" class="btn-lien">Réinitialiser</button>
+                <a href="index.html" class="btn-lien">Retour à l'accueil</a>
+            </div>
+        </div>
     </form>
+</div>
+
 </body>
 </html>
