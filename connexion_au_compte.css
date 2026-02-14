@@ -1,199 +1,132 @@
-/* --- 1. TES VARIABLES :ROOT --- */
+/* --- DA UTOPIK FRUIT --- */
 :root {
-    --violet: #4B0082;
-    --jaune: #F7D302; 
-    --fuchsia: #D2317B; 
-    --background: #F8F8F8;         
-    --texte: #333333;      
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --noir: #2f3542;
+    --gris-fond: #f1f2f6;
     --blanc: #ffffff;
-    --gris-clair: #EEEEEE;
+    --ombre: rgba(255, 71, 87, 0.15);
 }
 
-/* --- 2. RESET & BASE --- */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: var(--background);
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: var(--gris-fond);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    color: var(--texte);
-}
-
-/* --- 3. STRUCTURE DU FORMULAIRE --- */
-.login-wrapper {
-    width: 100%;
-    max-width: 450px;
     padding: 20px;
 }
 
-fieldset {
-    border: 2px solid var(--violet);
-    border-radius: 20px;
-    background-color: var(--blanc);
-    padding: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-legend {
-    color: var(--violet);
-    font-weight: 800;
-    text-transform: uppercase;
-    background: var(--blanc);
-    padding: 0 15px;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-}
-
-/* --- 4. LOGO & TITRE --- */
-.form-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo-container img {
-    max-width: 80px;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid var(--gris-clair);
-}
-
-.site-title {
-    font-size: 1.8rem;
-    color: var(--violet);
-    font-weight: 800;
-}
-
-.site-title span {
-    color: var(--jaune);
-}
-
-/* --- 5. CHAMPS DE SAISIE --- */
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--violet);
-    font-size: 0.9rem;
-}
-
-.input-group input {
+.boite-connexion {
     width: 100%;
-    padding: 12px 15px;
-    border: 2px solid var(--gris-clair);
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    max-width: 450px; /* Plus étroit que l'inscription */
+    background: var(--blanc);
+    padding: 50px 40px;
+    border-radius: 40px;
+    box-shadow: 0 20px 50px var(--ombre);
 }
 
-.input-group input:focus {
-    border-color: var(--fuchsia);
-    outline: none;
-    box-shadow: 0 0 8px rgba(210, 49, 123, 0.15);
+/* --- LOGO & TITRE --- */
+.entete-form { text-align: center; margin-bottom: 40px; }
+.lien-logo { text-decoration: none; }
+.logo { font-size: 32px; font-weight: 900; margin-bottom: 10px; color: var(--fraise); }
+.logo span { color: var(--kiwi); }
+
+h1 { font-size: 26px; color: var(--noir); letter-spacing: -0.5px; }
+p { color: #747d8c; font-size: 14px; margin-top: 5px; }
+
+/* --- CHAMPS DE SAISIE --- */
+.section-form { margin-bottom: 20px; }
+
+.groupe-saisie {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
-/* --- 6. LIENS & BOUTONS --- */
-.link-guest {
-    display: block;
-    text-align: center;
-    color: var(--fuchsia);
+.label-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--noir);
+    margin-left: 5px;
+}
+
+.mdp-oublie {
+    font-size: 12px;
+    color: var(--fraise);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
 }
 
-.link-guest:hover {
-    text-decoration: underline;
+input[type="email"],
+input[type="password"] {
+    padding: 16px 20px;
+    border-radius: 18px;
+    border: 2px solid transparent;
+    background: var(--gris-fond);
+    font-size: 15px;
+    transition: 0.3s ease;
+    outline: none;
 }
 
-/* Bouton principal (Envoyer) */
-.btn-primary {
-    display: block;
+input:focus {
+    border-color: var(--fraise);
+    background: #fff;
+    box-shadow: 0 8px 20px var(--ombre);
+}
+
+/* --- OPTIONS --- */
+.section-options { margin-bottom: 30px; }
+.case-cocher { display: flex; align-items: center; gap: 10px; }
+.case-cocher input { width: 18px; height: 18px; accent-color: var(--kiwi); cursor: pointer; }
+.case-cocher label { font-weight: 500; font-size: 13px; color: #747d8c; cursor: pointer; }
+
+/* --- BOUTON & FOOTER --- */
+.btn-principal {
     width: 100%;
-    padding: 15px;
-    background-color: var(--violet);
-    color: var(--blanc);
+    padding: 16px;
+    background: var(--fraise);
+    color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px var(--ombre);
+    transition: 0.3s;
     margin-bottom: 25px;
 }
 
-.btn-primary:hover {
-    background-color: var(--fuchsia);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(210, 49, 123, 0.3);
+.btn-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--ombre);
 }
 
-/* Actions secondaires (Créer compte, Réinitialiser) */
-.form-actions p {
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-    color: #666;
+.texte-bas {
     text-align: center;
+    font-size: 13px;
+    color: #747d8c;
 }
 
-.btn-secondary {
-    display: inline-block;
-    color: var(--violet);
-    font-weight: bold;
+.texte-bas a {
+    color: var(--kiwi);
     text-decoration: none;
-    background: var(--gris-clair);
-    padding: 4px 10px;
-    border-radius: 5px;
+    font-weight: 700;
     margin-left: 5px;
-    transition: 0.3s;
 }
 
-.btn-secondary:hover {
-    background-color: var(--jaune);
-    color: var(--texte);
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid var(--gris-clair);
-    margin: 25px 0;
-}
-
-/* Bouton Retour Accueil */
-.btn-outline {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    border: 2px solid var(--violet);
-    color: var(--violet);
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.btn-outline:hover {
-    background-color: var(--violet);
-    color: var(--blanc);
-}
-
-/* --- 7. RESPONSIVE --- */
-@media (max-width: 480px) {
-    fieldset {
-        padding: 25px;
-    }
-}
+.texte-bas a:hover { text-decoration: underline; }
