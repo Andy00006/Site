@@ -4,67 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utopik Fruit - Accueil</title>
-    <link rel="stylesheet" href="accueil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Accueil.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">Utopik Fruit</div>
+            <div class="logo">
+                <a href="accueil.html">Utopik Fruit</a>
+            </div>
             <ul>
-                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="accueil.html" class="active">Accueil</a></li>
                 <li><a href="menu.html">La Carte</a></li>
-                <li><a href="creation_de_compte.html">S'inscrire</a></li>
+                <li><a href="com.html">Contact</a></li>
                 <li><a href="connexion_au_compte.html">Connexion</a></li>
+                <li><a href="creation_de_compte.html">S'inscrire</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="banniere">
             <h1>Voyage Culinaire Extraordinaire</h1>
             <p>Découvrez nos fruits et plats du monde entier.</p>
-            <div class="search-container">
+            <div class="recherche">
                 <i class="fas fa-search"></i>
                 <input type="text" placeholder="Rechercher un Étrange (ex: Sapote, Kiwano...)">
                 <button type="submit">Rechercher</button>
             </div>
         </section>
 
-        <section class="trending">
+        <section class="populaire">
             <h2>Les bizarreries du moment</h2>
-            <div class="product-grid">
-                <article class="product-card">
-                    <div class="badge">Plat du jour</div>
+            <div class="vitrine">
+                <article class="produit">
+                    <div class="etiquette">Plat du jour</div>
                     <img src="https://via.placeholder.com/250x180/4B0082/F7D302?text=Sapote Noire" alt="Mousse de Sapote Noire">
                     <h3>Mousse de Sapote Noire</h3>
                     <p>Un pudding noir velouté, au goût de chocolat.</p>
-                    <span class="price">9.50€</span>
-                    <button class="btn-add">Ajouter</button>
+                    <span class="prix">9.50€</span>
+                    <button class="ajouter">Ajouter</button>
                 </article>
 
-                <article class="product-card">
-                    <div class="badge">Plat du jour</div>
+                <article class="produit">
+                    <div class="etiquette">Plat du jour</div>
                     <img src="https://via.placeholder.com/250x180/4B0082/F7D302?text=Durian Royal" alt="Curry Royal au Durian">
                     <h3>Curry Royal au Durian</h3>
                     <p>Pour les aventuriers, saveur crémeuse et unique.</p>
-                    <span class="price">18.00€</span>
-                    <button class="btn-add">Ajouter</button>
+                    <span class="prix">18.00€</span>
+                    <button class="ajouter">Ajouter</button>
                 </article>
 
-                <article class="product-card">
+                <article class="produit">
                     <img src="https://via.placeholder.com/250x180/4B0082/F7D302?text=Salade de Kiwano" alt="Salade de Kiwano">
                     <h3>Salade de Kiwano</h3>
                     <p>Du concombre à l'allure banane-kiwi.</p>
-                    <span class="price">10.00€</span>
-                    <button class="btn-add">Ajouter</button>
+                    <span class="prix">10.00€</span>
+                    <button class="ajouter">Ajouter</button>
                 </article>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Utopik Fruit - Projet Info 4</p>
+    <footer class="footer">
+        <div class="contenu">
+            
+            <div class="partie">
+                <h2 class="logo-footer">
+                    <a href="accueil.html">Utopik Fruit</a>
+                </h2>
+                <p>La fraîcheur exotique livrée chez vous.</p>
+                <div class="réseaux">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="partie">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 01 23 45 67 89</li>
+                    <li><i class="fas fa-envelope"></i> contact@utopikfruit.fr</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Rue des Fruits, Paris</li>
+                </ul>
+            </div>
+
+            <div class="partie">
+                <h4>Ouverture</h4>
+                <div class="hours-row"><span>Lundi - Vendredi</span> <strong>08h - 19h</strong></div>
+                <div class="hours-row"><span>Samedi</span> <strong>09h - 18h</strong></div>
+                <div class="hours-row"><span class="closed-label">Dimanche</span>Fermé</div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Utopik Fruit — Tous droits réservés.</p>
+        </div>
     </footer>
 
 </body>
