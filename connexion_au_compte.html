@@ -3,29 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="connexion_au_compte.css">
 </head>
 </head>
 <body>
-    <form>
-        <fieldset>
-            <legend>connexion au site</legend>
-            <a href="site de page d'accueil.com">
-  <img src="image.jpg" alt="logo de notre truc">
-</a> </br><p>(Titre du site)</p>
-            <label id="email">Email:</label>
-        <input type="email" id="email" name="email"></br>
-        <label>Mot de passe :<input type="password" id="mdp1"></label></br>
-     <a href="site du menu.com">continuer en tant qu'invité</a></br>
-        <button type="submit">Envoyer</button></br>
-   <p>je n'ai pas de compte:<a href="creation_de_compte.html"><button>creer un compte</button>
-</a></p>
-<p>j'ai oublié mon mot de passe:<a href="réinisialiser.html"><button>réinisialiser mon mot de passe</button>
-</a></p>
-<a href="page_d'accueil.html">
-  <button>retourner a la page d'accueil</button></a><!--je sais pas pourquoi mais meme si les documents sont dans le meme registre,ca veut pas etre rediriger-->
-</fieldset>
-    </form>
+
+    <div class="login-wrapper">
+        <form action="#">
+            <fieldset>
+                <legend>Connexion au site</legend>
+
+                <div class="form-header">
+                    <a href="index.html" class="logo-container">
+                        <img src="image.jpg" alt="Logo Utopik Fruit">
+                    </a>
+                    <h1 class="site-title">Utopik <span>Fruit</span></h1>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="mdp1">Mot de passe</label>
+                    <input type="password" id="mdp1" name="password" placeholder="••••••••" required>
+                </div>
+
+                <a href="menu.html" class="link-guest">Continuer en tant qu'invité</a>
+
+                <button type="submit" class="btn-primary">Envoyer</button>
+
+                <div class="form-actions">
+                    <p>Je n'ai pas de compte : 
+                        <a href="creation_de_compte.html" class="btn-secondary">Créer un compte</a>
+                    </p>
+                    <p>J'ai oublié mon mot de passe : 
+                        <a href="réinisialiser.html" class="btn-secondary">Réinitialiser</a>
+                    </p>
+                </div>
+
+                <hr>
+
+                <a href="index.html" class="btn-outline">Retourner à la page d'accueil</a>
+            </fieldset>
+        </form>
+    </div>
+
 </body>
 </html>
