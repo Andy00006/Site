@@ -1,1 +1,199 @@
+/* --- 1. TES VARIABLES :ROOT --- */
+:root {
+    --violet: #4B0082;
+    --jaune: #F7D302; 
+    --fuchsia: #D2317B; 
+    --background: #F8F8F8;         
+    --texte: #333333;      
+    --blanc: #ffffff;
+    --gris-clair: #EEEEEE;
+}
 
+/* --- 2. RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--texte);
+}
+
+/* --- 3. STRUCTURE DU FORMULAIRE --- */
+.login-wrapper {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+fieldset {
+    border: 2px solid var(--violet);
+    border-radius: 20px;
+    background-color: var(--blanc);
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+legend {
+    color: var(--violet);
+    font-weight: 800;
+    text-transform: uppercase;
+    background: var(--blanc);
+    padding: 0 15px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* --- 4. LOGO & TITRE --- */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-container img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid var(--gris-clair);
+}
+
+.site-title {
+    font-size: 1.8rem;
+    color: var(--violet);
+    font-weight: 800;
+}
+
+.site-title span {
+    color: var(--jaune);
+}
+
+/* --- 5. CHAMPS DE SAISIE --- */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--violet);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--gris-clair);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--fuchsia);
+    outline: none;
+    box-shadow: 0 0 8px rgba(210, 49, 123, 0.15);
+}
+
+/* --- 6. LIENS & BOUTONS --- */
+.link-guest {
+    display: block;
+    text-align: center;
+    color: var(--fuchsia);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.link-guest:hover {
+    text-decoration: underline;
+}
+
+/* Bouton principal (Envoyer) */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--violet);
+    color: var(--blanc);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.btn-primary:hover {
+    background-color: var(--fuchsia);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(210, 49, 123, 0.3);
+}
+
+/* Actions secondaires (Créer compte, Réinitialiser) */
+.form-actions p {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    color: #666;
+    text-align: center;
+}
+
+.btn-secondary {
+    display: inline-block;
+    color: var(--violet);
+    font-weight: bold;
+    text-decoration: none;
+    background: var(--gris-clair);
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--jaune);
+    color: var(--texte);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--gris-clair);
+    margin: 25px 0;
+}
+
+/* Bouton Retour Accueil */
+.btn-outline {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid var(--violet);
+    color: var(--violet);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--violet);
+    color: var(--blanc);
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 480px) {
+    fieldset {
+        padding: 25px;
+    }
+}
