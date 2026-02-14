@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="connexion_au_compte.css">
-</head>
+    <title>Utopik Fruit | Connexion</title>
+    <link rel="stylesheet" href="connexion_au_compte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="login-wrapper">
-        <form action="#">
-            <fieldset>
-                <legend>Connexion au site</legend>
+<div class="boite-connexion">
+    <form action="traitement_connexion.php" method="post" class="formulaire-utopik">
+        
+        <div class="entete-form">
+            <a href="accueil.html" class="lien-logo">
+                <div class="logo">Utopik<span>Fruit</span></div>
+            </a>
+            <h1>Bon retour !</h1>
+            <p>Heureux de vous revoir parmi nous.</p>
+        </div>
 
-                <div class="form-header">
-                    <a href="index.html" class="logo-container">
-                        <img src="image.jpg" alt="Logo Utopik Fruit">
-                    </a>
-                    <h1 class="site-title">Utopik <span>Fruit</span></h1>
+        <div class="section-form">
+            <div class="groupe-saisie">
+                <label for="email">Votre Email</label>
+                <input type="email" id="email" name="email" placeholder="ex: diakite@utopik.com" required autofocus>
+            </div>
+
+            <div class="groupe-saisie">
+                <div class="label-flex">
+                    <label for="mdp">Mot de passe</label>
+                    <a href="#" class="mdp-oublie">Oublié ?</a>
                 </div>
+                <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe" required>
+            </div>
+        </div>
 
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                </div>
+        <div class="section-options">
+            <div class="case-cocher">
+                <input type="checkbox" id="rest_connecte" name="remember">
+                <label for="rest_connecte">Rester connecté</label>
+            </div>
+        </div>
 
-                <div class="input-group">
-                    <label for="mdp1">Mot de passe</label>
-                    <input type="password" id="mdp1" name="password" placeholder="••••••••" required>
-                </div>
+        <div class="actions-form">
+            <button type="submit" class="btn-principal">Se connecter</button>
+            <p class="texte-bas">
+                Pas encore de compte ? 
+                <a href="creation_de_compte.html">Créer un profil vitaminé</a>
+            </p>
+        </div>
 
-                <a href="menu.html" class="link-guest">Continuer en tant qu'invité</a>
-
-                <button type="submit" class="btn-primary">Envoyer</button>
-
-                <div class="form-actions">
-                    <p>Je n'ai pas de compte : 
-                        <a href="creation_de_compte.html" class="btn-secondary">Créer un compte</a>
-                    </p>
-                    <p>J'ai oublié mon mot de passe : 
-                        <a href="réinisialiser.html" class="btn-secondary">Réinitialiser</a>
-                    </p>
-                </div>
-
-                <hr>
-
-                <a href="index.html" class="btn-outline">Retourner à la page d'accueil</a>
-            </fieldset>
-        </form>
-    </div>
+    </form>
+</div>
 
 </body>
 </html>
