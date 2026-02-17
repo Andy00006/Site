@@ -3,32 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gestion du compte</title>
-    <link rel="stylesheet" type="text/css" href="gestion_du_compte.css">
+    <title>Mon Profil</title>
+    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h2>Informations du compte</h2><a href="site de page d'accueil.com">
-  <img src="image.jpg" alt="logo de notre truc"></a><a href="connexion_au_compte_tra"><button>se connecter en tant que travailleur</button></a>
-  <!-- utiliser avec JS pour afficher ses infos -->
-  <div><ul>
-    <li>Prenom: diakite</li>
-    <li>nom: Da silva</li>
-    <li>anniversaire: 11/09/2001</li>
-    <li>email:diakite.dasilva@gmail.com</li>
-      <li>numero de telephone: 06 78 98 12 45</li>
-      <li>adresse: 12 bis rue de saint-margoulin le fion 67900</li>
-      <li>je souhaite recevoir des infos sur mon adresse email: oui</li>
-  </ul><div>pour changer ses informations,cliquer sur:</div><div><a href="modifier_compte"><button>modifier mes information</button></a></div></div>
-  <a href="changer_mdp"><button>changer mot de passe</button></a>
-  <h2>Mes commandes actuellement</h2>
-<div id="commandes_actuelle"></div>
-    <h2>Mes commandes preferer</h2>
-<div id="commandes_preferer"><a href="modifier_choix_préférer.html">
-  <button>modifier mes préference</button></a></div>
-  <h2>Mes points de fidéliter</h2>
-<div id="point_de_fidéliter"></div>
-<a href="connexion_au_compte.html">
-  <a href=connexion_au_compte><button>⚠️se deconnecter du compte⚠️</button></a>
+
+    <div class="profil">
+        
+        <div class="profil-header">
+            <div class="avatar-logo">JD</div>
+            <h2>Mon Profil</h2>
+            <p>Heureux de vous revoir !</p>
+        </div>
+
+        <div class="formulaire-utopik">
+            
+            <div class="section">
+                <div class="categorie">
+                    <label>Sécurité & Compte</label>
+                </div>
+                
+                <div class="champ-profil">
+                    <div class="texte-info">
+                        <span>Email</span>
+                        <p>jean.dupont@utopik.fr</p>
+                    </div>
+                    <button type="button" class="btn-edit" title="Modifier l'email">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+
+                <div class="champ-profil">
+                    <div class="texte-info">
+                        <span>Mot de passe</span>
+                        <p>••••••••••••</p>
+                    </div>
+                    <button type="button" class="btn-edit" title="Changer de mot de passe">
+                        <i class="fas fa-key"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="categorie">
+                    <label>Fidélité</label>
+                    <span class="badge-points">450 pts</span>
+                </div>
+                <div class="fidelite-container">
+                    <div class="barre-progression">
+                        <div class="barre-remplissage" style="width: 75%;"></div>
+                    </div>
+                    <p class="fidelite">Plus que 50 points avant votre cadeau ! 🎁</p>
+                </div>
+            </div>
+
+            <div class="section" style="border-bottom: none;">
+                <div class="categorie">
+                    <label>Historique</label>
+                </div>
+                <ul class="liste-commandes">
+                    <li><span>Menu Fraise Max</span><span class="date">Hier</span></li>
+                    <li><span>Smoothie Kiwi</span><span class="date">10 Fév.</span></li>
+                </ul>
+            </div>
+
+            <div class="actions-profil">
+                <button type="button" class="btn-principal">
+                    Retour à l'accueil
+                </button>
+                
+                <button type="button" class="btn-deconnexion">
+                    <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                </button>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
