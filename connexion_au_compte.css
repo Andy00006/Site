@@ -1,4 +1,3 @@
-/* --- DA UTOPIK FRUIT --- */
 :root {
     --fraise: #ff4757;
     --kiwi: #2ed573;
@@ -24,28 +23,49 @@ body {
     padding: 20px;
 }
 
-.boite-connexion {
+.connexion {
     width: 100%;
-    max-width: 450px; /* Plus étroit que l'inscription */
+    max-width: 450px; 
     background: var(--blanc);
     padding: 50px 40px;
     border-radius: 40px;
     box-shadow: 0 20px 50px var(--ombre);
 }
 
-/* --- LOGO & TITRE --- */
-.entete-form { text-align: center; margin-bottom: 40px; }
-.lien-logo { text-decoration: none; }
-.logo { font-size: 32px; font-weight: 900; margin-bottom: 10px; color: var(--fraise); }
-.logo span { color: var(--kiwi); }
+.entete { 
+    text-align: center; 
+    margin-bottom: 40px; 
 
-h1 { font-size: 26px; color: var(--noir); letter-spacing: -0.5px; }
-p { color: #747d8c; font-size: 14px; margin-top: 5px; }
+}
 
-/* --- CHAMPS DE SAISIE --- */
-.section-form { margin-bottom: 20px; }
+.lien-logo { 
+    text-decoration: none;
+}
 
-.groupe-saisie {
+.logo { 
+    font-size: 32px; 
+    font-weight: 900;
+    margin-bottom: 10px; 
+    color: var(--fraise); 
+    }
+
+h1 { 
+    font-size: 26px; 
+    color: var(--noir); 
+    letter-spacing: -0.5px; 
+}
+
+p { 
+    color: #747d8c; 
+    font-size: 14px; 
+    margin-top: 5px; 
+}
+
+.section { 
+    margin-bottom: 20px; 
+}
+
+.saisie {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
@@ -72,7 +92,7 @@ label {
     font-weight: 600;
 }
 
-input[type="email"],
+input[type="email"], 
 input[type="password"] {
     padding: 16px 20px;
     border-radius: 18px;
@@ -89,13 +109,27 @@ input:focus {
     box-shadow: 0 8px 20px var(--ombre);
 }
 
-/* --- OPTIONS --- */
-.section-options { margin-bottom: 30px; }
-.case-cocher { display: flex; align-items: center; gap: 10px; }
-.case-cocher input { width: 18px; height: 18px; accent-color: var(--kiwi); cursor: pointer; }
-.case-cocher label { font-weight: 500; font-size: 13px; color: #747d8c; cursor: pointer; }
+.case-cocher { 
+    margin-bottom: 30px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
 
-/* --- BOUTON & FOOTER --- */
+.case-cocher input { 
+    width: 18px; 
+    height: 18px; 
+    accent-color: var(--kiwi); 
+    cursor: pointer; 
+}
+
+.case-cocher label { 
+    font-weight: 500; 
+    font-size: 13px; 
+    color: #747d8c; 
+    cursor: pointer; 
+}
+
 .btn-principal {
     width: 100%;
     padding: 16px;
@@ -129,4 +163,6 @@ input:focus {
     margin-left: 5px;
 }
 
-.texte-bas a:hover { text-decoration: underline; }
+.texte-bas a:hover { 
+    text-decoration: underline; 
+}
