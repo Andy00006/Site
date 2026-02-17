@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utopik Fruit | Connexion</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="connexion_au_compte.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<div class="boite-connexion">
-    <form action="traitement_connexion.php" method="post" class="formulaire-utopik">
+<div class="connexion">
+    <form action="traitement_connexion.php" method="post">
         
-        <div class="entete-form">
+        <div class="entete">
             <a href="accueil.html" class="lien-logo">
-                <div class="logo">Utopik<span>Fruit</span></div>
+                <div class="logo">Utopik Fruit</div>
             </a>
             <h1>Bon retour !</h1>
             <p>Heureux de vous revoir parmi nous.</p>
         </div>
 
-        <div class="section-form">
-            <div class="groupe-saisie">
+        <div class="section">
+            <div class="saisie">
                 <label for="email">Votre Email</label>
-                <input type="email" id="email" name="email" placeholder="ex: diakite@utopik.com" required autofocus>
+                <input type="email" id="email" name="email" placeholder="ex: email@gmail.com" required autofocus>
             </div>
 
-            <div class="groupe-saisie">
+            <div class="saisie">
                 <div class="label-flex">
                     <label for="mdp">Mot de passe</label>
                     <a href="#" class="mdp-oublie">Oublié ?</a>
@@ -35,10 +34,10 @@
             </div>
         </div>
 
-        <div class="section-options">
+        <div>
             <div class="case-cocher">
-                <input type="checkbox" id="rest_connecte" name="remember">
-                <label for="rest_connecte">Rester connecté</label>
+                <input type="checkbox" id="rester_connecte">
+                <label for="rester_connecte">Rester connecté</label>
             </div>
         </div>
 
