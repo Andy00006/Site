@@ -1,135 +1,204 @@
-html, body {
-    height: 100%;
+:root {
+    --gris-fond: #f8f9fa;
+    --blanc: #ffffff;
+    --noir: #2f3542;
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --ombre: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gris-fond);
+}
+
+.structure-admin {
+    display: flex;
+    min-height: 100vh;
+}
+
+.barre-laterale {
+    width: 260px;
+    background: var(--noir);
+    color: white;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
 }
 
-body {
-    padding: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-caption {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 15px;
-}
-
-th {
-    background-color: #2c3e50;
-    color: white;
-    padding: 12px;
-}
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
-
-td:nth-child(n) {
+.logo {
+    font-size: 32px;
+    font-weight: 800;
     text-align: center;
+    margin-bottom: 50px;
 }
 
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 18px;
-    border-radius: 8px;
+.lien-logo {
+    text-decoration: none;
+    color: inherit;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #2980b9;
-}
-
-a:nth-of-type(1) {
+.navigation-admin {
     display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    flex-direction: column;
+    gap: 10px;
 }
 
-a:nth-of-type(1) button {
-    background-color: #e74c3c;
+.navigation-admin a {
+    color: #a4b0be;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
 }
 
-a:nth-of-type(1) button:hover {
-    background-color: #c0392b;
+.navigation-admin a:hover, .navigation-admin a.actif {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-a[href="connexion_au_compte.html"] {
+.navigation-admin a.quitter {
     margin-top: auto;
-    text-align: center;
-    padding: 20px;
-    display: block;
-    font-size: 18px;
+    color: var(--fraise);
+}
+
+.zone-principale {
+    flex: 1;
+    padding: 40px;
+}
+
+.barre-haute {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.infos-admin {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-admin {
+    width: 40px;
+    height: 40px;
+    background: var(--fraise);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
+.grille-statistiques {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
-body {
-    min-height: 100vh;
+.boite-stat {
+    background: var(--blanc);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 20px var(--ombre);
+}
+
+.boite-stat .etiquette {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.boite-stat .valeur {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    color: var(--noir);
+}
+
+.section-blanche {
+    background: var(--blanc);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 20px var(--ombre);
+}
+
+.entete-liste {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px;
 }
 
-table {
-    width: 90%;
-    margin-bottom: 25px;
+.barre-outils {
+    display: flex;
+    gap: 15px;
+}
+
+.recherche-admin, .selection-filtre {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    background: var(--gris-fond);
+    outline: none;
+}
+
+.tableau-utilisateurs {
+    width: 100%;
     border-collapse: collapse;
 }
 
-button[onclick="rupturedeservice()"] {
-    margin-top: auto;
-    margin-bottom: 20px;
-    align-self: center;
-    width: auto;
-    padding: 12px 25px;
-    font-size: 18px;
+.tableau-utilisateurs th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid var(--gris-fond);
+    color: #a4b0be;
+    font-size: 14px;
 }
 
-/* Permet de pousser le bouton en bas */
-html, body {
-    height: 100%;
-    margin: 0;
+.tableau-utilisateurs td {
+    padding: 20px 15px;
+    border-bottom: 1px solid var(--gris-fond);
+    font-size: 15px;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+.pastille {
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
 }
 
-/* Tableau garde sa largeur normale */
-table {
-    width: 90%;
-    margin-bottom: 20px;
+.pastille-client { 
+    background: #e3f2fd; color: #1e88e5; 
 }
 
-/* Bouton déconnexion en bas centré */
-button[onclick="rupturedeservice()"] {
-    margin-top: auto;
-    margin-bottom: 20px;
-    align-self: center;
-    width: auto;        /* empêche pleine largeur */
-    padding: 12px 25px; /* taille normale */
+.pastille-resto { 
+    background: #f3e5f5; color: #8e24aa; 
+}
+
+.bouton-action {
+    background: var(--gris-fond);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--noir);
+}
+
+.bouton-action:hover {
+    background: var(--kiwi);
+    color: white;
 }
