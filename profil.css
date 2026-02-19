@@ -19,6 +19,7 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
+    padding: 40px 0; 
 }
 
 .profil {
@@ -27,7 +28,7 @@ body {
     border-radius: 30px;
     box-shadow: 0 15px 35px var(--ombre);
     width: 100%;
-    max-width: 450px;
+    max-width: 480px; 
 }
 
 .profil-header {
@@ -59,7 +60,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .categorie label {
@@ -72,7 +73,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
+    padding: 12px 20px; 
     border-radius: 18px; 
     background: var(--gris-fond);
     margin-bottom: 10px;
@@ -88,7 +89,7 @@ body {
 .texte-info p {
     margin: 2px 0 0 0;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px; 
     color: var(--noir);
 }
 
@@ -101,7 +102,9 @@ body {
     transition: 0.3s;
 }
 
-.btn-edit:hover { transform: scale(1.2); }
+.btn-edit:hover { 
+    transform: scale(1.2); 
+}
 
 .btn-principal {
     width: 100%;
@@ -114,11 +117,11 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    margin-bottom: 5px;
 }
 
 .btn-principal:hover {
-    background: lightgray;
-    color: var(--noir);
+    background: #4b5563; 
 }
 
 .btn-deconnexion {
@@ -156,7 +159,7 @@ body {
     background: #e0e0e0;
     height: 8px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .barre-remplissage {
@@ -173,8 +176,8 @@ body {
 
 .liste-commandes { 
     list-style: none;
-     padding: 0; 
-     margin: 0; 
+    padding: 0; 
+    margin: 0; 
     }
 
 .liste-commandes li {
@@ -193,4 +196,34 @@ body {
     flex-direction: column;
     gap: 10px;
     margin-top: 10px;
+
+}
+
+.actions-profil a {
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px; 
+        align-items: flex-start; 
+    }
+
+    .profil {
+        padding: 20px; 
+        border-radius: 20px; 
+        box-shadow: none; 
+    }
+
+    .profil-header h2 {
+        font-size: 20px; 
+    }
+
+    .champ-profil {
+        padding: 10px 15px; 
+    }
+
+    .texte-info p {
+        font-size: 13px; 
+    }
 }
