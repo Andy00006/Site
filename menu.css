@@ -200,47 +200,31 @@ body{
     font-size: 20px;
 }
 
-.droite1{
-    font-size: 20px;
-}
-
 .header1 a{
     text-decoration: none;
     color: black;
     font-weight: 500;
     transition: 0.3s; 
 }
+.bouton-inscription,
+.bouton-connexion{
+    display: inline-block;
+    background-color: #ff4757;
+    border: 2px solid #ff4757;
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: background 0.3s ease;
+    font-size: 20px;
+}
 
 .droite1 a{
-    background-color: #0077cc;
     color: white ;
-    padding: 8px 20px;
-    border-radius: 25px; 
-    transition: background 0.3s ease;
 }
 
-.bouton-inscription{
-    color: #0077cc;
-    border: 2px solid #0077cc;
-    background-color: transparent;
-}
-
-.bouton-inscription:hover{
-    background-color: #005fa3;
-    border-color: #005fa3;
-    text-decoration: none ;
-}
-
-.boutin-connexion{
-    background-color: #0077cc;
-    color: white;
-    border: 2px solid #0077cc;
-}
-
+.bouton-inscription:hover,
 .bouton-connexion:hover{
-    background-color: #005fa3;
-    border-color: #005fa3;
-    text-decoration: none;
+    background-color: #fc1024;
+    transform: translateY(-3px);
 }
 
 .milieu1 a{
@@ -267,6 +251,7 @@ body{
     .header1 {
         flex-wrap: wrap;
         padding: 10px 20px;
+        justify-content: center;
     }
 
     .droite1{
@@ -349,4 +334,4 @@ body{
     height: 50px;
     margin-left: 10px;
 }
-/*fin header*/
+/*fin footer*/
