@@ -1,56 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>affichage administrateur</title>
-    <link rel="stylesheet" type="text/css" href="administrateur.css">
+    <title>Administrateur</title>
+    <link rel="stylesheet" href="administrateur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <table>
-<caption>liste commande</caption>
-<tr>
-<th>numéro de commande</th>
-    <th>personne</th>
-<th>commandes actuels</th>
-<th>type de livrage</th>
-<th>adresse</th>
-<th>supprimer</th>
-</tr>
-<tr>
-<td>n°1236</td>
-    <td>diakite Da silva</td>
-<td>(afficher une commande)</td>
-<td>livraison/recuperation</td>
-<td>12 bis rue de saint-margoulin le fion 67900</td>
-<td><button onclick=supprimelacommande()>supprimer</button></td>
-</tr>
-    </table>
-<h1>menu</h1>
-<!--afficher le menu comme en vrai pour choisir et modifier les ingrédient-->
-<table><caption>compte creer</caption>
-<tr>
-    <th>nom</th>
-    <th>prenom</th>
-    <th>email</th>
-    <th>date d'anniversaire</th>
-    <th>date de création</th>
-    <th>dernière connexion</th>
-    <th>adresse</th>
-    <th>type de compte</th>
-    <th>supprimer</th>
-</tr>
-<tr><td>diakite</td>
-    <td>Da silva</td>
-<td>diakite.Dasilva@gmail.com</td>
-<td>11/09/2001</td>
-<td>28/03/2024</td>
-<td>28/03/2024</td><!--supprimer si inactif depuis longtemps-->
-<td>12 bis rue de saint-margoulin le fion 67900</td>
-<td>client/administrateur/...</td>
-<td><button onclick=supprimelacommande()>supprimer</button></td></tr></table>
-<button onclick="rupturedeservice()">se deconnecter</button>
+<body class="corps-admin">
+
+    <div class="structure-admin">
+        <aside class="barre-laterale">
+            <a href="accueil.html" class="lien-logo">
+            <div class="logo">Nom</div>
+            </a>
+            <nav class="navigation-admin">
+                <a href="administrateur.html" class="actif"><i class="fas fa-users"></i> Utilisateurs</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Commandes</a>
+                <a href="menu.html"><i class="fas fa-utensils"></i> Carte</a>
+                <a href="accueil.html" class="quitter"><i class="fas fa-arrow-left"></i> Quitter</a>
+            </nav>
+        </aside>
+
+        <main class="zone-principale">
+            <header class="barre-haute">
+                <h1>Gestion des Utilisateurs</h1>
+                <div class="infos-admin">
+                    <span>Admin Principal</span>
+                    <div class="avatar-admin">A</div>
+                </div>
+            </header>
+
+            <div class="grille-statistiques">
+                <div class="boite-stat">
+                    <span class="etiquette">Total Inscrits</span>
+                    <p class="valeur">1,240</p>
+                </div>
+                <div class="boite-stat">
+                    <span class="etiquette">Clients Actifs</span>
+                    <p class="valeur">856</p>
+                </div>
+                <div class="boite-stat">
+                    <span class="etiquette">Nouveaux (24h)</span>
+                    <p class="valeur">+12</p>
+                </div>
+            </div>
+
+            <div class="section-blanche">
+                <div class="entete-liste">
+                    <h2>Base de données</h2>
+                    <div class="barre-outils">
+                        <input type="text" placeholder="Rechercher..." class="recherche-admin">
+                        <select class="selection-filtre">
+                            <option>Tous les profils</option>
+                            <option>Clients</option>
+                            <option>Restaurateurs</option>
+                            <option>Livreurs</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="tableau-utilisateurs">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Inscrit le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Jean Dupont</strong></td>
+                            <td>jean.dupont@utopik.fr</td>
+                            <td><span class="pastille pastille-client">Client</span></td>
+                            <td>12/02/2026</td>
+                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marie Laurent</strong></td>
+                            <td>m.laurent@resto.fr</td>
+                            <td><span class="pastille pastille-resto">Restaurateur</span></td>
+                            <td>05/01/2026</td>
+                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
 </body>
 </html>
-
