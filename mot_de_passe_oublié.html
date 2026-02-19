@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récupération de mot de passe</title>
+    <link rel="stylesheet" type="text/css" href="mot_de_passe_oublié.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="connexion">
+        <div class="entete">
+            <a href="#" class="lien-logo">
+                <div class="logo">Oups !</div>
+            </a>
+            <h1>Mot de passe oublié ?</h1>
+            <p>Pas de panique, entre ton email pour recevoir un code de sécurité.</p>
+        </div>
+
+        <form action="changement_de_mot_de_passe.html">
+            <div class="section">
+                <div class="saisie">
+                    <div class="label-flex">
+                        <label for="email">Ton adresse email</label>
+                    </div>
+                    <input type="email" id="email" placeholder="exemple@mail.com" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-principal">Envoyer le code</button>
+        </form>
+
+        <div class="texte-bas">
+            Tu te souviens de ton mot de passe ? <a href="connexion_au_compte.html">Se connecter</a>
+        </div>
+    </div>
+
+</body>
+</html>
