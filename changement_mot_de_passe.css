@@ -147,10 +147,10 @@ input:focus {
 .lien-retour {
     display: inline-block;
     margin-top: 10px;
-    color: var(--noir) !important; 
+    color: var(--noir); 
 }
 
 .lien-retour:hover {
-    color: var(--fraise) !important;
+    color: var(--fraise);
     transform: translateX(-5px);
 }
