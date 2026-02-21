@@ -143,9 +143,10 @@
     border: 2px solid white;
 }
 
-.suplement-nom span {
+.livreur .suplement-nom {
     font-style:italic;
     color: lightgray;
+    font-size: 12px;
 }
 
 .avis-card p {
