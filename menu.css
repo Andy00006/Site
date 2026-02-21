@@ -230,3 +230,41 @@ body{
     transform: translateY(-3px); 
     box-shadow: 0 15px 30px rgba(46, 213, 115, 0.3); 
 }
+
+@media (max-width: 1024px) {
+    .principal {
+        flex-direction: column; 
+        padding: 0 15px;
+    }
+
+    .categorie-gauche {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+
+    .panier-droit {
+        width: 100%;
+    }
+
+    .panier-fixe {
+        position: relative;
+        top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .grille-plats {
+        grid-template-columns: 1fr; 
+    }
+
+    .titre {
+        font-size: 24px;
+    }
+
+    .image-box {
+        height: 180px;
+    }
+}
