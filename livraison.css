@@ -34,6 +34,10 @@ body {
     align-items: center;
 }
 
+.logo span {
+    color: var(--fraise);
+}
+
 .zone-livraison {
     padding: 15px;
     display: flex;
