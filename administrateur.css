@@ -132,7 +132,7 @@ body {
     color: var(--noir);
 }
 
-.section-blanche {
+.section-info {
     background: var(--blanc);
     border-radius: 18px;
     padding: 30px;
@@ -146,7 +146,7 @@ body {
     margin-bottom: 30px;
 }
 
-.barre-outils {
+.elements {
     display: flex;
     gap: 15px;
 }
