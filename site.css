@@ -138,3 +138,80 @@
 /* Fin: quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
 /*Fin Header*/
 
+/*Footer*/
+.footer{
+    background: var(--blanc);
+    padding: 80px 40px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    border-top: 1px solid #eee;
+}
+
+.footer-section h3{
+    color: var(--fraise);
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.footer-section p, 
+.footer-section a{
+    color: #747d8c;
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: block;
+    font-size: 15px;
+}
+.footer-section a:hover{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--noir);
+}
+
+
+.footer-bottom{
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #f1f2f6;
+    color: #ced4da;
+    font-size: 12px;
+}
+
+.socials i{
+    font-size: 22px;
+    color: var(--fraise);
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.socials i:hover{ 
+    transform: scale(1.2); 
+}
+
+
+@media (max-width: 1200px){
+    .layout-principal{ 
+        flex-direction: column;
+    }
+    .panier-right, 
+    .categories-left{ 
+        width: 100%; position: static; 
+    }
+    .footer { 
+        grid-template-columns: 1fr;
+        text-align: center; 
+    }
+    .footer-bottom{ 
+        grid-column: 1; 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+}
+/*Fin Footer*/
+
