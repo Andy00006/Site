@@ -43,6 +43,10 @@ body {
     color: var(--fraise); 
 }
 
+.logo span {
+    color: var(--noir);
+}
+
 a { 
     text-decoration: none; 
 }
