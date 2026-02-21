@@ -7,14 +7,6 @@
     --ombre: rgba(255, 71, 87, 0.15);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-}
-
 body{
     background-color: var(--gris-fond);
     padding-top: 80px;
@@ -237,3 +229,4 @@ body{
     transform: translateY(-3px); 
     box-shadow: 0 15px 30px rgba(46, 213, 115, 0.3); 
 }
+
