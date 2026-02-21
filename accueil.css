@@ -241,3 +241,35 @@
     75%, 95% { transform: translateY(-1260px); }
     100% { transform: translateY(-1680px); }
 }
+
+@media screen and (max-width: 768px) {
+ 
+    .fond {
+        height: auto;
+        min-height: 50vh;
+        padding: 40px 20px;
+    }
+
+    .contenu {
+        margin-top: 300px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bloc-texte-gauche h1 {
+        font-size: 32px; 
+        line-height: 1.2;
+    }
+
+    .recherche {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .bouton-recherche {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
