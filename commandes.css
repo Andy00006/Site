@@ -40,10 +40,8 @@ body {
     font-size: 24px;
 }
 
-.lien-logo {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+.logo-restaurateur span {
+    color: var(--fraise);
 }
 
 .statut-tablette {
