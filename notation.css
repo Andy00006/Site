@@ -65,7 +65,7 @@ body {
     font-size: 24px;
 }
 
-.bloc-note h3 {
+.bloc-note h3, .bloc-pourboire h3 {
     font-size: 18px;
     margin-bottom: 20px;
     font-weight: 700;
@@ -93,6 +93,37 @@ body {
 .groupe-etoiles label:hover ~ label,
 .groupe-etoiles input:checked ~ label {
     color: var(--or);
+}
+
+.bloc-pourboire {
+    margin-bottom: 30px;
+    border-top: 1px solid var(--gris-clair);
+    padding-top: 25px;
+}
+
+.choix-pourboire {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choix-pourboire input {
+    display: none;
+}
+
+.choix-pourboire label {
+    padding: 10px 15px;
+    background: var(--gris-clair);
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.choix-pourboire input:checked + label {
+    background: var(--noir);
+    color: white;
 }
 
 .zone-commentaire textarea {
