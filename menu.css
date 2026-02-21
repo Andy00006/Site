@@ -398,11 +398,12 @@ body{
     text-decoration: none;
     margin-bottom: 12px;
     display: block;
-    font-size: 14px;
+    font-size: 15px;
 }
 .footer-section a:hover{
     font-size: 18px;
     font-weight: 800;
+    color: var(--noir);
 }
 
 
@@ -429,6 +430,7 @@ body{
 .socials i:hover{ 
     transform: scale(1.2); 
 }
+
 
 @media (max-width: 1200px){
     .layout-principal{ 
