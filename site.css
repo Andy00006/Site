@@ -7,6 +7,13 @@
     --ombre: rgba(255, 71, 87, 0.15);
 }
 
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 /*Header*/
 .header{
     display: flex;
@@ -223,5 +230,6 @@
     }
 }
 /*Fin Footer*/
+
 
 
