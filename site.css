@@ -1,1 +1,140 @@
+/*Header*/
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: var(--blanc);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+}
+
+.logo{ 
+    margin-left: 100px;
+    font-size: 28px; 
+    font-weight: 900; 
+    color: var(--fraise); 
+    text-decoration: none; 
+}
+
+.logo span{ 
+    color: var(--noir); 
+}
+
+.milieu{
+    display: flex;
+    flex-wrap: wrap;      
+    justify-content: center;
+
+}
+
+.milieu a{
+    text-decoration: none;
+    color: var(--noir);
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.milieu a.active{ 
+    color: var(--fraise); 
+}
+.milieu a:hover{
+    color: var(--fraise);
+}
+
+.droite{
+    margin-right: 100px;
+}
+
+.bouton-connexion{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--noir);
+    margin-left: 10px;
+    display: inline-block;
+    transition: 0.3s; 
+}
+.bouton-inscription{
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 17px;
+    margin-left: 10px;
+    background-color: var(--fraise); 
+    color: var(--blanc); 
+    box-shadow: 0 8px 20px var(--ombre);
+    display: inline-block;
+    transition: 0.3s; 
+}
+.bouton-inscription:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--ombre);
+}
+.bouton-connexion:hover{
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+
+    .header{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .milieu{
+        margin-bottom: 15px;
+    }
+
+    .milieu a{
+        display: block;
+        margin: 10px 0;
+    }
+
+    .droite{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bouton-connexion,
+    .bouton-inscription{
+        margin: 8px 0;
+        width: 200px;
+        text-align: center;
+    }
+}
+/* quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+@media screen and (max-width: 1100px) {
+
+    .logo{
+        margin-left: 20px;
+    }
+
+    .droite{
+        margin-right: 20px;
+    }
+
+    .milieu a{
+        margin: 0 10px;
+        font-size: 16px;
+    }
+}
+/* Fin: quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+/*Fin Header*/
 
