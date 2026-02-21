@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="notation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="corps-notation">
+<body>
 
     <div class="carte-notation">
         <header class="entete-avis">
@@ -16,7 +16,7 @@
             <p>Comment s'est passée votre livraison avec <strong>Thomas</strong> ?</p>
         </header>
 
-        <main class="formulaire-avis">
+        <main>
             <section class="bloc-note">
                 <div class="cercle-icone">
                     <i class="fas fa-bicycle"></i>
@@ -28,6 +28,16 @@
                     <input type="radio" name="note-livreur" id="l3"><label for="l3" class="fas fa-star"></label>
                     <input type="radio" name="note-livreur" id="l2"><label for="l2" class="fas fa-star"></label>
                     <input type="radio" name="note-livreur" id="l1"><label for="l1" class="fas fa-star"></label>
+                </div>
+            </section>
+
+            <section class="bloc-pourboire">
+                <h3>Ajouter un pourboire</h3>
+                <div class="choix-pourboire">
+                    <input type="radio" name="pourboire" id="p1" value="1"><label for="p1">1€</label>
+                    <input type="radio" name="pourboire" id="p2" value="2"><label for="p2">2€</label>
+                    <input type="radio" name="pourboire" id="p5" value="5"><label for="p5">5€</label>
+                    <input type="radio" name="pourboire" id="p-perso" value="autre"><label for="p-perso">Autre</label>
                 </div>
             </section>
 
