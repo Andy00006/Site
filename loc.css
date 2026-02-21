@@ -62,3 +62,31 @@
     height: 100%;
     min-height: 400px;
 }
+
+@media screen and (max-width: 900px) {
+    .info {
+        margin-top: 300px;
+        grid-template-columns: 1fr; 
+        padding: 30px;
+        gap: 30px;
+        border-radius: 30px; 
+    }
+
+    .page-loc {
+        margin: 20px auto; 
+    }
+
+    .carte-info h2 {
+        font-size: 26px; 
+        text-align: center;
+    }
+
+    .adresse {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .map {
+        min-height: 300px; 
+    }
+}
