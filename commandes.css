@@ -17,7 +17,7 @@ body {
     background-color: var(--gris-fond);
 }
 
-.conteneur-restaurateur {
+.restaurateur {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -44,7 +44,7 @@ body {
     color: var(--fraise);
 }
 
-.statut-tablette {
+.service {
     background: var(--kiwi);
     font-size: 12px;
     font-weight: bold;
