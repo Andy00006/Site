@@ -142,7 +142,7 @@ body {
     border-color: var(--kiwi);
 }
 
-.bouton-valider-avis {
+.valider {
     width: 100%;
     background: var(--kiwi);
     color: white;
@@ -155,7 +155,7 @@ body {
     box-shadow: 0 5px 0 #26af5f;
 }
 
-.bouton-valider-avis:active {
+.valider:active {
     transform: translateY(3px);
     box-shadow: 0 2px 0 #26af5f;
 }
