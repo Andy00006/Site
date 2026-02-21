@@ -19,7 +19,7 @@ body{
     background-color: var(--gris-fond);
     padding-top: 80px;
 }
-
+/*Header*/
 .header{
     display: flex;
     align-items: center;
@@ -44,6 +44,13 @@ body{
 
 .logo span{ 
     color: var(--noir); 
+}
+
+.milieu{
+    display: flex;
+    flex-wrap: wrap;      
+    justify-content: center;
+
 }
 
 .milieu a{
@@ -96,7 +103,61 @@ body{
     transform: translateY(-3px);
 }
 
+@media screen and (max-width: 768px) {
 
+    .header{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .milieu{
+        margin-bottom: 15px;
+    }
+
+    .milieu a{
+        display: block;
+        margin: 10px 0;
+    }
+
+    .droite{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bouton-connexion,
+    .bouton-inscription{
+        margin: 8px 0;
+        width: 200px;
+        text-align: center;
+    }
+}
+/* quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+@media screen and (max-width: 1100px) {
+
+    .logo{
+        margin-left: 20px;
+    }
+
+    .droite{
+        margin-right: 20px;
+    }
+
+    .milieu a{
+        margin: 0 10px;
+        font-size: 16px;
+    }
+}
+/* Fin: quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+/*Fin Header*/
 .promo-bar{
     background: var(--noir);
     color: var(--kiwi);
@@ -314,7 +375,7 @@ body{
     transform: translateY(-3px); 
     box-shadow: 0 15px 30px rgba(46, 213, 115, 0.3); 
 }
-
+/*Footer*/
 .footer{
     background: var(--blanc);
     padding: 80px 40px 40px;
@@ -339,6 +400,11 @@ body{
     display: block;
     font-size: 14px;
 }
+.footer-section a:hover{
+    font-size: 18px;
+    font-weight: 800;
+}
+
 
 .footer-bottom{
     grid-column: 1 / 4;
@@ -382,3 +448,4 @@ body{
         gap: 20px; 
     }
 }
+/*Fin Footer*/
