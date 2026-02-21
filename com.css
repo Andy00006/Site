@@ -5,6 +5,7 @@
     padding: 120px 20px 40px 20px;
 }
 
+
 .titre-section {
     text-align: center;
     margin-bottom: 50px;
@@ -72,7 +73,6 @@
     font-weight: 800;
 }
 
-/* Grille Livreurs */
 .grille-livreurs {
     display: flex;
     justify-content: center;
@@ -108,7 +108,6 @@
     text-transform: uppercase;
 }
 
-/* Section Avis */
 .note-globale {
     text-align: center;
     font-size: 45px;
@@ -145,6 +144,11 @@
     border: 2px solid white;
 }
 
+.suplement-nom {
+    font-style:italic;
+    color: lightgray;
+}
+
 .avis-card p {
     font-style: italic;
     margin-bottom: 15px;
@@ -156,7 +160,6 @@
     color: var(--fraise);
 }
 
-/* Bouton Recrutement */
 .job-box {
     background: linear-gradient(135deg, var(--fraise), #ff4757);
     padding: 80px 40px;
