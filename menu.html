@@ -3,438 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Menu/NOMDUSITE</title>
+    <title>La Carte | EXOTIQUE DREAM</title>
     <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="header1">
-    <div class="gauche1">
-        <a href="accueil.html"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/CY_Tech.png" alt="Logo"></a>
-    </div>
-    <nav class="milieu1">
-        <a href="com.html">Communauté</a>
-        <a href="menu.html">Menu</a>
-        <a href="loc.html">Localisation</a>
-    </nav>
-    <div class="droite1">
-        <a href="creation_de_compte.html" class="bouton-inscription">Inscription</a>
-        <a href="connexion_au_compte.html" class="bouton-connexion">Connexion</a>
-    </div>
-</header>
-<header class="promo">
-        🔥 Promotions du moment - 20% sur le caca !
+    <header class="header">
+        <div>
+            <a href="accueil.html" class="logo">EXOTIQUE<span>DREAM</span></a>
+        </div>
+        <nav class="milieu">
+            <a href="com.html">Communauté</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="loc.html">Localisation</a>
+        </nav>
+        <div>
+            <a href="creation_de_compte.html" class="bouton-inscription">Inscription</a>
+            <a href="connexion_au_compte.html" class="bouton-connexion">Connexion</a>
+        </div>
     </header>
-<div class="layout">
-<section class="menu-container">
-<div class="menu">
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
 
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
+    <div class="promo-bar">
+        🔥 OFFRE MUTANTE : -20% SUR TOUS LES DESSERTS AVEC LE CODE "NEAN20"
     </div>
 
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
+    <div class="principal">
+        <nav class="categorie-gauche">
+            <a href="#entrees">Entrées</a>
+            <a href="#plats">Plats</a>
+            <a href="#desserts">Desserts</a>
+        </nav>
+
+        <main class="menu">
+            <section id='entrees'>
+                <h2 class="titre">Entrées de l'Espace</h2>
+                <div class="grille-plats">
+                    <div class="plat">
+                        <input type="checkbox" id="e1" class="cadre">
+                        <label for="e1" class="image-box">
+                            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500" alt="Soupe">
+                            <span class="badge">Nouveau</span>
+                        </label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Bouillon Néon</h3><span class="prix">9€</span></div>
+                            <p class="description">Algues bioluminescentes et eau de pluie.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="e2" class="cadre">
+                        <label for="e2" class="image-box"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500" alt="Salade"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Salade Radioactive</h3><span class="prix">12€</span></div>
+                            <p class="description">Champignons qui pétillent.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="e3" class="cadre">
+                        <label for="e3" class="image-box"><img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=500" alt="Tofu"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Tofu Fantôme</h3><span class="prix">11€</span></div>
+                            <p class="description">Tranches invisibles.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="e4" class="cadre">
+                        <label for="e4" class="image-box"><img src="https://images.unsplash.com/photo-1601050634129-075a0abc931f?auto=format&fit=crop&w=500" alt="Samossa"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Triangles de l'Ombre</h3><span class="prix">8€</span></div>
+                            <p class="description">Samossas à la cendre végétale.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="e5" class="cadre">
+                        <label for="e5" class="image-box"><img src="https://images.unsplash.com/photo-1559181567-c3190cb9959b?auto=format&fit=crop&w=500" alt="Gelée"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Sphère de Cactus</h3><span class="prix">10€</span></div>
+                            <p class="description">Translucide et gélatineux.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="plats">
+                <h2 class="titre">Plats Mutants</h2>
+                <div class="grille-plats">
+                    <div class="plat">
+                        <input type="checkbox" id="p1" class="cadre">
+                        <label for="p1" class="image-box">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500" alt="Pates">
+                            <span class="badge">Signature</span>
+                        </label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Mille et une pattes</h3><span class="prix">21€</span></div>
+                            <p class="description">Pâtes noires et protéines articulées.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="p2" class="cadre">
+                        <label for="p2" class="image-box"><img src="https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?auto=format&fit=crop&w=500" alt="Pizza"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Pizza Lunaire</h3><span class="prix">19€</span></div>
+                            <p class="description">Cratères de fromage gris.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="p3" class="cadre">
+                        <label for="p3" class="image-box"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=500" alt="Steak"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Steak de Mycélium</h3><span class="prix">22€</span></div>
+                            <p class="description">Une forêt entière grillée.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="p4" class="cadre">
+                        <label for="p4" class="image-box"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500" alt="Bowl"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Bowl Biolum</h3><span class="prix">17€</span></div>
+                            <p class="description">Brille dans l'estomac.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="p5" class="cadre">
+                        <label for="p5" class="image-box"><img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=500" alt="Riz"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Riz des Abysses</h3><span class="prix">18€</span></div>
+                            <p class="description">Noir comme le vide sidéral.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="desserts">
+                <h2 class="titre">Desserts du Néant</h2>
+                <div class="grille-plats">
+                    <div class="plat">
+                        <input type="checkbox" id="d1" class="cadre">
+                        <label for="d1" class="image-box">
+                            <img src="https://images.unsplash.com/photo-1509460913899-515f1df34fea?auto=format&fit=crop&w=500" alt="Gateau">
+                            <span class="badge" style="background:var(--fraise)">POPULAIRE</span>
+                        </label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Fruit du Néant</h3><span class="prix">14€</span></div>
+                            <p class="description">Sapote noire fondante.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="d2" class="cadre">
+                        <label for="d2" class="image-box"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500" alt="Nuage"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Nuage de Soufre</h3><span class="prix">11€</span></div>
+                            <p class="description">Barbe à papa fumante.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="d3" class="cadre">
+                        <label for="d3" class="image-box"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500" alt="Donut"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Donut Antimatière</h3><span class="prix">9€</span></div>
+                            <p class="description">Glaçage miroir galactique.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="d4" class="cadre">
+                        <label for="d4" class="image-box"><img src="https://images.unsplash.com/photo-1532301141943-d75846779f73?auto=format&fit=crop&w=500" alt="Sorbet"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Œil du Cyclone</h3><span class="prix">13€</span></div>
+                            <p class="description">Sorbet bleu électrique.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                    <div class="plat">
+                        <input type="checkbox" id="d5" class="cadre">
+                        <label for="d5" class="image-box"><img src="https://images.unsplash.com/photo-1579372781845-71860a679230?auto=format&fit=crop&w=500" alt="Macaron"></label>
+                        <div class="contenu">
+                            <div class="titre-plat"><h3>Macaron Venimeux</h3><span class="prix">10€</span></div>
+                            <p class="description">Crème de piment vert.</p>
+                            <button class="ajouter">AJOUTER</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="panier-droit">
+            <div class="panier-fixe">
+                <h3>VOTRE PANIER</h3>
+                <div class="liste-panier">
+                    <p class="vide">Le rêve est vide...</p>
+                </div>
+                <div class="total">
+                    <span>Total</span>
+                    <span>0.00€</span>
+                </div>
+                <button class="btn-valider">VALIDER LE RÊVE</button>
+            </div>
+        </aside>
     </div>
 
-</div>
-<span class="nom_plat">sapote noire</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">caca prout zizi caca fesse ziziziziziziiziziz</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 3</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 4</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 5</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 6</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 7</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 8</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 9</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">plat 10</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">sapote noire</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-
-</div>
-<span class="nom_plat">sapote noire</span></div>
-<div class="box"><div class="card-plat">
-    <input type="checkbox" id="toggle-allergenes">
-
-    <label for="toggle-allergenes" class="zone-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qFjECIyCWkEf_x6uLGL0xzPU9ALo7OgPFg&s" alt="Plat" class="image-plat">
-    </label>
-
-    <div class="info-plat">
-        <h3>Pasta Carbonara</h3>
-
-        <p><strong>Ingrédients :</strong></p>
-        <ul>
-            <li>Pâtes</li>
-            <li>Crème</li>
-            <li>Lardons</li>
-            <li>Parmesan</li>
-        </ul>
-
-        <span class="prix">12€</span>
-    </div>
-
-    <div class="allergenes">
-        <h4>Allergènes :</h4>
-        <p>Gluten, Lactose, Œufs</p>
-    </div>
-</div>
-<span class="nom_plat">sapote noire</span></div>
-</section>
- <aside class="sidebar">
-
- </aside>
-</div>
-<footer class="footer">
-
-<div class="footer-top-left">
-    <h3>Horaires</h3>
-    <p>Lundi - Vendredi : 11h00 - 22h30</p>
-    <p>Samedi : 12h00 - 23h30</p>
-    <p>Dimanche : 12h00 - 21h00</p>
-</div>
-
-<div class="footer-top-right">
-    <h3>Contact</h3>
-    <p>12 Avenue des Saveurs</p>
-    <p>95000 Cergy, France</p>
-    <p>01 23 45 67 89</p>
-    <p>contact@cacaprout.fr</p>
-</div>
-
-<div class="footer-center">
-    <a href="accueil.html">Accueil</a>
-    <a href="com.html">Com</a>
-    <a href="menu.html">Menu</a>
-    <a href="loc.html">Localisation</a>
-</div>
-
-<div class="footer-bottom-left">
-    © 2026 CACA PROUT. Tous droits réservés.
-</div>
-<div class="footer-bottom-middle">
-    oe
-</div>
-<div class="footer-bottom-right">
-    <img src="https://via.placeholder.com/50" alt="Réseau1">
-    <img src="https://via.placeholder.com/50" alt="Réseau2">
-    <img src="https://via.placeholder.com/50" alt="Réseau3">
-    <img src="https://via.placeholder.com/50" alt="Réseau4">
-</div>
-
-</footer>
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Horaires</h3>
+            <p>Lun - Ven : 11h00 - 22h30</p>
+            <p>Samedi : 12h00 - 23h30</p>
+            <p>Dimanche : 12h00 - 21h00</p>
+        </div>
+        <div class="footer-section">
+            <h3>Navigation</h3>
+            <a href="accueil.html">Accueil</a>
+            <a href="com.html">Communauté</a>
+            <a href="menu.html">Menu</a>
+            <a href="loc.html">Localisation</a>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>12 Avenue des Saveurs, Cergy</p>
+            <p>01 23 45 67 89</p>
+            <p>contact@exotiquedream.fr</p>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 EXOTIQUE DREAM - DA BY EXOTIQUE</p>
+            <div class="socials">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-tiktok"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
-
-
