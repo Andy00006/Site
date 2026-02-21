@@ -46,11 +46,11 @@ body {
     font-size: 32px; 
     font-weight: 900;
     margin-bottom: 10px; 
-    color: var(--fraise); 
+    color: var(--noir); 
 }
 
 .logo span {
-    color: var(--noir);
+    color: var(--fraise);
 }
 
 h1 { 
