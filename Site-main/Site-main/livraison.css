@@ -1,0 +1,156 @@
+:root {
+    --gris-fond: #f1f2f6;
+    --blanc: #ffffff;
+    --noir: #2f3542;
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --bleu-gps: #1e90ff;
+    --ombre: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gris-fond);
+    color: var(--noir);
+}
+
+.conteneur-livreur {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.entete-livreur {
+    background: var(--noir);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo span {
+    color: var(--fraise);
+}
+
+.zone-livraison {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.bloc-adresse {
+    background: var(--blanc);
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--ombre);
+}
+
+.icone-destination {
+    font-size: 30px;
+    color: var(--fraise);
+    margin-bottom: 10px;
+}
+
+.rue { 
+    font-size: 22px; 
+    font-weight: bold; 
+    margin: 0; 
+}
+
+.ville { 
+    font-size: 16px; 
+    color: #747d8c; 
+    margin: 5px 0 20px 0; 
+}
+
+.bouton-gps {
+    display: block;
+    background: var(--bleu-gps);
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.bloc-infos-client {
+    background: var(--blanc);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px var(--ombre);
+}
+
+.ligne-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.inter { 
+    color: #747d8c; 
+    font-weight: 600;
+ }
+
+.donnee { 
+    font-weight: bold; 
+    font-size: 18px; 
+}
+
+.commentaire-livreur {
+    margin-top: 15px;
+    background: #fff9e6;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 5px solid #ffa502;
+}
+
+.actions-livreur {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+.bouton-appel {
+    background: var(--noir);
+    color: white;
+    text-decoration: none;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.bouton-fin-livraison {
+    background: var(--kiwi);
+    color: white;
+    border: none;
+    padding: 30px; 
+    border-radius: 18px;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #26af5f; 
+}
+
+.bouton-fin-livraison:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #26af5f;
+}

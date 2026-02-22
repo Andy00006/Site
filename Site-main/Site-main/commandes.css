@@ -1,0 +1,170 @@
+:root {
+    --gris-fond: #dfe4ea;
+    --blanc: #ffffff;
+    --noir: #2f3542;
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --ombre: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gris-fond);
+}
+
+.restaurateur {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+}
+
+.entete-restaurateur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--noir);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+}
+
+.logo-restaurateur {
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.logo-restaurateur span {
+    color: var(--fraise);
+}
+
+.service {
+    background: var(--kiwi);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+.zone-principale-restaurateur {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+}
+
+.colonne-commandes {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.entete-colonne {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.entete-colonne h2 {
+    margin: 0;
+    flex: 1;
+    font-size: 20px;
+}
+
+.compteur-commandes {
+    background: var(--noir);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.liste-tickets {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ticket-commande {
+    background: var(--blanc);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px var(--ombre);
+}
+
+.haut-du-ticket {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px dashed var(--gris-fond);
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.id-commande {
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.chronometre {
+    color: var(--fraise);
+    font-weight: bold;
+}
+
+.liste-articles p {
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+.bouton-pret {
+    width: 100%;
+    background: var(--kiwi);
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.statut-en-route {
+    opacity: 0.7;
+    border-left: 10px solid var(--kiwi);
+}
+
+.nom-livreur {
+    font-weight: bold;
+    color: #888;
+}
+
+.message-status {
+    margin-top: 10px;
+    color: var(--kiwi);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .zone-commandes {
+        grid-template-columns: 1fr;
+    }
+    
+    .entete-restaurateur h1 {
+        font-size: 18px;
+    }
+}

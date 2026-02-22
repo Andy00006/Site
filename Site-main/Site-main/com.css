@@ -1,0 +1,205 @@
+.contenu {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 120px 20px 40px 20px;
+}
+
+.titre {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titre h2 {
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.titre span {
+    color: var(--fraise);
+}
+
+.histoire {
+    background: white;
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    line-height: 1.8;
+    font-size: 18px;
+    text-align: center;
+    color: #555;
+}
+
+.titre2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 80px 0 40px;
+    letter-spacing: 2px;
+}
+
+.grille-team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.membre {
+    background: white;
+    padding: 30px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.membre:hover {
+    transform: translateY(-10px);
+}
+
+.membre img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 6px solid var(--fraise);
+}
+
+.membre h3 {
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.grille-livreurs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.livreur {
+    text-align: center;
+    width: 120px;
+}
+
+.livreur img {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+    filter: grayscale(1);
+    transition: 0.4s ease;
+}
+
+.livreur:hover img {
+    filter: grayscale(0);
+    transform: rotate(5deg) scale(1.1);
+    border: 3px solid var(--kiwi);
+}
+
+.livreur span {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.livreur .suplement-nom {
+    font-style:italic;
+    color: lightgray;
+    font-size: 12px;
+}
+
+.note-globale {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 900;
+    color: var(--kiwi);
+    margin-bottom: 30px;
+}
+
+.grille-avis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.avis {
+    background: var(--noir);
+    color: white;
+    padding: 35px;
+    border-radius: 35px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.avis:hover {
+    background: #1a1a1a;
+}
+
+.avis img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid white;
+}
+
+.avis p {
+    font-style: italic;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.avis span {
+    font-weight: 800;
+    color: var(--fraise);
+}
+
+.postuler {
+    background: linear-gradient(135deg, var(--fraise), #ff4757);
+    padding: 80px 40px;
+    border-radius: 60px;
+    text-align: center;
+    color: white;
+    margin: 100px 0;
+    box-shadow: 0 20px 40px rgba(255, 71, 87, 0.3);
+}
+
+.postuler h2 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.btn-postuler {
+    background: white;
+    color: var(--fraise);
+    border: none;
+    padding: 22px 50px;
+    border-radius: 40px;
+    font-weight: 900;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-postuler:hover {
+    transform: scale(1.05);
+    background: var(--noir);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .contenu{
+        margin-top: 200px;
+    }
+    .grille-team, 
+    .grille-avis {
+        grid-template-columns: 1fr;
+    }
+}

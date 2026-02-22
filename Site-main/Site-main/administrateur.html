@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrateur</title>
+    <link rel="stylesheet" href="administrateur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="structure-admin">
+        <aside class="barre-laterale">
+            <div>
+                <a href="accueil.html" class="lien-logo">
+                    <div class="logo"><span>Exotique</span> Dream</div>
+                </a>
+            </div>
+            <nav class="navigation-admin">
+                <a href="administrateur.html" class="actif"><i class="fas fa-users"></i> Utilisateurs</a>
+                <a href="commandes.html"><i class="fas fa-shopping-cart"></i> Commandes</a>
+                <a href="menu.html"><i class="fas fa-utensils"></i> Carte</a>
+                <a href="accueil.html" class="quitter"><i class="fas fa-arrow-left"></i> Quitter</a>
+            </nav>
+        </aside>
+
+        <main class="zone-principale">
+            <header class="barre-haute">
+                <h1>Gestion des Utilisateurs</h1>
+                <div class="infos-admin">
+                    <span>Admin Principal</span>
+                    <div class="avatar-admin">A</div>
+                </div>
+            </header>
+
+            <div class="grille-statistiques">
+                <div class="boite-stat">
+                    <span class="etiquette">Total Inscrits</span>
+                    <p class="valeur">1,240</p>
+                </div>
+                <div class="boite-stat">
+                    <span class="etiquette">Clients Actifs</span>
+                    <p class="valeur">856</p>
+                </div>
+                <div class="boite-stat">
+                    <span class="etiquette">Nouveaux (24h)</span>
+                    <p class="valeur">+12</p>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="entete-liste">
+                    <h2>Base de données</h2>
+                    <div class="elements">
+                        <input type="text" placeholder="Rechercher..." class="recherche-admin">
+                        <select class="selection-filtre">
+                            <option>Tous les profils</option>
+                            <option>Clients</option>
+                            <option>Restaurateurs</option>
+                            <option>Livreurs</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="tableau-utilisateurs">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Inscrit le</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Jean Dupont</strong></td>
+                            <td>jean.dupont@utopik.fr</td>
+                            <td><span class="pastille pastille-client">Client</span></td>
+                            <td>12/02/2026</td>
+                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marie Laurent</strong></td>
+                            <td>m.laurent@resto.fr</td>
+                            <td><span class="pastille pastille-resto">Restaurateur</span></td>
+                            <td>05/01/2026</td>
+                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

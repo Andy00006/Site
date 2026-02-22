@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commandes</title>
+    <link rel="stylesheet" href="commandes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="restaurateur">
+        
+        <header class="entete-restaurateur">
+            <div class="logo-restaurateur"><span>Exotique</span> Dream</div>
+            <h1>Commandes Cuisine</h1>
+            <div class="service">Mode Service</div>
+        </header>
+
+        <main class="zone-principale-restaurateur">
+            
+            <section class="colonne-commandes">
+                <div class="entete-colonne">
+                    <i class="fas fa-utensils"></i>
+                    <h2>À préparer</h2>
+                    <span class="compteur-commandes">2</span>
+                </div>
+
+                <div class="liste-tickets">
+                    <div class="ticket-commande">
+                        <div class="haut-du-ticket">
+                            <span class="id-commande">#9210</span>
+                            <span class="chronometre">05:12</span>
+                        </div>
+                        <div class="liste-articles">
+                            <p><strong>2x</strong> Menu Fraise Max 🍓</p>
+                            <p><strong>1x</strong> Smoothie Kiwi 🥝</p>
+                        </div>
+                        <button class="bouton-pret">Prêt pour livraison</button>
+                    </div>
+
+                    <div class="ticket-commande">
+                        <div class="haut-du-ticket">
+                            <span class="id-commande">#9211</span>
+                            <span class="chronometre">02:45</span>
+                        </div>
+                        <div class="liste-articles">
+                            <p><strong>1x</strong> Salade Utopik 🥗</p>
+                            <p><strong>2x</strong> Jus de Pomme 🍎</p>
+                        </div>
+                        <button class="bouton-pret">Prêt pour livraison</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="colonne-commandes">
+                <div class="entete-colonne">
+                    <i class="fas fa-truck"></i>
+                    <h2>En livraison</h2>
+                    <span class="compteur-commandes">1</span>
+                </div>
+
+                <div class="liste-tickets">
+                    <div class="ticket-commande statut-en-route">
+                        <div class="haut-du-ticket">
+                            <span class="id-commande">#9208</span>
+                            <span class="nom-livreur">Livreur : Thomas</span>
+                        </div>
+                        <div class="liste-articles">
+                            <p>1x Bowl Vitaminé</p>
+                        </div>
+                        <div class="message-status">Parti il y a 8 min</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

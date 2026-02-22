@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noter le livreur</title>
+    <link rel="stylesheet" href="notation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="carte-notation">
+        <header class="entete-avis">
+            <div class="logo">Nom</div>
+            <h1>Commande livrée !</h1>
+            <p>Comment s'est passée votre livraison avec <strong>Thomas</strong> ?</p>
+        </header>
+
+        <main>
+            <section class="bloc-note">
+                <div class="cercle-icone">
+                    <i class="fas fa-bicycle"></i>
+                </div>
+                <h3>Notez votre livreur</h3>
+                <div class="groupe-etoiles">
+                    <input type="radio" name="note-livreur" id="l5"><label for="l5" class="fas fa-star"></label>
+                    <input type="radio" name="note-livreur" id="l4"><label for="l4" class="fas fa-star"></label>
+                    <input type="radio" name="note-livreur" id="l3"><label for="l3" class="fas fa-star"></label>
+                    <input type="radio" name="note-livreur" id="l2"><label for="l2" class="fas fa-star"></label>
+                    <input type="radio" name="note-livreur" id="l1"><label for="l1" class="fas fa-star"></label>
+                </div>
+            </section>
+
+            <section class="bloc-pourboire">
+                <h3>Ajouter un pourboire</h3>
+                <div class="choix-pourboire">
+                    <input type="radio" name="pourboire" id="p1" value="1"><label for="p1">1€</label>
+                    <input type="radio" name="pourboire" id="p2" value="2"><label for="p2">2€</label>
+                    <input type="radio" name="pourboire" id="p5" value="5"><label for="p5">5€</label>
+                    <input type="radio" name="pourboire" id="p-perso" value="autre"><label for="p-perso">Autre</label>
+                </div>
+            </section>
+
+            <div class="zone-commentaire">
+                <textarea placeholder="Un petit mot sur la livraison ? (optionnel)"></textarea>
+            </div>
+
+            <button type="submit" class="valider">VALIDER MON AVIS</button>
+            <a href="accueil.html" class="bouton-passer">Passer cette étape</a>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+.page-loc {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+.carte-info h2 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.adresse {
+    color: var(--fraise);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.horaires, .acces {
+    margin-bottom: 30px;
+}
+
+.horaires h3, .acces h3 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--noir);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--gris-fond);
+    padding-bottom: 5px;
+}
+
+.horairesul {
+    list-style: none;
+    padding: 0;
+}
+
+.horaires li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.heure {
+    color: var(--fraise);
+}
+
+.map {
+    border-radius: 40px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 400px;
+}
+
+@media screen and (max-width: 900px) {
+    .info {
+        margin-top: 300px;
+        grid-template-columns: 1fr; 
+        padding: 30px;
+        gap: 30px;
+        border-radius: 30px; 
+    }
+
+    .page-loc {
+        margin: 20px auto; 
+    }
+
+    .carte-info h2 {
+        font-size: 26px; 
+        text-align: center;
+    }
+
+    .adresse {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .map {
+        min-height: 300px; 
+    }
+}

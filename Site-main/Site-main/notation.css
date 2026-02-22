@@ -1,0 +1,169 @@
+:root {
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --noir: #2f3542;
+    --blanc: #ffffff;
+    --gris-clair: #f1f2f6;
+    --or: #ffa502;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gris-clair);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.carte-notation {
+    background: var(--blanc);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.entete-avis h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: var(--fraise);
+}
+
+.entete-avis p {
+    color: #57606f;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.bloc-note {
+    margin-bottom: 30px;
+}
+
+.cercle-icone {
+    background: var(--noir);
+    color: white;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    font-size: 24px;
+}
+
+.bloc-note h3, .bloc-pourboire h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.groupe-etoiles {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 8px;
+}
+
+.groupe-etoiles input {
+    display: none;
+}
+
+.groupe-etoiles label {
+    font-size: 35px;
+    color: #ced4da;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.groupe-etoiles label:hover,
+.groupe-etoiles label:hover ~ label,
+.groupe-etoiles input:checked ~ label {
+    color: var(--or);
+}
+
+.bloc-pourboire {
+    margin-bottom: 30px;
+    border-top: 1px solid var(--gris-clair);
+    padding-top: 25px;
+}
+
+.choix-pourboire {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choix-pourboire input {
+    display: none;
+}
+
+.choix-pourboire label {
+    padding: 10px 15px;
+    background: var(--gris-clair);
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.choix-pourboire input:checked + label {
+    background: var(--noir);
+    color: white;
+}
+
+.zone-commentaire textarea {
+    width: 100%;
+    height: 100px;
+    border: 2px solid var(--gris-clair);
+    border-radius: 15px;
+    padding: 15px;
+    font-family: inherit;
+    resize: none;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.zone-commentaire textarea:focus {
+    border-color: var(--kiwi);
+}
+
+.valider {
+    width: 100%;
+    background: var(--kiwi);
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #26af5f;
+}
+
+.valider:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #26af5f;
+}
+
+.bouton-passer {
+    display: block;
+    margin-top: 25px;
+    color: #a4b0be;
+    text-decoration: none;
+    font-size: 13px;
+}

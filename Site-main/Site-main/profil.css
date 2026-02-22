@@ -1,0 +1,229 @@
+:root {
+    --gris-fond: #f1f2f6;
+    --blanc: #ffffff;
+    --noir: #2f3542;
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --ombre: rgba(0, 0, 0, 0.1);
+}
+
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--gris-fond);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 40px 0; 
+}
+
+.profil {
+    background: var(--blanc);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px var(--ombre);
+    width: 100%;
+    max-width: 480px; 
+}
+
+.profil-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-logo {
+    width: 70px;
+    height: 70px;
+    background: var(--kiwi);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 10px;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #dfe4ea;
+}
+
+.categorie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.categorie label {
+    font-weight: bold;
+    color: var(--noir);
+    font-size: 15px;
+}
+
+.champ-profil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px; 
+    border-radius: 18px; 
+    background: var(--gris-fond);
+    margin-bottom: 10px;
+}
+
+.texte-info span {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    display: block;
+}
+
+.texte-info p {
+    margin: 2px 0 0 0;
+    font-weight: 600;
+    font-size: 14px; 
+    color: var(--noir);
+}
+
+.btn-edit {
+    background: transparent;
+    border: none;
+    color: var(--fraise);
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-edit:hover { 
+    transform: scale(1.2); 
+}
+
+.btn-principal {
+    width: 100%;
+    padding: 16px;
+    border-radius: 18px;
+    border: none;
+    background: var(--noir);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.btn-principal:hover {
+    background: #4b5563; 
+}
+
+.btn-deconnexion {
+    width: 100%;
+    padding: 15px;
+    border-radius: 18px;
+    border: 2px solid var(--fraise);
+    background: transparent;
+    color: var(--fraise);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-deconnexion:hover {
+    background: var(--fraise);
+    color: white;
+}
+
+.badge-points {
+    background: var(--fraise);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.barre-progression {
+    background: #e0e0e0;
+    height: 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.barre-remplissage {
+    height: 100%;
+    background: var(--kiwi);
+    border-radius: 10px;
+}
+
+.fidelite { 
+    font-size: 11px; 
+    color: #777; 
+    margin-top: 8px; 
+}
+
+.liste-commandes { 
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    }
+
+.liste-commandes li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.date { 
+    color: #aaa; 
+}
+
+.actions-profil {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+.actions-profil a {
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px; 
+        align-items: flex-start; 
+    }
+
+    .profil {
+        padding: 20px; 
+        border-radius: 20px; 
+        box-shadow: none; 
+    }
+
+    .profil-header h2 {
+        font-size: 20px; 
+    }
+
+    .champ-profil {
+        padding: 10px 15px; 
+    }
+
+    .texte-info p {
+        font-size: 13px; 
+    }
+}

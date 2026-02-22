@@ -1,0 +1,235 @@
+:root{
+    --fraise: #ff4757;
+    --kiwi: #2ed573;
+    --noir: #2f3542;
+    --gris-fond: #f1f2f6;
+    --blanc: #ffffff;
+    --ombre: rgba(255, 71, 87, 0.15);
+}
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Header*/
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: var(--blanc);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+}
+
+.logo{ 
+    margin-left: 100px;
+    font-size: 28px; 
+    font-weight: 900; 
+    color: var(--fraise); 
+    text-decoration: none; 
+}
+
+.logo span{ 
+    color: var(--noir); 
+}
+
+.milieu{
+    display: flex;
+    flex-wrap: wrap;      
+    justify-content: center;
+
+}
+
+.milieu a{
+    text-decoration: none;
+    color: var(--noir);
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.milieu a.active{ 
+    color: var(--fraise); 
+}
+.milieu a:hover{
+    color: var(--fraise);
+}
+
+.droite{
+    margin-right: 100px;
+}
+
+.bouton-connexion{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--noir);
+    margin-left: 10px;
+    display: inline-block;
+    transition: 0.3s; 
+}
+.bouton-inscription{
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 17px;
+    margin-left: 10px;
+    background-color: var(--fraise); 
+    color: var(--blanc); 
+    box-shadow: 0 8px 20px var(--ombre);
+    display: inline-block;
+    transition: 0.3s; 
+}
+.bouton-inscription:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--ombre);
+}
+.bouton-connexion:hover{
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+
+    .header{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .logo{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .milieu{
+        margin-bottom: 15px;
+    }
+
+    .milieu a{
+        display: block;
+        margin: 10px 0;
+    }
+
+    .droite{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bouton-connexion,
+    .bouton-inscription{
+        margin: 8px 0;
+        width: 200px;
+        text-align: center;
+    }
+}
+/* quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+@media screen and (max-width: 1100px) {
+
+    .logo{
+        margin-left: 20px;
+    }
+
+    .droite{
+        margin-right: 20px;
+    }
+
+    .milieu a{
+        margin: 0 10px;
+        font-size: 16px;
+    }
+}
+/* Fin: quand l'écran est petit mais pas trop sinon ca revient bizarrement a la ligne*/
+/*Fin Header*/
+
+/*Footer*/
+.footer{
+    background: var(--blanc);
+    padding: 80px 40px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    border-top: 1px solid #eee;
+}
+
+.footer-section h3{
+    color: var(--fraise);
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.footer-section p, 
+.footer-section a{
+    color: #747d8c;
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: block;
+    font-size: 15px;
+}
+.footer-section a:hover{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--noir);
+}
+
+
+.footer-bas{
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #f1f2f6;
+    color: #ced4da;
+    font-size: 12px;
+}
+
+.reseaux i{
+    font-size: 22px;
+    color: var(--fraise);
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reseaux i:hover{ 
+    transform: scale(1.2); 
+}
+
+/*stabilisation footer+panier*/
+@media (max-width: 1200px){
+    .layout-principal{ 
+        flex-direction: column;
+    } 
+    .categorie-gauche{ 
+        width: 100%; 
+        position: static; 
+    }
+    .footer { 
+        grid-template-columns: 1fr;
+        text-align: center; 
+    }
+    .footer-bas{ 
+        grid-column: 1; 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+}
+/*Fin Footer*/
+
+
+
