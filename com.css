@@ -195,7 +195,11 @@
 }
 
 @media (max-width: 768px) {
-    .grille-team, .grille-avis {
+    .contenu{
+        margin-top: 200px;
+    }
+    .grille-team, 
+    .grille-avis {
         grid-template-columns: 1fr;
     }
 }
