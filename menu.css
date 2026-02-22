@@ -1,12 +1,3 @@
-:root{
-    --fraise: #ff4757;
-    --kiwi: #2ed573;
-    --noir: #2f3542;
-    --gris-fond: #f1f2f6;
-    --blanc: #ffffff;
-    --ombre: rgba(255, 71, 87, 0.15);
-}
-
 body{
     background-color: var(--gris-fond);
     padding-top: 80px;
@@ -268,3 +259,4 @@ body{
         height: 180px;
     }
 }
+
