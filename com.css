@@ -1,26 +1,24 @@
-
-.com-container {
+.contenu {
     max-width: 1200px;
     margin: 0px auto;
     padding: 120px 20px 40px 20px;
 }
 
-
-.titre-section {
+.titre {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.titre-section h2 {
+.titre h2 {
     font-size: 45px;
     font-weight: 900;
 }
 
-.titre-section span {
+.titre span {
     color: var(--fraise);
 }
 
-.histoire-content {
+.histoire {
     background: white;
     padding: 40px;
     border-radius: 40px;
@@ -31,7 +29,7 @@
     color: #555;
 }
 
-.titre-vibe {
+.titre2 {
     text-align: center;
     font-size: 28px;
     font-weight: 900;
@@ -45,7 +43,7 @@
     gap: 30px;
 }
 
-.membre-card {
+.membre {
     background: white;
     padding: 30px;
     border-radius: 40px;
@@ -54,11 +52,11 @@
     transition: transform 0.3s;
 }
 
-.membre-card:hover {
+.membre:hover {
     transform: translateY(-10px);
 }
 
-.membre-card img {
+.membre img {
     width: 180px;
     height: 180px;
     border-radius: 50%;
@@ -67,7 +65,7 @@
     border: 6px solid var(--fraise);
 }
 
-.membre-card h3 {
+.membre h3 {
     margin-bottom: 10px;
     font-weight: 800;
 }
@@ -107,6 +105,12 @@
     text-transform: uppercase;
 }
 
+.livreur .suplement-nom {
+    font-style:italic;
+    color: lightgray;
+    font-size: 12px;
+}
+
 .note-globale {
     text-align: center;
     font-size: 45px;
@@ -122,7 +126,7 @@
     gap: 25px;
 }
 
-.avis-card {
+.avis {
     background: var(--noir);
     color: white;
     padding: 35px;
@@ -131,11 +135,11 @@
     transition: 0.3s;
 }
 
-.avis-card:hover {
+.avis:hover {
     background: #1a1a1a;
 }
 
-.avis-card img {
+.avis img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -143,24 +147,18 @@
     border: 2px solid white;
 }
 
-.livreur .suplement-nom {
-    font-style:italic;
-    color: lightgray;
-    font-size: 12px;
-}
-
-.avis-card p {
+.avis p {
     font-style: italic;
     margin-bottom: 15px;
     opacity: 0.9;
 }
 
-.avis-card span {
+.avis span {
     font-weight: 800;
     color: var(--fraise);
 }
 
-.job-box {
+.postuler {
     background: linear-gradient(135deg, var(--fraise), #ff4757);
     padding: 80px 40px;
     border-radius: 60px;
@@ -170,7 +168,7 @@
     box-shadow: 0 20px 40px rgba(255, 71, 87, 0.3);
 }
 
-.job-box h2 {
+.postuler h2 {
     font-size: 40px;
     font-weight: 900;
     margin-bottom: 10px;
