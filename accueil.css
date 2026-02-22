@@ -36,7 +36,6 @@
     display: flex;
     flex-wrap: wrap;      
     justify-content: center;
-
 }
 
 .milieu a{
@@ -51,6 +50,7 @@
 .milieu a.active{ 
     color: var(--fraise); 
 }
+
 .milieu a:hover{
     color: var(--fraise);
 }
@@ -68,6 +68,7 @@
     display: inline-block;
     transition: 0.3s; 
 }
+
 .bouton-inscription{
     text-decoration: none;
     padding: 12px 25px;
@@ -81,13 +82,16 @@
     display: inline-block;
     transition: 0.3s; 
 }
+
 .bouton-inscription:hover{
     transform: translateY(-3px);
     box-shadow: 0 15px 30px var(--ombre);
 }
+
 .bouton-connexion:hover{
     transform: translateY(-3px);
 }
+
 .fond {
     height: 100vh;
     width: 100%;
@@ -106,6 +110,7 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
+
 .contenu {
     position: relative;
     z-index: 2;
