@@ -1,0 +1,74 @@
+{
+  "entres": [
+    {
+      "id": 1,
+      "nom": "Oeufs de Dragon de Kommodo",
+      "prix": 9.00,
+      "img": "image plat/eoufs_de_dragon_de_kommodo.png",
+      "description": "Oeuf de lézard ancestral"
+    },
+    {
+      "id": 2,
+      "nom": "La Goutte de Trop",
+      "prix": 12.00,
+      "img": "image plat/La_goutte_de_trop.png",
+      "description": "Coupe de cristal d'adrénaline"
+    },
+    {
+      "id": 3,
+      "nom": "Falafel de Saveur de Rue",
+      "prix": 11.00,
+      "img": "image plat/falafele_de_saveur_de_rue.png",
+      "description": "Falafel de Saveur de Rue"
+    },
+    {
+      "id": 4,
+      "nom": "Cake Salé au Sel",
+      "prix": 8.00,
+      "img": "image plat/cake_salé_au_sel.png",
+      "description": "Pétales de tomates"
+    },
+    {
+      "id": 5,
+      "nom": "Falafel de Saveur de Rue",
+      "prix": 10.00,
+      "img": "image plat/Le_colesterdestroyeur.png",
+      "description": "Pâte à pizza triple-beurre de normandie."
+    }
+  ],
+
+  "boisson":[
+    {
+      "id": 6,
+      "nom": "FRien Ne Va",
+      "prix": 9.00,
+      "img": "image plat/image plat/rien_ne_va.png",
+      "description": "Cocktail fumé au bacon."
+    }
+  ],
+  "plats": [
+    {
+      "id": 7,
+      "nom": "Tarte au Reste",
+      "prix": 800.00,
+      "img": "image plat/tarte_au_reste.png",
+      "description": "Un peu de tout."
+    },
+    {
+      "id": 8,
+      "nom": "Kraken des Abysses",
+      "prix": 19.00,
+      "img": "image plat/kraken_des_abysses.png",
+      "description": "Tentacules de calamar géant de l'éther."
+    }
+  ],
+  "dessert": [
+    {
+      "id": 9,
+      "nom": "Le Rêve Bleu",
+      "prix": 14.00,
+      "img": "image plat/Le_reve_bleu.png",
+      "description": "Crème de nuage indigo."
+    }
+  ]
+}
