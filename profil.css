@@ -26,7 +26,7 @@ body {
     background: var(--blanc);
     padding: 40px;
     border-radius: 30px;
-    box-shadow: 0 15px 35px var(--ombre);
+    box-shadow: 0 15px 35px var(--ombre2);
     width: 100%;
     max-width: 480px; 
 }
