@@ -1,13 +1,3 @@
-:root {
-    --gris-fond: #f1f2f6;
-    --blanc: #ffffff;
-    --noir: #2f3542;
-    --fraise: #ff4757;
-    --kiwi: #2ed573;
-    --bleu-gps: #1e90ff;
-    --ombre: rgba(0, 0, 0, 0.1);
-}
-
 * {
     box-sizing: border-box;
 }
