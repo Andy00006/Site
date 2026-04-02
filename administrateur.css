@@ -116,7 +116,7 @@ body {
     background: var(--blanc);
     padding: 25px;
     border-radius: 18px;
-    box-shadow: 0 10px 20px var(--ombre);
+    box-shadow: 0 10px 20px var(--ombre2);
 }
 
 .boite-stat .etiquette {
@@ -136,7 +136,7 @@ body {
     background: var(--blanc);
     border-radius: 18px;
     padding: 30px;
-    box-shadow: 0 10px 20px var(--ombre);
+    box-shadow: 0 10px 20px var(--ombre2);
 }
 
 .entete-liste {
