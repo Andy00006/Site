@@ -51,7 +51,7 @@ body {
     padding: 20px;
     border-radius: 18px;
     text-align: center;
-    box-shadow: 0 4px 10px var(--ombre);
+    box-shadow: 0 4px 10px var(--ombre2);
 }
 
 .icone-destination {
@@ -87,7 +87,7 @@ body {
     background: var(--blanc);
     padding: 20px;
     border-radius: 18px;
-    box-shadow: 0 4px 10px var(--ombre);
+    box-shadow: 0 4px 10px var(--ombre2);
 }
 
 .ligne-info {
