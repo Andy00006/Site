@@ -57,6 +57,9 @@
 
 .droite{
     margin-right: 100px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .bouton-connexion{
@@ -87,6 +90,31 @@
 }
 .bouton-connexion:hover{
     transform: translateY(-3px);
+}
+
+.avatar-lien {
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.avatar-lien:hover {
+    transform: scale(1.1);
+}
+
+.avatar-cercle {
+    width: 45px;
+    height: 45px;
+    background-color: var(--fraise); /* Utilise ta couleur fraise */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px var(--ombre);
 }
 
 @media screen and (max-width: 768px) {
