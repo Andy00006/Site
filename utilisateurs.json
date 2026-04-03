@@ -1,1 +1,2 @@
-[{"prenom":"Andy","nom":"Laloum","email":"andy.laloum8@gmail.com","date":"2026-04-17","mdp":"Azerty123456&","tel":"07 60 06 28 05","adresse":"14rue de la poste","role":"client"}]
+[{"prenom":"Andy","nom":"Laloum","email":"andy.laloum8@gmail.com","date":"2026-04-17","mdp":"Azerty123456&","tel":"07 60 06 28 05","adresse":"14rue de la poste","role":"Admin"},
+{"prenom":"test","nom":"salut","email":"test@gmail.com","date":"2026-04-30","mdp":"Wxcv1234567&","tel":"06 00 00 00 00","adresse":"2rue de test","role":"client"}]
