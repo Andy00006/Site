@@ -1,3 +1,27 @@
+<?php
+session_start();
+$erreur = "";
+
+if(isset($_POST["email"])){
+    $fichier = "utilisateurs.json";
+
+    $contenu = file_get_contents($fichier);
+    $utilisateurs = json_decode($contenu, true);
+
+    foreach($utilisateurs as $key){
+        if ($key["email"] == $_POST["email"] && $key["mdp"] == $_POST["mdp"]) {
+            $_SESSION["prenom"] = $key["prenom"];
+            $_SESSION["nom"] = $key["nom"];
+            $_SESSION["role"] = $key["role"];
+
+            header("Location: accueil.php");
+            exit();
+         }
+    }
+    $erreur = "Email ou mot de passe incorrect";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +34,8 @@
 <body>
 
 <div class="connexion">
-    <form action="#" method="post">
+
+    <form action="connexion_au_compte.php" method="post">
         
         <div class="entete">
             <a href="accueil.html" class="lien-logo">
@@ -35,6 +60,11 @@
             </div>
         </div>
 
+        <?php if($erreur !== ""){
+            echo "<p style='color: #ff4d4d; font-size: 14px; margin-bottom: 10px; margin-left: 5px;'> $erreur </p>  ";     
+        }
+        ?>
+
         <div>
             <div class="case-cocher">
                 <input type="checkbox" id="rester_connecte">
@@ -46,7 +76,7 @@
             <button type="submit" class="btn-principal">Se connecter</button>
             <p class="texte-bas">
                 Pas encore de compte ? 
-                <a href="creation_de_compte.html">Créer un profil</a>
+                <a href="creation_de_compte.php">Créer un profil</a>
             </p>
         </div>
 
