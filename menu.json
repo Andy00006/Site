@@ -9,7 +9,8 @@
       "ingredient":["Gelée de Cuir de Reptile", 
             "Noyau d'Obsidienne Liquide", 
             "œuf de lézard ancestral",
-             "Nébuleuse de Bactéries Anciennes"]
+             "Nébuleuse de Bactéries Anciennes"],
+      "allergene":[]
     },
     {
       "id": 2,
@@ -21,7 +22,8 @@
             "Asticots de Pulsar", 
             "Peaux morts de Vieux Druide",
              "champignon de l'Abîme",
-        "Spore de Mémoire"]
+        "Spore de Mémoire"],
+      "allergene":["lactose"]
     },
     {
       "id": 3,
@@ -32,7 +34,10 @@
       "ingredient":["Mousse de Trottoir Humide", 
             "Noyau d'Obsidienne Liquide", 
             "Filtres de Cigarettes en Sucre de Canne",
-             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"]
+             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"],
+      "allergene":["fruit à coque",
+      "gluten",
+        "viande"]
     },
     {
       "id": 4,
@@ -43,7 +48,9 @@
       "ingredient":["Pétales de Tomates", 
             "Cœurs d'Artichauts de Fer", 
             "Courgettes-Émeraudes des Abysses",
-             "Olives de Graphite","Éclats de Cristal de Roche Comestible"]
+             "Olives de Graphite",
+        "Éclats de Cristal de Roche Comestible"],
+      "allergene":["fruit à coque"]
     },
     {
       "id": 5,
@@ -55,7 +62,10 @@
             "Colle à Artères (Sauce Fromagère)", 
             "Croûte Fourrée à la Moelle de Bœuf",
              "Confetti de Foie Gras Frit",
-        "Lave de Mozzarella Thermonucléaire"]
+        "Lave de Mozzarella Thermonucléaire"],
+      "allergene":["gluten",
+        "lactose",
+        "viande"]
     }
   ],
 
@@ -69,7 +79,8 @@
       "ingredient":["Bacon de poulet", 
             "Glacon d’huile de tournesol", 
             "pamplemouse jaune",
-             "liqueur de patidou"]
+             "liqueur de patidou"],
+      "allergene":["viande"]
     },
     {
       "id": 7,
@@ -80,7 +91,8 @@
       "ingredient":["glace de 1912", 
             "acier doux en carbone", 
             "l’eau de mer d’atlantique",
-             "champagne d’Homme fortuné"]
+             "champagne d’Homme fortuné"],
+      "allergene":["viande"]
     },
     {
       "id": 8,
@@ -91,7 +103,8 @@
       "ingredient":["Émulsion de Nuage de Coton", 
             "savon de marseille", 
             "eau de douche",
-             "lait d’amande","Bulles d'Air au miel"]
+             "lait d’amande","Bulles d'Air au miel"],
+      "allergene":["lactose"]
     },
     {
       "id": 9,
@@ -102,7 +115,8 @@
       "ingredient":["Larmes de Joie de Bébé Licorne", 
             "Sirop de Nuage de Barbe à Papa", 
             "Concentré de Rayons de Soleil",
-             "Guimauves de Corne Brisée"]
+             "Guimauves de Corne Brisée"],
+      "allergene":["viande","lactose"]
     },
     {
       "id": 10,
@@ -116,7 +130,8 @@
             "pooliakov",
             "orge",
             "vodka",
-            "bacon"]
+            "bacon"],
+      "allergene":["viande"]
     }
   ],
   "plats": [
@@ -129,7 +144,9 @@
        "ingredient":["un peu de kraken des abbysses", 
             "un peu de viande de dodo", 
             "un peu de bouche de midas",
-             "un peu de cake salé au sel","un peu du fromage possédé"]
+             "un peu de cake salé au sel",
+         "un peu du fromage possédé"],
+      "allergene":["fruit a coque","lactose","viande","gluten","fruit de mer"]
     },
     {
       "id": 12,
@@ -140,7 +157,8 @@
       "ingredient":["Tentacules de Calamar Géant de l'Éther", 
             "Cœur de Kraken Pulsant", 
             "Écume de Mer Morte",
-             "Encre de Disparition","Sable de Coquilles de poulpe"]
+             "Encre de Disparition","Sable de Coquilles de poulpe"],
+      "allergene":["viande","fruit de mer"]
     },
     {
       "id": 13,
@@ -153,7 +171,8 @@
             "Langue de Poivron Écorché",
              "Cheveux de Poireaux Flétris",
              "Cils de Pattes de Mygale",
-             "Sel de Cendre d'Âme"]
+             "Sel de Cendre d'Âme"],
+      "allergene":["gluten"]
     },
     {
       "id": 14,
@@ -163,7 +182,8 @@
       "description": "Chair de dodo musquée.",
        "ingredient":["Marinade de Sève de Baobab Millénaire", 
             "Chair de Dodo Musquée", 
-            "Sel de Mer d'Avant le Déluge"]
+            "Sel de Mer d'Avant le Déluge"],
+      "allergene":["viande"]
     },
     {
       "id": 15,
@@ -175,7 +195,8 @@
             "Ventouses de Calamar de Soie", 
             "Fleurs de Sel des Abysses",
              "Perles de Désir", 
-        "Brume de Phéromones Marines"]
+        "Brume de Phéromones Marines"],
+      "allergene":["fruit de mer"]
     },
     {
       "id": 16,
@@ -186,7 +207,8 @@
       "ingredient":["Vrilles de Scolopendre noir", 
             "Pattes de Grillon des Sables", 
             "Œufs de Libellule Bleue",
-             "Nectar de Guêpe","Vermicelles de Larves de mouche"]
+             "Nectar de Guêpe","Vermicelles de Larves de mouche"],
+      "allergene":["gluten"]
     }
   ],
   "dessert": [
@@ -199,7 +221,8 @@
       "ingredient":["Pépites de Lune Croquante", 
             "Crème de Nuage Indigo", 
             "copeaux d’oreille droite",
-             "Éclats de Comète Givrée","Poussière de Nébuleuse"]
+             "Éclats de Comète Givrée","Poussière de Nébuleuse"],
+      "allergene":["gluten","lactose"]
     },
     {
       "id": 18,
@@ -210,7 +233,8 @@
       "ingredient":["Coupe de Cristal d’Adrénaline", 
             "Bordure de Sel de Styx", 
             "Sirop de Patience Évaporée",
-             "Plume de Corbeau en Encre de Seiche"]
+             "Plume de Corbeau en Encre de Seiche"],
+      "allergene":["lactose"]
     },
     {
       "id":19,
@@ -220,7 +244,8 @@
       "description": "Poudre de Pépite de Sucre.",
       "ingredient":["Poudre de Pépite de Sucre", 
             "Pâte de Lingot Vanillée du fort knox", 
-            "Cire d'Abeille d'Olympe"]
+            "Cire d'Abeille d'Olympe"],
+      "allergene":["lactose"]
     },
     {
       "id":20,
@@ -231,7 +256,8 @@
       "ingredient":["Sève de Grand Arbre Mojo", 
             "Mousse de Champignon Tempo", 
             "Baies de Lanterneu",
-             "Poudre de Fée Étincelante","Éclats de Rubis de Feu"]
+             "Poudre de Fée Étincelante","Éclats de Rubis de Feu"],
+      "allergene":["lactose"]
     },
     {
       "id":21,
@@ -242,7 +268,8 @@
       "ingredient":["chocolat noir à 99%", 
             "pâte a sucre a la fraise", 
             "chocolat au lait de vache",
-             "chantilly au nuage d’islande"]
+             "chantilly au nuage d’islande"],
+      "allergene":["lactose","gluten"]
     }
   ]
 }
