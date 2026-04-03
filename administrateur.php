@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin") {
+    header("Location: accueil.php");
+    exit();
+}
+
+$fichier = "utilisateurs.json";
+$utilisateurs = array();
+if (file_exists($fichier)) {
+    $contenu = file_get_contents($fichier);
+    $utilisateurs = json_decode($contenu, true) ?? [];
+}
+
+$total_inscrits = count($utilisateurs);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +55,7 @@
             <div class="grille-statistiques">
                 <div class="boite-stat">
                     <span class="etiquette">Total Inscrits</span>
-                    <p class="valeur">1,240</p>
+                    <p class="valeur"><?php echo $total_inscrits; ?></p>
                 </div>
                 <div class="boite-stat">
                     <span class="etiquette">Clients Actifs</span>
@@ -49,8 +67,7 @@
                 </div>
             </div>
 
-            <div class="info">
-                <div class="entete-liste">
+            <div class="section-info"> <div class="entete-liste">
                     <h2>Base de données</h2>
                     <div class="elements">
                         <input type="text" placeholder="Rechercher..." class="recherche-admin">
@@ -68,26 +85,41 @@
                         <tr>
                             <th>Nom</th>
                             <th>Email</th>
-                            <th>Rôle</th>
-                            <th>Inscrit le</th>
+                            <th>Statut</th>
+                            <th>Remise</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($utilisateurs as $user): ?>
                         <tr>
-                            <td><strong>Jean Dupont</strong></td>
-                            <td>jean.dupont@utopik.fr</td>
-                            <td><span class="pastille pastille-client">Client</span></td>
-                            <td>12/02/2026</td>
-                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
+                            <td><strong><?php echo $user["prenom"] . " " . $user["nom"]; ?></strong></td>
+                            <td><?php echo $user["email"]; ?></td>
+                            <td>
+                                <?php 
+                                    $statut = $user["statut"] ?? "Standard";
+                                    $classe_pastille = ($user["role"] === "Admin") ? "pastille-resto" : "pastille-client";
+                                ?>
+                                <span class="pastille <?php echo $classe_pastille; ?>">
+                                    <?php echo $statut; ?>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge-remise"><?php echo $user["remise"] ?? "0"; ?>%</span>
+                            </td>
+                            <td class="cellule-actions">
+                                <button class="btn-action-admin bleu" title="Voir le profil">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-action-admin jaune" title="Modifier statut/remise">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action-admin rouge" title="Bloquer/Désactiver">
+                                    <i class="fas fa-ban"></i>
+                                </button>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><strong>Marie Laurent</strong></td>
-                            <td>m.laurent@resto.fr</td>
-                            <td><span class="pastille pastille-resto">Restaurateur</span></td>
-                            <td>05/01/2026</td>
-                            <td><button class="bouton-action"><i class="fas fa-eye"></i></button></td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
