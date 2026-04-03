@@ -13,6 +13,12 @@ if(isset($_POST["email"])){
             $_SESSION["prenom"] = $key["prenom"];
             $_SESSION["nom"] = $key["nom"];
             $_SESSION["role"] = $key["role"];
+            $_SESSION["email"] = $key["email"];
+            $_SESSION["tel"] = $key["tel"];
+            $_SESSION["adresse"] = $key["adresse"];
+            
+            $longueur_mdp = strlen($key["mdp"]);
+            $_SESSION["mdp_masque"] = str_repeat("•", $longueur_mdp);
 
             header("Location: accueil.php");
             exit();
