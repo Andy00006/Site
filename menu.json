@@ -26,20 +26,6 @@
       "allergene":["lactose"]
     },
     {
-      "id": 3,
-      "nom": "Falafel de Saveur de Rue",
-      "prix": 11.00,
-      "img": "image_plat/falafele_de_saveur_de_rue.png",
-      "description": "Falafel de Saveur de Rue",
-      "ingredient":["Mousse de Trottoir Humide", 
-            "Noyau d'Obsidienne Liquide", 
-            "Filtres de Cigarettes en Sucre de Canne",
-             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"],
-      "allergene":["fruit à coque",
-      "gluten",
-        "viande"]
-    },
-    {
       "id": 4,
       "nom": "Cake Salé au Sel",
       "prix": 8.00,
@@ -53,19 +39,32 @@
       "allergene":["fruit à coque"]
     },
     {
-      "id": 5,
-      "nom": "Le colesterdestroyeur",
-      "prix": 10.00,
-      "img": "image_plat/Le_colesterdestroyeur.png",
-      "description": "Pâte à pizza triple-beurre de normandie.",
-      "ingredient":["Pâte à Pizza 'Triple-Beurre' de Normandie", 
-            "Colle à Artères (Sauce Fromagère)", 
-            "Croûte Fourrée à la Moelle de Bœuf",
-             "Confetti de Foie Gras Frit",
-        "Lave de Mozzarella Thermonucléaire"],
-      "allergene":["gluten",
-        "lactose",
-        "viande"]
+      "id": 15,
+      "nom": "エロアニメ",
+      "prix": 18.00,
+      "img": "image_plat/エロアニメ.png",
+      "description": "Ventouses de calmar de soie.",
+      "ingredient":["Encre de Méduse de Jais", 
+            "Ventouses de Calamar de Soie", 
+            "Fleurs de Sel des Abysses",
+             "Perles de Désir", 
+        "Brume de Phéromones Marines"],
+      "allergene":["fruit de mer"]
+    },
+
+    {
+      "id": 13,
+      "nom": "La Salade de tes Cauchemars",
+      "prix": 22.00,
+      "img": "image_plat/La_salade_de_tes_cauchemars.png",
+      "description": "Peau de riz dégarnies.",
+      "ingredient":["Peau de riz dégarnies", 
+            "Mâchoire de Maïs Dent-de-Mort", 
+            "Langue de Poivron Écorché",
+             "Cheveux de Poireaux Flétris",
+             "Cils de Pattes de Mygale",
+             "Sel de Cendre d'Âme"],
+      "allergene":["gluten"]
     }
   ],
 
@@ -148,6 +147,21 @@
          "un peu du fromage possédé"],
       "allergene":["fruit a coque","lactose","viande","gluten","fruit de mer"]
     },
+    
+   { "id": 3,
+      "nom": "Falafel de Saveur de Rue",
+      "prix": 11.00,
+      "img": "image_plat/falafele_de_saveur_de_rue.png",
+      "description": "Falafel de Saveur de Rue",
+      "ingredient":["Mousse de Trottoir Humide", 
+            "Noyau d'Obsidienne Liquide", 
+            "Filtres de Cigarettes en Sucre de Canne",
+             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"],
+      "allergene":["fruit à coque",
+      "gluten",
+        "viande"]
+    },
+    
     {
       "id": 12,
       "nom": "Kraken des Abysses",
@@ -160,20 +174,22 @@
              "Encre de Disparition","Sable de Coquilles de poulpe"],
       "allergene":["viande","fruit de mer"]
     },
-    {
-      "id": 13,
-      "nom": "La Salade de tes Cauchemars",
-      "prix": 22.00,
-      "img": "image_plat/La_salade_de_tes_cauchemars.png",
-      "description": "Peau de riz dégarnies.",
-      "ingredient":["Peau de riz dégarnies", 
-            "Mâchoire de Maïs Dent-de-Mort", 
-            "Langue de Poivron Écorché",
-             "Cheveux de Poireaux Flétris",
-             "Cils de Pattes de Mygale",
-             "Sel de Cendre d'Âme"],
-      "allergene":["gluten"]
+    
+{
+      "id": 3,
+      "nom": "Falafel de Saveur de Rue",
+      "prix": 11.00,
+      "img": "image_plat/falafele_de_saveur_de_rue.png",
+      "description": "Falafel de Saveur de Rue",
+      "ingredient":["Mousse de Trottoir Humide", 
+            "Noyau d'Obsidienne Liquide", 
+            "Filtres de Cigarettes en Sucre de Canne",
+             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"],
+      "allergene":["fruit à coque",
+      "gluten",
+        "viande"]
     },
+
     {
       "id": 14,
       "nom": "Viande de dodo",
@@ -185,19 +201,23 @@
             "Sel de Mer d'Avant le Déluge"],
       "allergene":["viande"]
     },
+    
     {
-      "id": 15,
-      "nom": "エロアニメ",
-      "prix": 18.00,
-      "img": "image_plat/エロアニメ.png",
-      "description": "Ventouses de calmar de soie.",
-      "ingredient":["Encre de Méduse de Jais", 
-            "Ventouses de Calamar de Soie", 
-            "Fleurs de Sel des Abysses",
-             "Perles de Désir", 
-        "Brume de Phéromones Marines"],
-      "allergene":["fruit de mer"]
+      "id": 5,
+      "nom": "Le colesterdestroyeur",
+      "prix": 10.00,
+      "img": "image_plat/Le_colesterdestroyeur.png",
+      "description": "Pâte à pizza triple-beurre de normandie.",
+      "ingredient":["Pâte à Pizza 'Triple-Beurre' de Normandie", 
+            "Colle à Artères (Sauce Fromagère)", 
+            "Croûte Fourrée à la Moelle de Bœuf",
+             "Confetti de Foie Gras Frit",
+        "Lave de Mozzarella Thermonucléaire"],
+      "allergene":["gluten",
+        "lactose",
+        "viande"]
     },
+    
     {
       "id": 16,
       "nom": "1000 et Une Pâte",
@@ -271,5 +291,56 @@
              "chantilly au nuage d’islande"],
       "allergene":["lactose","gluten"]
     }
-  ]
+  ],
+    "groupe_plat":[
+    {
+      "nom":"Un gout d'ancien temps",
+      "composition":{"entres":[1],
+      "boisson":[7],
+      "plats":[14],
+      "dessert":[21]
+    }
+    },
+    
+    {
+      "nom":"Un billet pour l'enfer",
+      "composition":{"entres":[13],
+      "boisson":[10],
+      "plats":[16],
+      "dessert":[20]
+    }
+    },
+    
+
+      {"nom":"5 repas en 1",
+      "composition":{"entres":[4],
+      "boisson":[9],
+      "plats":[5],
+      "dessert":[17]
+    }
+    },
+
+      {"nom":"soirée avec poséidon",
+      "composition":{"entres":[15],
+      "boisson":[8],
+      "plats":[12],
+      "dessert":[18]
+    }
+    },
+    {"nom":"intoxication alimentaire:la saga",
+      "composition":{"entres":[2],
+      "boisson":[6],
+      "plats":[3],
+      "dessert":[19]
+    }
+    },
+
+    {"nom":"bonne affaire",
+      "composition":{"entres":[11],
+      "boisson":[11],
+      "plats":[11],
+      "dessert":[11]
+    }
+    }
+    ]
 }
