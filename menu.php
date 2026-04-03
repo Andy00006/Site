@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter_item"])) {
     header("Location: menu.php");
     exit();
 }
-//la derniere fonction est temporaire le temps d'avoir des comptes fonctionnels
 if (isset($_GET["vider_panier"])) {
     $_SESSION["panier"] = [];
     header("Location: menu.php");
@@ -73,14 +72,70 @@ if (isset($_GET["vider_panier"])) {
 
     <div class="principal">
         <nav class="categorie-gauche">
-            <a href="#entrees">Entrées</a>
+        <a href="#menus">Menus</a>    
+        <a href="#entrees">Entrées</a>
             <a href="#plats">Plats</a>
             <a href="#boissons">Boissons</a>
             <a href="#desserts">Desserts</a>
         </nav>
 
         <main class="menu">
-            <section id='entrees'>
+<section id="menus">
+    <h2 class="titre">Menus transdimensionels</h2>
+    <div class="grille-menus">
+    <?php foreach ($menu["groupe_plat"] as $groupe): ?>
+        <div class="plat">
+            <div class="contenu">
+                <h3><?= $groupe["nom"] ?></h3>
+
+                <div class="images-menu">
+
+                    <?php
+                    $ids = array_merge(
+                        $groupe["composition"]["entres"],
+                        $groupe["composition"]["boisson"],
+                        $groupe["composition"]["plats"],
+                        $groupe["composition"]["dessert"]
+                    );
+
+                    $tous_les_plats = array_merge(
+                        $menu["entres"],
+                        $menu["boisson"],
+                        $menu["plats"],
+                        $menu["dessert"]
+                    );
+
+                    foreach ($ids as $id):
+                        foreach ($tous_les_plats as $plat):
+                            if ($plat["id"] == $id):
+                    ?>
+<div class="mini-plat">
+    <h4>
+        <?php
+            if(in_array($id, $groupe["composition"]["entres"])){ echo "Entrée";}
+            elseif(in_array($id, $groupe["composition"]["boisson"])){  echo"Boisson";} 
+            elseif(in_array($id, $groupe["composition"]["plats"])){echo "Plat" ;}
+            else{ echo "Dessert";}
+        ?>
+    </h4>
+
+    <img src="<?php $plat["img"] ?>" alt="<?= $plat["nom"] ?>" width="100">
+    <p><?= $plat["nom"] ?></p>
+</div>
+                    <?php
+                            endif;
+                        endforeach;
+                    endforeach;
+                    ?>
+
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+    </div>
+</section> 
+        <section id='entrees'>
                 <h2 class="titre">Entrées de l'Espace</h2>
                 <div class="grille-plats">
                 <?php foreach ($menu["entres"] as $plat): ?>
@@ -236,4 +291,3 @@ if (isset($_GET["vider_panier"])) {
     </footer>
 </body>
 </html>
-
