@@ -1,7 +1,43 @@
 <?php
+session_start();
+
 $json_content = file_get_contents('menu.json');
 $menu = json_decode($json_content, true);
+
+if (!isset($_SESSION["panier"])) {
+    $_SESSION["panier"] = [];
+}
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter_item"])) {
+    $item_id = $_POST["item_id"];
+    $item_nom = $_POST["item_nom"];
+    $item_prix = (float)$_POST["item_prix"];
+    $found = false;
+    foreach ($_SESSION['panier'] as &$item) {
+        if ($item["id"] == $item_id) {
+            $item["quantite"]++;
+            $found = true;
+            break;
+        }
+    }
+    if (!$found) {
+        $_SESSION["panier"][] = [
+            'id' => $item_id,
+            'nom' => $item_nom,
+            'prix' => $item_prix,
+            'quantite' => 1
+        ];
+    }
+    header("Location: menu.php");
+    exit();
+}
+//la derniere fonction est temporaire le temps d'avoir des comptes fonctionnels
+if (isset($_GET["vider_panier"])) {
+    $_SESSION["panier"] = [];
+    header("Location: menu.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,14 +85,19 @@ $menu = json_decode($json_content, true);
                 <div class="grille-plats">
                 <?php foreach ($menu["entres"] as $plat): ?>
                     <div class="plat">
-                        <input type="checkbox" id="b1" class="cadre">
-                        <label for="b1" class="image-box">
+                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
                             <img src=<?= $plat["img"] ?>>
                         </label>
                         <div class="contenu">
                             <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
-                                <button class="ajouter">AJOUTER</button>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
+                                </form>
                             </div>
                         </div>
                 <?php endforeach; ?>
@@ -66,14 +107,19 @@ $menu = json_decode($json_content, true);
                 <div class="grille-plats">
                     <?php foreach ($menu["boisson"] as $plat): ?>
                     <div class="plat">
-                        <input type="checkbox" id="b1" class="cadre">
-                        <label for="b1" class="image-box">
+                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
                             <img src=<?= $plat["img"] ?>>
                         </label>
                         <div class="contenu">
                             <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
-                                <button class="ajouter">AJOUTER</button>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
+                                </form>
                             </div>
                         </div>
                 <?php endforeach; ?>
@@ -83,14 +129,19 @@ $menu = json_decode($json_content, true);
                 <div class="grille-plats">
                     <?php foreach ($menu["plats"] as $plat): ?>
                     <div class="plat">
-                        <input type="checkbox" id="b1" class="cadre">
-                        <label for="b1" class="image-box">
+                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
                             <img src=<?= $plat["img"] ?>>
                         </label>
                         <div class="contenu">
                             <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
-                                <button class="ajouter">AJOUTER</button>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
+                                </form>
                             </div>
                         </div>
                 <?php endforeach; ?>
@@ -100,14 +151,19 @@ $menu = json_decode($json_content, true);
                 <div class="grille-plats">
                     <?php foreach ($menu["dessert"] as $plat): ?>
                     <div class="plat">
-                        <input type="checkbox" id="b1" class="cadre">
-                        <label for="b1" class="image-box">
+                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
                             <img src=<?= $plat["img"] ?>>
                         </label>
                         <div class="contenu">
                             <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
-                                <button class="ajouter">AJOUTER</button>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
+                                </form>
                             </div>
                         </div>
                 <?php endforeach; ?>
@@ -117,13 +173,33 @@ $menu = json_decode($json_content, true);
         <aside class="panier-droit">
             <div class="panier-fixe">
                 <h3>VOTRE PANIER</h3>
-                <div class="liste-panier">
-                    <p class="vide">Le rêve est vide...</p>
+                <div class="liste-panier" style="flex-direction: column; align-items: stretch; justify-content: flex-start;">
+                    <?php if (empty($_SESSION['panier'])): ?>
+                        <p class="vide" style="text-align: center; margin-top: 30px;">Le rêve est vide...</p>
+                        <?php $total = 0; ?>
+                    <?php else: ?>
+                        <ul style="list-style: none; padding: 0; width: 100%;">
+                            <?php 
+                                $total = 0;
+                                foreach ($_SESSION['panier'] as $article): 
+                                $sous_total = $article['prix'] * $article['quantite'];
+                                $total += $sous_total;
+                            ?>
+                            <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--noir);">
+                                <span><strong><?= $article['quantite'] ?>x</strong> <?= htmlspecialchars($article['nom']) ?></span>
+                                 <span style="font-weight: bold; color: var(--fraise); margin-left: 10px;"><?= number_format($sous_total, 2) ?>€</span>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
                 </div>
                 <div class="total">
                     <span>Total</span>
-                    <span>0.00€</span>
+                    <span><?= number_format($total, 2) ?>€</span> 
                 </div>
+                <?php if (!empty($_SESSION['panier'])): ?>
+                    <a href="menu.php?vider_panier=1" style="display:block; text-align:center; color: var(--noir); font-size:12px; margin-bottom: 15px; text-decoration: underline;">Vider le panier</a>
+                <?php endif; ?>
                 <button class="btn-valider">VALIDER LE RÊVE</button>
             </div>
         </aside>
