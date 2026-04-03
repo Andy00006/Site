@@ -123,7 +123,7 @@
       "nom": "Vodka Koskenko",
       "prix": 10.00,
       "img": "image_plat/vodka_koskenkova_013.png",
-      "description": "Vodka infusée bacon."
+      "description": "Vodka infusée bacon.",
       "ingredient":["vodka", 
             "vanille", 
             "vodka",
