@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["prenom"])) {
+    header("Location: connexion_au_compte.php");
+    exit();
+}
+
+$initiale_p = mb_substr($_SESSION["prenom"], 0, 1);
+$initiale_n = mb_substr($_SESSION["nom"], 0, 1);
+$initiales = mb_strtoupper($initiale_p . $initiale_n);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +26,9 @@
     <div class="profil">
         
         <div class="profil-header">
-            <div class="avatar-logo">JD</div>
+            <div class="avatar-logo"><?php echo $initiales; ?></div>
             <h2>Mon Profil</h2>
-            <p>Heureux de vous revoir !</p>
+            <p>Heureux de vous revoir, <?php echo $_SESSION["prenom"]; ?> !</p>
         </div>
 
         <div class="formulaire-utopik">
@@ -28,7 +41,7 @@
                 <div class="champ-profil">
                     <div class="texte-info">
                         <span>Nom & Prénom</span>
-                        <p>Jean Dupont</p>
+                        <p><?php echo $_SESSION["prenom"] . " " . $_SESSION["nom"]; ?></p>
                     </div>
                     <button type="button" class="btn-edit" title="Modifier le nom">
                         <i class="fas fa-pencil-alt"></i>
@@ -38,7 +51,7 @@
                 <div class="champ-profil">
                     <div class="texte-info">
                         <span>Email</span>
-                        <p>jean.dupont@gmail.com</p>
+                        <p><?php echo $_SESSION["email"]; ?></p> 
                     </div>
                     <button type="button" class="btn-edit" title="Modifier l'email">
                         <i class="fas fa-pencil-alt"></i>
@@ -48,7 +61,7 @@
                 <div class="champ-profil">
                     <div class="texte-info">
                         <span>Téléphone</span>
-                        <p>06 12 34 56 78</p>
+                        <p><?php echo $_SESSION["tel"]; ?></p>
                     </div>
                     <button type="button" class="btn-edit" title="Modifier le téléphone">
                         <i class="fas fa-pencil-alt"></i>
@@ -58,7 +71,7 @@
                 <div class="champ-profil">
                     <div class="texte-info">
                         <span>Adresse de livraison</span>
-                        <p>12 Rue des Fraises, 75000 Paris</p>
+                        <p><?php echo $_SESSION["adresse"]; ?></p>
                     </div>
                     <button type="button" class="btn-edit" title="Modifier l'adresse">
                         <i class="fas fa-pencil-alt"></i>
@@ -68,7 +81,7 @@
                 <div class="champ-profil">
                     <div class="texte-info">
                         <span>Mot de passe</span>
-                        <p>••••••••••••</p>
+                        <p><?php echo $_SESSION["mdp_masque"]; ?></p>
                     </div>
                     <button type="button" class="btn-edit" title="Changer de mot de passe">
                         <i class="fas fa-key"></i>
@@ -101,15 +114,13 @@
 
             <div class="actions-profil">
                 <a href="accueil.php">
-                <button type="button" class="btn-principal">
-                    Retour à l'accueil
-                </button>
+                    <button type="button" class="btn-principal">Retour à l'accueil</button>
                 </a>
 
-                <a href="accueil.php">
-                <button type="button" class="btn-deconnexion">
-                    <i class="fas fa-sign-out-alt"></i> Se déconnecter
-                </button>
+                <a href="deconnexion.php">
+                    <button type="button" class="btn-deconnexion">
+                        <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                    </button>
                 </a>
             </div>
 
