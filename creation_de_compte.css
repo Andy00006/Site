@@ -189,6 +189,11 @@ input:focus {
     color: var(--noir); 
 }
 
+.input-erreur {
+    border: 2px solid #ff4d4d !important;
+    background-color: #fff5f5 !important;
+}
+
 @media (max-width: 600px) {
     .groupe-ligne { flex-direction: column; gap: 0; }
     .boite-inscription { padding: 25px; }
