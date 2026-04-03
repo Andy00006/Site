@@ -110,7 +110,7 @@
       "prix": 10.00,
       "img": "image_plat/vodka_koskenkova_013.png",
       "description": "Vodka infusée bacon."
-      ingredient":["vodka", 
+      "ingredient":["vodka", 
             "vanille", 
             "vodka",
             "pooliakov",
@@ -170,7 +170,8 @@
       "nom": "エロアニメ",
       "prix": 18.00,
       "img": "image_plat/エロアニメ.png",
-      "description": "Ventouses de calmar de soie.","ingredient":["Encre de Méduse de Jais", 
+      "description": "Ventouses de calmar de soie.",
+      "ingredient":["Encre de Méduse de Jais", 
             "Ventouses de Calamar de Soie", 
             "Fleurs de Sel des Abysses",
              "Perles de Désir", 
