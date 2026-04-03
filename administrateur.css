@@ -197,3 +197,36 @@ body {
     background: var(--kiwi);
     color: white;
 }
+
+.cellule-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action-admin {
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.bleu { background-color: #3498db; }
+.jaune { background-color: #f1c40f; }
+.rouge { background-color: #e74c3c; }
+
+.btn-action-admin:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.badge-remise {
+    background-color: #2ecc71;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
