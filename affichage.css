@@ -1,0 +1,44 @@
+.affichage{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+.description{
+    flex: 1;
+}
+.titre{
+    font-size: 3rem;
+    margin-top: 100;
+    color: var(--noir);
+    line-height: 1.1;
+}
+.prix{
+    font-size: 1.8rem;
+    color: var(--fraise);
+    font-weight: bold;
+    margin: 15px 0;
+}
+.ingredient{
+    font-size: 1.2rem;
+    color:var(--noir);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.ingredients{
+    font-size: 0.95rem;
+    color: var(--noir);
+    line-height: 1.6;
+}
+.img{
+    flex:1
+}
+.imgg{
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
