@@ -53,17 +53,17 @@ if (isset($_GET["vider_panier"])) {
 <body>
     <header class="header">
         <div>
-            <a href="accueil.html" class="logo">EXOTIQUE<span>DREAM</span></a>
+            <a href="accueil.php" class="logo">EXOTIQUE<span>DREAM</span></a>
         </div>
         <nav class="milieu">
-            <a href="accueil.html">Accueil</a>
-            <a href="com.html">Communication</a>
-            <a href="menu.html" class="active">Menu</a>
-            <a href="loc.html">Localisation</a>
+            <a href="accueil.php">Accueil</a>
+            <a href="com.php">Communication</a>
+            <a href="menu.php" class="active">Menu</a>
+            <a href="loc.php">Localisation</a>
         </nav>
         <div class="droite">
-            <a href="connexion_au_compte.html" class="bouton-connexion">Connexion</a>
-            <a href="creation_de_compte.html" class="bouton-inscription">Inscription</a>
+            <a href="connexion_au_compte.php" class="bouton-connexion">Connexion</a>
+            <a href="creation_de_compte.php" class="bouton-inscription">Inscription</a>
         </div>
     </header>
 
@@ -214,10 +214,10 @@ if (isset($_GET["vider_panier"])) {
         </div>
         <div class="footer-section">
             <h3>Navigation</h3>
-            <a href="accueil.html">Accueil</a>
-            <a href="com.html">Communauté</a>
-            <a href="menu.html">Menu</a>
-            <a href="loc.html">Localisation</a>
+            <a href="accueil.php">Accueil</a>
+            <a href="com.php">Communauté</a>
+            <a href="menu.php">Menu</a>
+            <a href="loc.php">Localisation</a>
         </div>
         <div class="footer-section">
             <h3>Contact</h3>
@@ -226,7 +226,7 @@ if (isset($_GET["vider_panier"])) {
             <p><i class="fas fa-envelope"></i> - contact@exotiquedream.fr</p>
         </div>
         <div class="footer-bas">
-            <p>© 2026 EXOTIQUE DREAM — Tous droits réservés</p>
+            <p>© 2026 EXOTIQUE DREAM - Tous droits réservés</p>
             <div class="reseaux">
                 <a href="https://www.instagram.com/exoticdream__/"><i class="fab fa-instagram"></i></a>
                 <a href="https://x.com/ExotiqueDream"><i class="fab fa-twitter"></i></a>
