@@ -40,6 +40,8 @@ if(isset($_POST["prenom"])){
             "email" => $_POST["email"],
             "date" => $_POST["anniversaire"],
             "mdp" => $_POST["mdp1"],
+            "tel" => $_POST["tel"],
+            "adresse" => $_POST["numero"]."".$_POST["rue"],
             "role" => "client"
         );
 
