@@ -83,8 +83,37 @@ if (isset($_GET["vider_panier"])) {
 <section id="menus">
     <h2 class="titre">Menus transdimensionels</h2>
     <div class="grille-menus">
-    <?php foreach ($menu["groupe_plat"] as $groupe): ?>
+    <?php foreach ($menu["groupe_plat"] as $groupe): 
+        ?>
         <div class="plat">
+            <?php
+$total = 0;
+$ids = array_merge(
+    $groupe["composition"]["entres"],
+    $groupe["composition"]["boisson"],
+    $groupe["composition"]["plats"],
+    $groupe["composition"]["dessert"]
+);
+$tous_les_plats = array_merge(
+    $menu["entres"],
+    $menu["boisson"],
+    $menu["plats"],
+    $menu["dessert"]
+);
+foreach ($ids as $id) {
+    foreach ($tous_les_plats as $plat) {
+        if ($plat["id"] == $id) {
+            $total += $plat["prix"];
+        }
+    }
+}
+?>
+            <div class="plat">
+    <span class="prix-total"><?= number_format($total, 2) ?>€</span>
+    <div class="contenu">
+        <h3><?= $groupe["nom"] ?></h3>
+    </div>
+</div>
             <div class="contenu">
                 <h3><?= $groupe["nom"] ?></h3>
 
