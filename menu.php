@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+$est_connecte = isset($_SESSION["prenom"]);
+
+if ($est_connecte) {
+    $initiale_prenom = strtoupper(substr($_SESSION["prenom"], 0, 1));
+    $initiale_nom = strtoupper(substr($_SESSION["nom"], 0, 1));
+    $initiales = $initiale_prenom . $initiale_nom;
+}
+
 $json_content = file_get_contents('menu.json');
 $menu = json_decode($json_content, true);
 
@@ -61,8 +69,17 @@ if (isset($_GET["vider_panier"])) {
             <a href="loc.php">Localisation</a>
         </nav>
         <div class="droite">
-            <a href="connexion_au_compte.php" class="bouton-connexion">Connexion</a>
-            <a href="creation_de_compte.php" class="bouton-inscription">Inscription</a>
+            <?php if ($est_connecte): ?>
+                <a href="profil.php" class="avatar-lien">
+                    <div class="avatar-cercle">
+                        <?php echo $initiales; ?>
+                    </div>
+                </a>
+                <a href="deconnexion.php" class="bouton-inscription">Déconnexion</a>
+            <?php else: ?>
+                <a href="connexion_au_compte.php" class="bouton-connexion">Connexion</a>
+                <a href="creation_de_compte.php" class="bouton-inscription">Inscription</a>
+            <?php endif; ?>
         </div>
     </header>
 
