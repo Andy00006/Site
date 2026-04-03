@@ -146,22 +146,7 @@
              "un peu de cake salé au sel",
          "un peu du fromage possédé"],
       "allergene":["fruit a coque","lactose","viande","gluten","fruit de mer"]
-    },
-    
-   { "id": 3,
-      "nom": "Falafel de Saveur de Rue",
-      "prix": 11.00,
-      "img": "image_plat/falafele_de_saveur_de_rue.png",
-      "description": "Falafel de Saveur de Rue",
-      "ingredient":["Mousse de Trottoir Humide", 
-            "Noyau d'Obsidienne Liquide", 
-            "Filtres de Cigarettes en Sucre de Canne",
-             "Coulis d'Huile de Vidange au Sésame","Goudron de pain pita"],
-      "allergene":["fruit à coque",
-      "gluten",
-        "viande"]
-    },
-    
+    }, 
     {
       "id": 12,
       "nom": "Kraken des Abysses",
