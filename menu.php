@@ -15,6 +15,7 @@ $menu = json_decode($json_content, true);
 if (!isset($_SESSION["panier"])) {
     $_SESSION["panier"] = [];
 }
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter_item"])) {
     $item_id = $_POST["item_id"];
     $item_nom = $_POST["item_nom"];
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter_item"])) {
     header("Location: menu.php");
     exit();
 }
+
 if (isset($_GET["vider_panier"])) {
     $_SESSION["panier"] = [];
     header("Location: menu.php");
@@ -46,7 +48,7 @@ if (isset($_GET["vider_panier"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,109 +91,85 @@ if (isset($_GET["vider_panier"])) {
 
     <div class="principal">
         <nav class="categorie-gauche">
-        <a href="#menus">Menus</a>    
-        <a href="#entrees">Entrées</a>
+            <a href="#menus">Menus</a>    
+            <a href="#entrees">Entrées</a>
             <a href="#plats">Plats</a>
             <a href="#boissons">Boissons</a>
             <a href="#desserts">Desserts</a>
         </nav>
 
         <main class="menu">
-<section id="menus">
-    <h2 class="titre">Menus transdimensionels</h2>
-    <div class="grille-menus">
-    <?php foreach ($menu["groupe_plat"] as $groupe): 
-        ?>
-        <div class="plat">
-            <?php
-$total = 0;
-$ids = array_merge(
-    $groupe["composition"]["entres"],
-    $groupe["composition"]["boisson"],
-    $groupe["composition"]["plats"],
-    $groupe["composition"]["dessert"]
-);
-$tous_les_plats = array_merge(
-    $menu["entres"],
-    $menu["boisson"],
-    $menu["plats"],
-    $menu["dessert"]
-);
-foreach ($ids as $id) {
-    foreach ($tous_les_plats as $plat) {
-        if ($plat["id"] == $id) {
-            $total += $plat["prix"];
-        }
-    }
-}
-?>
-            <div class="plat">
-    <span class="prix-total"><?= number_format($total, 2) ?>€</span>
-    <div class="contenu">
-        <h3><?= $groupe["nom"] ?></h3>
-    </div>
-</div>
-            <div class="contenu">
-                <h3><?= $groupe["nom"] ?></h3>
-
-                <div class="images-menu">
-
-                    <?php
-                    $ids = array_merge(
-                        $groupe["composition"]["entres"],
-                        $groupe["composition"]["boisson"],
-                        $groupe["composition"]["plats"],
-                        $groupe["composition"]["dessert"]
-                    );
-
-                    $tous_les_plats = array_merge(
-                        $menu["entres"],
-                        $menu["boisson"],
-                        $menu["plats"],
-                        $menu["dessert"]
-                    );
-
-                    foreach ($ids as $id):
-                        foreach ($tous_les_plats as $plat):
-                            if ($plat["id"] == $id):
-                    ?>
-<div class="mini-plat">
-    <h4>
-        <?php
-            if(in_array($id, $groupe["composition"]["entres"])){ echo "Entrée";}
-            elseif(in_array($id, $groupe["composition"]["boisson"])){  echo"Boisson";} 
-            elseif(in_array($id, $groupe["composition"]["plats"])){echo "Plat" ;}
-            else{ echo "Dessert";}
-        ?>
-    </h4>
-
-    <img src="<?php $plat["img"] ?>" alt="<?= $plat["nom"] ?>" width="100">
-    <p><?= $plat["nom"] ?></p>
-</div>
-                    <?php
-                            endif;
-                        endforeach;
-                    endforeach;
-                    ?>
-
+            <section id="menus">
+                <h2 class="titre">Menus transdimensionnels</h2>
+                <div class="grille-menus">
+                    <?php foreach ($menu["groupe_plat"] as $groupe): ?>
+                        <div class="plat">
+                            <?php
+                            $total_menu = 0;
+                            $ids = array_merge(
+                                $groupe["composition"]["entres"],
+                                $groupe["composition"]["boisson"],
+                                $groupe["composition"]["plats"],
+                                $groupe["composition"]["dessert"]
+                            );
+                            $tous_les_plats = array_merge(
+                                $menu["entres"],
+                                $menu["boisson"],
+                                $menu["plats"],
+                                $menu["dessert"]
+                            );
+                            foreach ($ids as $id) {
+                                foreach ($tous_les_plats as $p) {
+                                    if ($p["id"] == $id) { $total_menu += $p["prix"]; }
+                                }
+                            }
+                            ?>
+                            <span class="prix-total"><?= number_format($total_menu, 2) ?>€</span>
+                            <div class="contenu">
+                                <h3><?= $groupe["nom"] ?></h3>
+                                <div class="images-menu">
+                                    <?php foreach ($ids as $id): 
+                                        foreach ($tous_les_plats as $plat):
+                                            if ($plat["id"] == $id): ?>
+                                                <div class="mini-plat">
+                                                    <h4>
+                                                        <?php
+                                                            if(in_array($id, $groupe["composition"]["entres"])){ echo "Entrée";}
+                                                            elseif(in_array($id, $groupe["composition"]["boisson"])){ echo "Boisson";} 
+                                                            elseif(in_array($id, $groupe["composition"]["plats"])){ echo "Plat";}
+                                                            else{ echo "Dessert";}
+                                                        ?>
+                                                    </h4>
+                                                    <img src="<?= $plat["img"] ?>" alt="<?= $plat["nom"] ?>" width="100">
+                                                    <p><?= $plat["nom"] ?></p>
+                                                </div>
+                                            <?php endif; 
+                                        endforeach;
+                                    endforeach; ?>
+                                </div>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="menu_<?= str_replace(' ', '_', $groupe['nom']) ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($groupe['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $total_menu ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER LE MENU</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
+            </section>
 
-    </div>
-</section> 
-        <section id='entrees'>
+            <section id='entrees'>
                 <h2 class="titre">Entrées de l'Espace</h2>
                 <div class="grille-plats">
-                <?php foreach ($menu["entres"] as $plat): ?>
-                    <div class="plat">
-                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                            <img src=<?= $plat["img"] ?>>
-                        </label>
-                        <div class="contenu">
-                            <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
+                    <?php foreach ($menu["entres"] as $plat): ?>
+                        <div class="plat">
+                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
+                                <img src="<?= $plat["img"] ?>">
+                            </label>
+                            <div class="contenu">
+                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
                                 <form method="POST" action="menu.php">
                                     <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
@@ -201,19 +179,21 @@ foreach ($ids as $id) {
                                 </form>
                             </div>
                         </div>
-                <?php endforeach; ?>
-        </section>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+
             <section id='boissons'>
                 <h2 class="titre">Élixirs de Morphée</h2>
                 <div class="grille-plats">
                     <?php foreach ($menu["boisson"] as $plat): ?>
-                    <div class="plat">
-                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                            <img src=<?= $plat["img"] ?>>
-                        </label>
-                        <div class="contenu">
-                            <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
+                        <div class="plat">
+                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
+                                <img src="<?= $plat["img"] ?>">
+                            </label>
+                            <div class="contenu">
+                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
                                 <form method="POST" action="menu.php">
                                     <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
@@ -223,19 +203,21 @@ foreach ($ids as $id) {
                                 </form>
                             </div>
                         </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </section>
+
             <section id="plats">
                 <h2 class="titre">Plats Mutants</h2>
                 <div class="grille-plats">
                     <?php foreach ($menu["plats"] as $plat): ?>
-                    <div class="plat">
-                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                            <img src=<?= $plat["img"] ?>>
-                        </label>
-                        <div class="contenu">
-                            <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
+                        <div class="plat">
+                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
+                                <img src="<?= $plat["img"] ?>">
+                            </label>
+                            <div class="contenu">
+                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
                                 <form method="POST" action="menu.php">
                                     <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
@@ -245,19 +227,21 @@ foreach ($ids as $id) {
                                 </form>
                             </div>
                         </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </section>
+
             <section id="desserts">
                 <h2 class="titre">Desserts du Néant</h2>
                 <div class="grille-plats">
                     <?php foreach ($menu["dessert"] as $plat): ?>
-                    <div class="plat">
-                        <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                        <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                            <img src=<?= $plat["img"] ?>>
-                        </label>
-                        <div class="contenu">
-                            <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
+                        <div class="plat">
+                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
+                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
+                                <img src="<?= $plat["img"] ?>">
+                            </label>
+                            <div class="contenu">
+                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
                                 <form method="POST" action="menu.php">
                                     <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
@@ -267,28 +251,29 @@ foreach ($ids as $id) {
                                 </form>
                             </div>
                         </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </section>
         </main>
 
         <aside class="panier-droit">
             <div class="panier-fixe">
                 <h3>VOTRE PANIER</h3>
-                <div class="liste-panier" style="flex-direction: column; align-items: stretch; justify-content: flex-start;">
+                <div class="liste-panier">
                     <?php if (empty($_SESSION['panier'])): ?>
-                        <p class="vide" style="text-align: center; margin-top: 30px;">Le rêve est vide...</p>
-                        <?php $total = 0; ?>
+                        <p class="vide">Le rêve est vide...</p>
+                        <?php $total_panier = 0; ?>
                     <?php else: ?>
-                        <ul style="list-style: none; padding: 0; width: 100%;">
+                        <ul style="list-style: none; padding: 0;">
                             <?php 
-                                $total = 0;
+                                $total_panier = 0;
                                 foreach ($_SESSION['panier'] as $article): 
                                 $sous_total = $article['prix'] * $article['quantite'];
-                                $total += $sous_total;
+                                $total_panier += $sous_total;
                             ?>
-                            <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--noir);">
-                                <span><strong><?= $article['quantite'] ?>x</strong> <?= htmlspecialchars($article['nom']) ?></span>
-                                 <span style="font-weight: bold; color: var(--fraise); margin-left: 10px;"><?= number_format($sous_total, 2) ?>€</span>
+                            <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span><?= $article['quantite'] ?>x <?= htmlspecialchars($article['nom']) ?></span>
+                                <span><?= number_format($sous_total, 2) ?>€</span>
                             </li>
                             <?php endforeach; ?>
                         </ul>
@@ -296,12 +281,12 @@ foreach ($ids as $id) {
                 </div>
                 <div class="total">
                     <span>Total</span>
-                    <span><?= number_format($total, 2) ?>€</span> 
+                    <span><?= number_format($total_panier, 2) ?>€</span> 
                 </div>
                 <?php if (!empty($_SESSION['panier'])): ?>
-                    <a href="menu.php?vider_panier=1" style="display:block; text-align:center; color: var(--noir); font-size:12px; margin-bottom: 15px; text-decoration: underline;">Vider le panier</a>
+                    <a href="menu.php?vider_panier=1" style="display:block; text-align:center; color: var(--noir); font-size:12px; margin-bottom: 15px;">Vider le panier</a>
+                    <a href="validation.php"><button class="btn-valider">VALIDER LE RÊVE</button></a>
                 <?php endif; ?>
-                <button class="btn-valider">VALIDER LE RÊVE</button>
             </div>
         </aside>
     </div>
@@ -329,9 +314,9 @@ foreach ($ids as $id) {
         <div class="footer-bas">
             <p>© 2026 EXOTIQUE DREAM - Tous droits réservés</p>
             <div class="reseaux">
-                <a href="https://www.instagram.com/exoticdream__/"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/ExotiqueDream"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.tiktok.com/fr/"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
