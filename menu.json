@@ -305,14 +305,14 @@
     }
     },
 
-      {"nom":"soirée avec poséidon",
+      {"nom":"Soirée avec poséidon",
       "composition":{"entres":[15],
       "boisson":[8],
       "plats":[12],
       "dessert":[18]
     }
     },
-    {"nom":"intoxication alimentaire:la saga",
+    {"nom":"Intoxication alimentaire : la saga",
       "composition":{"entres":[2],
       "boisson":[6],
       "plats":[3],
