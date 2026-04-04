@@ -71,7 +71,7 @@ if(isset($_POST["prenom"])){
     <form action="creation_de_compte.php" method="post">
         
         <div class="entete">
-            <a href="accueil.html">
+            <a href="accueil.php">
                 <div class="logo"><span>Exotique</span> Dream</div>
             </a>
             <h1>Rejoignez l'aventure</h1>
