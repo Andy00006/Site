@@ -2,25 +2,20 @@
 session_start();
 require('getapikey.php');
 
-$vendeur = "MI-1_A"; 
+$vendeur = "MI-4_H"; 
 $api_key = getAPIKey($vendeur);
 
-
+$panier = $_SESSION['panier'] ?? [];
 $total_panier = 0;
-if (!empty($_SESSION['panier'])) {
-    foreach ($_SESSION['panier'] as $article) {
-        $total_panier += $article['prix'] * $article['quantite'];
-    }
+foreach ($panier as $item) {
+    $total_panier += $item['prix'] * $item['quantite'];
 }
+$montant = number_format($total_panier, 2, '.', '');
 
-
-$montant = number_format($total_panier, 2, '.', ''); 
+$mode_choisi = $_POST['moment_retrait'] ?? 'immediat';
 
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-
-
-$retour = "http://localhost/retour_paiement.php"; 
-
+$retour = "http://localhost/vrai/retour_paiement.php"; 
 $concatenation = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($concatenation);
 ?>
@@ -29,21 +24,55 @@ $control = md5($concatenation);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Validation du Rêve</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; width: 300px; text-align: center; }
-        .btn-valider { background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; width: 100%; }
-    </style>
+    <title>Validation - Exotique Dream</title>
+    <link rel="stylesheet" href="validation.css">
 </head>
 <body>
-    <div class="card">
-        <h3>VOTRE RÉCAPITULATIF</h3>
-        <p>Total à payer : <strong><?php echo $montant; ?>€</strong></p>
 
-        <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
+<div class="card">
+    <h2>Résumé de ma commande</h2>
+
+    <?php foreach ($panier as $item): ?>
+        <div class="recap-item">
+            <span><strong><?= $item['quantite'] ?>x</strong> <?= htmlspecialchars($item['nom']) ?></span>
+            <span><?= number_format($item['prix'] * $item['quantite'], 2) ?>€</span>
+        </div>
+    <?php endforeach; ?>
+
+    <div class="total">TOTAL : <?= $montant ?> €</div>
+
+    <div class="options">
+        <form method="POST" action="validation.php" id="form_mode">
+            <strong>Quand préparer la commande ?</strong><br><br>
             
-            <input type="hidden" name="transaction" value="<?php echo $transaction; ?>"> <input type="hidden" name="montant" value="<?php echo $montant; ?>"> <input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>"> <input type="hidden" name="retour" value="<?php echo $retour; ?>"> <input type="hidden" name="control" value="<?php echo $control; ?>"> <button type="submit" class="btn-valider">PROCÉDER AU PAIEMENT</button> </form>
+            <input type="radio" name="moment_retrait" value="immediat" 
+                   <?= ($mode_choisi == 'immediat') ? 'checked' : '' ?> 
+                   onchange="this.form.submit()"> Immédiat
+            
+            <input type="radio" name="moment_retrait" value="plus_tard" 
+                   <?= ($mode_choisi == 'plus_tard') ? 'checked' : '' ?> 
+                   onchange="this.form.submit()"> Plus tard
+
+            <?php if ($mode_choisi == 'plus_tard'): ?>
+                <div style="margin-top:15px; padding-top:10px; border-top: 1px solid #ccc;">
+                    <p style="font-size: 13px; color: #666;">Choisissez votre créneau :</p>
+                    <input type="date" name="date_p" required min="<?= date('Y-m-d') ?>">
+                    <input type="time" name="heure_p" required>
+                </div>
+            <?php endif; ?>
+        </form>
     </div>
+
+    <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
+        <input type="hidden" name="transaction" value="<?= $transaction ?>">
+        <input type="hidden" name="montant" value="<?= $montant ?>">
+        <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
+        <input type="hidden" name="retour" value="<?= $retour ?>">
+        <input type="hidden" name="control" value="<?= $control ?>">
+        
+        <button type="submit" class="btn-pay">CONFIRMER ET PAYER</button>
+    </form>
+</div>
+
 </body>
 </html>
