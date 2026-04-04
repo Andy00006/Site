@@ -1,70 +1,49 @@
 <?php
 session_start();
-include("getapikey.php"); 
+require('getapikey.php');
 
-if (empty($_SESSION['panier'])) {
-    header("Location: menu.php");
-    exit();
+$vendeur = "MI-1_A"; 
+$api_key = getAPIKey($vendeur);
+
+
+$total_panier = 0;
+if (!empty($_SESSION['panier'])) {
+    foreach ($_SESSION['panier'] as $article) {
+        $total_panier += $article['prix'] * $article['quantite'];
+    }
 }
 
-$total = 0;
-foreach ($_SESSION['panier'] as $item) {
-    $total += $item['prix'] * $item['quantite'];
-}
 
-$taux_remise = $_SESSION['remise'] ?? 0;
-$total_final = $total - ($total * ($taux_remise / 100));
+$montant = number_format($total_panier, 2, '.', ''); 
 
-$vendeur = "MI-4_A"; 
-
-$cle_secrete = getAPIKey($vendeur); 
+$transaction = substr(md5(uniqid(rand(), true)), 0, 15);
 
 
-$clicontrol = sha1($vendeur . $total_final . $cle_secrete);
-$montant_pur = number_format($total_final, 2, '.', '');
+$retour = "http://localhost/retour_paiement.php"; 
 
-$chaine = $vendeur . $montant_pur . $cle_secrete;
-
-$clicontrol = sha1($chaine);
+$concatenation = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
+$control = md5($concatenation);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Validation de commande</title>
-    <link rel="stylesheet" href="validation.css">
+    <title>Validation du Rêve</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; width: 300px; text-align: center; }
+        .btn-valider { background: #000; color: #fff; border: none; padding: 10px 20px; cursor: pointer; width: 100%; }
+    </style>
 </head>
 <body>
+    <div class="card">
+        <h3>VOTRE RÉCAPITULATIF</h3>
+        <p>Total à payer : <strong><?php echo $montant; ?>€</strong></p>
 
-<div class="cadre-validation">
-    <h2>Résumé final</h2>
-    
-    <?php foreach ($_SESSION['panier'] as $article): ?>
-        <div class="recap-item">
-            <span><?= $article['quantite'] ?>x <?= htmlspecialchars($article['nom']) ?></span>
-            <span><?= number_format($article['prix'] * $article['quantite'], 2) ?>€</span>
-        </div>
-    <?php endforeach; ?>
-
-    <hr>
-    <div class="recap-item" style="font-weight: bold; font-size: 1.2em;">
-        <span>Total à régler :</span>
-        <span><?= number_format($total_final, 2) ?>€</span>
+        <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
+            
+            <input type="hidden" name="transaction" value="<?php echo $transaction; ?>"> <input type="hidden" name="montant" value="<?php echo $montant; ?>"> <input type="hidden" name="vendeur" value="<?php echo $vendeur; ?>"> <input type="hidden" name="retour" value="<?php echo $retour; ?>"> <input type="hidden" name="control" value="<?php echo $control; ?>"> <button type="submit" class="btn-valider">PROCÉDER AU PAIEMENT</button> </form>
     </div>
-
-    <form action="https://www.plateforme-smc.fr/cybank" method="POST">
-        <p style="margin-top: 20px;"><strong>Adresse de livraison :</strong></p>
-        <input type="text" name="adresse" style="width:100%; padding: 10px;" required>
-
-        <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
-        <input type="hidden" name="montant" value="<?= $total_final ?>">
-        <input type="hidden" name="control" value="<?= $clicontrol ?>">
-        <input type="hidden" name="session" value="<?= session_id() ?>">
-
-        <button type="submit" class="btn-payer">Payer sur CYBank</button>
-    </form>
-</div>
-
 </body>
 </html>
