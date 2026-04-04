@@ -34,30 +34,9 @@ $clicontrol = sha1($chaine);
 <head>
     <meta charset="UTF-8">
     <title>Validation de commande</title>
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="validation.css">
     <link rel="stylesheet" href="couleur.css">
-    <style>
-        .cadre-validation {
-            max-width: 600px;
-            margin: 100px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .recap-item { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .btn-payer {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    </style>
+
 </head>
 <body>
 
