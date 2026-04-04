@@ -16,7 +16,6 @@ $taux_remise = $_SESSION['remise'] ?? 0;
 $total_final = $total - ($total * ($taux_remise / 100));
 
 $vendeur = "MI-4_A"; 
-$url_cybank = "https://www.plateforme-smc.fr/cybank/";
 
 $cle_secrete = getAPIKey($vendeur); 
 
@@ -54,7 +53,7 @@ $clicontrol = sha1($chaine);
         <span><?= number_format($total_final, 2) ?>€</span>
     </div>
 
-    <form action="<?= $url_cybank ?>" method="POST">
+    <form action="https://www.plateforme-smc.fr/cybank" method="POST">
         <p style="margin-top: 20px;"><strong>Adresse de livraison :</strong></p>
         <input type="text" name="adresse" style="width:100%; padding: 10px;" required>
 
