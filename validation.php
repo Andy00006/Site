@@ -35,8 +35,6 @@ $clicontrol = sha1($chaine);
     <meta charset="UTF-8">
     <title>Validation de commande</title>
     <link rel="stylesheet" href="validation.css">
-    <link rel="stylesheet" href="couleur.css">
-
 </head>
 <body>
 
