@@ -22,6 +22,8 @@ if (isset($_SESSION['panier'])) {
 } else {
     $panier = [];
 }
+
+
 $total_panier = 0;
 foreach ($panier as $item) {
     $total_panier += $item['prix'] * $item['quantite'];
