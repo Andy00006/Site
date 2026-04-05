@@ -10,30 +10,40 @@ if(isset($_POST["email"])){
 
     foreach($utilisateurs as $key){
         if ($key["email"] == $_POST["email"] && $key["mdp"] == $_POST["mdp"]) {
-            $_SESSION["id_user"] = $key["id"];
-            $_SESSION["prenom"] = $key["prenom"];
-            $_SESSION["nom"] = $key["nom"];
-            $_SESSION["role"] = $key["role"];
-            $_SESSION["email"] = $key["email"];
-            $_SESSION["tel"] = $key["tel"];
-            $_SESSION["adresse"] = $key["adresse"];
             
-            $longueur_mdp = strlen($key["mdp"]);
-            $_SESSION["mdp_masque"] = str_repeat("•", $longueur_mdp);
-
-            if ($_SESSION["role"] === "cuisinier") {
-                header("Location: commandes.php");
+            if ($key["role"] === "bloqué") {
+                $erreur = "Votre compte a été suspendu par l'administrateur.";
+                break;
             } 
-            elseif ($_SESSION["role"] === "livreur") {
-                header("Location: livraison.php");
-            }  
             else {
-                header("Location: accueil.php");
+                $_SESSION["id_user"] = $key["id"];
+                $_SESSION["prenom"] = $key["prenom"];
+                $_SESSION["nom"] = $key["nom"];
+                $_SESSION["role"] = $key["role"];
+                $_SESSION["email"] = $key["email"];
+                $_SESSION["tel"] = $key["tel"];
+                $_SESSION["adresse"] = $key["adresse"];
+                
+                $longueur_mdp = strlen($key["mdp"]);
+                $_SESSION["mdp_masque"] = str_repeat("•", $longueur_mdp);
+
+                if ($_SESSION["role"] === "cuisinier") {
+                    header("Location: commandes.php");
+                }
+                elseif ($_SESSION["role"] === "livreur") {
+                    header("Location: livraison.php");
+                } 
+                else {
+                    header("Location: accueil.php");
+                }
+                exit();
             }
-            exit();
+            break;
          }
     }
-    $erreur = "Email ou mot de passe incorrect";
+    if ($erreur === "") {
+        $erreur = "Email ou mot de passe incorrect";
+    }
 }
 ?>
 
