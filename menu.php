@@ -164,10 +164,9 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["entres"] as $plat): ?>
                         <div class="plat">
-                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                                <img src="<?= $plat["img"] ?>">
-                            </label>
+                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
+                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            </a>
                             <div class="contenu">
                                 <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
@@ -188,10 +187,9 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["boisson"] as $plat): ?>
                         <div class="plat">
-                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                                <img src="<?= $plat["img"] ?>">
-                            </label>
+                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
+                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            </a>
                             <div class="contenu">
                                 <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
@@ -212,10 +210,9 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["plats"] as $plat): ?>
                         <div class="plat">
-                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                                <img src="<?= $plat["img"] ?>">
-                            </label>
+                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
+                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            </a>
                             <div class="contenu">
                                 <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
@@ -236,10 +233,9 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["dessert"] as $plat): ?>
                         <div class="plat">
-                            <input type="checkbox" id="plat_<?= $plat['id'] ?>" class="cadre">
-                            <label for="plat_<?= $plat['id'] ?>" class="image-box">
-                                <img src="<?= $plat["img"] ?>">
-                            </label>
+                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
+                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            </a>
                             <div class="contenu">
                                 <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
                                 <p class="description"><?= $plat["description"]?></p>
