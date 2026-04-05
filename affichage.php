@@ -1,5 +1,12 @@
 <?php
 session_start();
+$est_connecte = isset($_SESSION["prenom"]);
+
+if ($est_connecte) {
+    $initiale_prenom = strtoupper(substr($_SESSION["prenom"], 0, 1));
+    $initiale_nom = strtoupper(substr($_SESSION["nom"], 0, 1));
+    $initiales = $initiale_prenom . $initiale_nom;
+}
 
 $json_content = file_get_contents('menu.json');
 $menu = json_decode($json_content, true);
@@ -43,7 +50,7 @@ $allergenes = isset($plat_actuel['allergene']) ? $plat_actuel['allergene'] : ['A
         <nav class="milieu">
             <a href="accueil.php">Accueil</a>
             <a href="com.php">Communication</a>
-            <a href="menu.php" class="active">Menu</a>
+            <a href="menu.php">Menu</a>
             <a href="loc.php">Localisation</a>
             <?php if (isset($_SESSION["role"]) && $_SESSION["role"] === "Admin"): ?>
                 <a href="administrateur.php" style="color: var(--fraise); font-weight: bold;">
@@ -52,7 +59,17 @@ $allergenes = isset($plat_actuel['allergene']) ? $plat_actuel['allergene'] : ['A
             <?php endif; ?>
         </nav>
         <div class="droite">
-            <a href="connexion_au_compte.php" class="bouton-connexion">Connexion</a>
+            <?php if ($est_connecte): ?>
+                <a href="profil.php" class="avatar-lien">
+                    <div class="avatar-cercle">
+                        <?php echo $initiales; ?>
+                    </div>
+                </a>
+                <a href="deconnexion.php" class="bouton-inscription">Déconnexion</a>
+            <?php else: ?>
+                <a href="connexion_au_compte.php" class="bouton-connexion">Connexion</a>
+                <a href="creation_de_compte.php" class="bouton-inscription">Inscription</a>
+            <?php endif; ?>
         </div>
     </header>
 
