@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION["prenom"])) {
     header("Location: connexion_au_compte.php");
     exit();
@@ -9,8 +8,13 @@ if (!isset($_SESSION["prenom"])) {
 $initiale_p = mb_substr($_SESSION["prenom"], 0, 1);
 $initiale_n = mb_substr($_SESSION["nom"], 0, 1);
 $initiales = mb_strtoupper($initiale_p . $initiale_n);
-?>
+$histo_file = 'histo_commande.json';
+$historique_commandes = [];
 
+if (file_exists($histo_file)) {
+    $historique_commandes = json_decode(file_get_contents($histo_file), true);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,13 +111,31 @@ $initiales = mb_strtoupper($initiale_p . $initiale_n);
                     <label>Historique des commandes</label>
                 </div>
                 <ul class="liste-commandes">
-                    <li><span>1000 et une Pâte</span><span class="date">Hier</span></li>
-                    <li><span>Viande de Dodo</span><span class="date">10 Fév.</span></li>
-                </ul>
+<?php foreach ($historique_commandes as $commande): ?>
+    <?php if (
+    $commande["nom"] == $_SESSION["nom"] &&
+    $commande["prenom"] == $_SESSION["prenom"])?>
+        <li>
+            <div>
+                <?php foreach ($commande["panier"] as $item): ?>
+                    <?php
+                    if (isset($item["nom_menu"])) {
+                        echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
+                    } else {
+                        echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
+                    }
+                    ?>
+                <?php endforeach; ?>
+            </div>
+            <span class="date"><?php echo $commande["date"]; ?></span>
+        </li>
+    <?php endif; ?>
+<?php endforeach; ?>
+</ul>
             </div>
             <div class="actions-profil">
             <a href="suivie.php">
-                <button type="button" class="btn-suivie" >regarder le suivie de commande</bouton>
+                <button type="button" class="btn-suivie" >regarder le suivie de commande</button>
             </a>
                 <a href="accueil.php">
                     <button type="button" class="btn-principal">Retour à l'accueil</button>
