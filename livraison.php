@@ -17,25 +17,30 @@ if (file_exists($commandes_file)) {
 
 foreach ($commandes as $cmd) {
     if (isset($cmd['statut'])) {
-        if ($cmd['statut'] == 'en_livraison') {
+        if ($cmd['statut'] == 'en_livraison' || $cmd['statut'] == 'en_cours_de_livr') {
             $commande_active = $cmd;
             break;
         }
     }
 }
 
-    if (isset($_POST['finaliser_commande'])) {
-        $id_fin = $_POST['commande_id'];
-        foreach ($commandes as &$c) {
-            if ($c['id'] == $id_fin) {
+if (isset($_POST['finaliser_commande'])) {
+    $id_fin = $_POST['commande_id'];
+    foreach ($commandes as &$c) {
+        if ($c['id'] == $id_fin) {
+            if ($c['statut'] == 'en_livraison') {
+                $c['statut'] = 'en_cours_de_livr';
+            } 
+            else if ($c['statut'] == 'en_cours_de_livr') {
                 $c['statut'] = 'livre';
-                break;
             }
+            break;
         }
-        file_put_contents($commandes_file, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-        header("Location: livraison.php");
-        exit();
     }
+    file_put_contents($commandes_file, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    header("Location: livraison.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -63,15 +68,15 @@ foreach ($commandes as $cmd) {
             
             <?php if ($commande_active): ?>
                 <section class="bloc-client">
-                    <h2><?php echo $commande_active['prenom'] . " " . $commande_active['nom']; ?></h2>
+                    <h2><?php echo htmlspecialchars($commande_active['prenom'] . " " . $commande_active['nom']); ?></h2>
                     <div class="liste-plats-simple">
                         <?php foreach ($commande_active['panier'] as $item): ?>
                             <p>- <?php echo $item['quantite']; ?>x 
                                 <?php 
                                 if (isset($item['nom_menu'])) {
-                                    echo $item['nom_menu'];
+                                    echo htmlspecialchars($item['nom_menu']);
                                 } else {
-                                    echo "Plat: " . $item['nom_plat'];
+                                    echo "Plat: " . htmlspecialchars($item['nom_plat']);
                                 }
                                 ?>
                             </p>
@@ -84,32 +89,38 @@ foreach ($commandes as $cmd) {
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div>
-                        <p class="rue"><?php echo $commande_active['adresse']; ?></p>
+                        <p class="rue"><?php echo htmlspecialchars($commande_active['adresse']); ?></p>
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($commande_active['adresse']); ?>" class="bouton-gps" target="_blank">
+                    <a href="http://maps.google.com/?q=<?php echo urlencode($commande_active['adresse']); ?>" class="bouton-gps" target="_blank">
                         LANCER LE GPS
                     </a>
                 </section>
 
                 <div class="actions-livreur">
-                    <a href="tel:<?php echo $commande_active['tel'] ?? '0600000000'; ?>" class="bouton-appel">
-                        <i class="fas fa-phone-alt"></i> APPELER (<?php echo $commande_active['tel'] ?? 'N/A'; ?>)
+                    <a href="tel:<?php echo $commande_active['tel']; ?>" class="bouton-appel">
+                        <i class="fas fa-phone-alt"></i> APPELER (<?php echo $commande_active['tel']; ?>)
                     </a>
-                    
                     <form method="POST" style="width: 100%;">
                         <input type="hidden" name="commande_id" value="<?php echo $commande_active['id']; ?>">
-                        <button type="submit" name="finaliser_commande" class="bouton-fin-livraison">
-                            CONFIRMER LA LIVRAISON
-                        </button>
+                        <?php if ($commande_active['statut'] == 'en_livraison'): ?>
+                            <button type="submit" name="finaliser_commande" class="bouton-fin-livraison_vert">
+                                CONFIRMER LA RÉCEPTION
+                            </button>
+                        <?php else: ?>
+                            <button type="submit" name="finaliser_commande" class="bouton-fin-livraison_rouge">
+                                FINALISER LA LIVRAISON
+                            </button>
+                        <?php endif; ?>
                     </form>
-                    <button class="bouton-erreur" style="background: #e74c3c; color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: bold; margin-top: 10px;">
+                    
+                    <button class="bouton-erreur">
                         SIGNALER UNE ERREUR
                     </button>
                 </div>
 
             <?php else: ?>
                 <div style="text-align: center; padding: 50px;">
-                    <i class="fas fa-box-open" style="font-size: 50px; color: #ccc;"></i>
+                    <i class="fas_fa-box-open"></i>
                     <p>Aucune commande à livrer pour le moment.</p>
                 </div>
             <?php endif; ?>
