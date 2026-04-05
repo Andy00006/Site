@@ -20,7 +20,11 @@ if(isset($_POST["email"])){
             $longueur_mdp = strlen($key["mdp"]);
             $_SESSION["mdp_masque"] = str_repeat("•", $longueur_mdp);
 
-            header("Location: accueil.php");
+            if ($_SESSION["role"] === "cuisinier") {
+                header("Location: commandes.php");
+            } else {
+                header("Location: accueil.php");
+            }
             exit();
          }
     }
