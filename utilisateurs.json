@@ -1,4 +1,4 @@
 [{"prenom":"Andy","nom":"Laloum","email":"andy.laloum8@gmail.com","date":"2026-04-17","mdp":"Azerty123456&","tel":"07 60 06 28 05","adresse":"14rue de la poste","role":"Admin","id":"1"},
 {"prenom":"test","nom":"salut","email":"test@gmail.com","date":"2026-04-30","mdp":"Wxcv1234567&","tel":"06 00 00 00 00","adresse":"2rue de test","role":"client","id":"2"},
 {"prenom":"Exotique","nom":"cusisinier","email":"andy.laloum8@gmail.com","date":"2026-04-18","mdp":"Cuisinier123&","tel":"07 60 06 28 05","adresse":"1rue du cuisinier","role":"cuisinier","id":"3"},
-{"id":4,"prenom":"nouveau","nom":"client","email":"nouveau@gmail.com","date":"2026-04-10","mdp":"Nouveau1234&","tel":"06 56 28 41 56","adresse":"155rue du nouveau","role":"client"}]
+{"id":4,"prenom":"nouveau","nom":"client","email":"nouveau@gmail.com","date":"2026-04-10","mdp":"Nouveau1234&","tel":"06 56 28 41 56","adresse":"155rue du nouveau","role":"livreur"}]
