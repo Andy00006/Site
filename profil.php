@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once 'deco.php';
+
 if (!isset($_SESSION["prenom"])) {
     header("Location: connexion_au_compte.php");
     exit();
