@@ -31,6 +31,11 @@ if ($est_connecte) {
             <a href="com.php" class="active">Communication</a>
             <a href="menu.php">Menu</a>
             <a href="loc.php">Localisation</a>
+            <?php if (isset($_SESSION["role"]) && $_SESSION["role"] === "Admin"): ?>
+                <a href="administrateur.php" style="color: var(--fraise); font-weight: bold;">
+                    <i class="fas fa-lock"></i> Admin
+                </a>
+            <?php endif; ?>
         </nav>
         <div class="droite">
             <?php if ($est_connecte): ?>
