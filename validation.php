@@ -15,7 +15,7 @@ $montant = number_format($total_panier, 2, '.', '');
 $mode_choisi = $_POST['moment_retrait'] ?? 'immediat';
 
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-$retour = "http://localhost/vrai/retour_paiement.php"; 
+$retour = "http://localhost/vrai/menu.php"; 
 $concatenation = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($concatenation);
 ?>
