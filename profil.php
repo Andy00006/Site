@@ -137,9 +137,7 @@ foreach ($historique_commandes as $commande) {
         echo "<span class='date'>" . $commande["date"] . "</span>";
         echo "</li>";
 
-    } else {
-
-    }
+    } 
 }
 ?>
                 </ul>
