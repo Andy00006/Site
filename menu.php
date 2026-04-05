@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once 'deco.php';
 $est_connecte = isset($_SESSION["prenom"]);
 
 if ($est_connecte) {
