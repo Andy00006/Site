@@ -141,14 +141,6 @@ if (isset($_POST['adresse_client'])){
             <?php endif; ?>
         </form>
     </div>
-
-    <form method="POST">
-        <div style="margin: 20px 0; text-align: left;">
-            <label>Adresse de livraison :</label>
-            <input type="text" name="adresse_client" required style="width: 100%; padding: 8px; margin-top: 5px;">
-        </div>
-        
-    </form>
      <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
         <input type="hidden" name="transaction" value="<?= $transaction ?>">
         <input type="hidden" name="montant" value="<?= $montant ?>">
