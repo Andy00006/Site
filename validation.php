@@ -28,7 +28,11 @@ if ($mode_choisi === 'plus_tard') {
 }
 
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-$retour = "http://localhost/Site-main/retour_paiement.php"; 
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+$directory = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$retour = $protocol . $host . $directory . "/retour_paiement.php";
 
 $chaine = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($chaine);
