@@ -70,18 +70,16 @@ $control = md5($concatenation);
     <div class="options">
         <form method="POST" action="validation.php" id="form_mode">
             <strong>Quand préparer la commande ?</strong><br><br>
-            <input type="radio" name="moment_retrait" value="immediat" 
+            <input type="radio" name="moment_retrait" value="immediat">
                    <?php if($mode_choisi == 'immediat'){
     echo 'checked';
 } else {
     echo '';
 } ?> 
-                   onchange="this.form.submit()"> Immédiat
+                   
             
-            <input type="radio" name="moment_retrait" value="plus_tard" 
+            <input type="radio" name="moment_retrait" value="plus_tard">
                    <?php if ($mode_choisi == 'plus_tard'){ echo 'checked';}else{ echo '';}?> 
-                   onchange="this.form.submit()"> Plus tard
-
             <?php if ($mode_choisi == 'plus_tard'): ?>
                 <div style="margin-top:15px; padding-top:10px; border-top: 1px solid #ccc;">
                     <p style="font-size: 13px; color: #666;">Choisissez votre créneau :</p>
