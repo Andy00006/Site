@@ -62,6 +62,20 @@ body {
     margin: 5px 0 20px 0; 
 }
 
+.bouton-erreur {background: #b62c2c; 
+    color: white; 
+    width: 100%; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    margin-top: 10px;
+}
+
+.fas_fa-box-open{font-size: 50px; 
+    color: #ccc;
+}
+
 .bouton-gps {
     display: block;
     background: var(--bleu-gps);
@@ -128,16 +142,26 @@ body {
     gap: 15px;
 }
 
-.bouton-fin-livraison {
+.bouton-fin-livraison_vert {
     background: var(--kiwi);
-    color: white;
-    border: none;
-    padding: 30px; 
-    border-radius: 18px;
-    font-weight: 900;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 8px 0 #26af5f; 
+     color: white; 
+    width: 100%; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.bouton-fin-livraison_rouge {
+    background-color: #e74c3c; 
+    color: white; 
+    width: 100%; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
 }
 
 .bouton-fin-livraison:active {
