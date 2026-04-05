@@ -48,7 +48,7 @@ if(isset($_POST["email"])){
     <form action="connexion_au_compte.php" method="post">
         
         <div class="entete">
-            <a href="accueil.php">
+            <a href="accueil.php" class="lien-logo">
                 <div class="logo"><span>Exotique</span> Dream</div>
             </a>
             <h1>Bon retour !</h1>
