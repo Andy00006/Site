@@ -180,6 +180,9 @@ body {
     color: #777;
     font-size: 14px;
 }
+.pas-souligner{
+    text-decoration: none;
+}
 
 .message-status {
     margin-top: 15px;
@@ -213,5 +216,6 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 
 

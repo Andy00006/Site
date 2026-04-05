@@ -88,6 +88,7 @@ foreach ($commandes_brutes as $cmd) {
 
                 <div class="liste-tickets">
                     <?php foreach ($a_preparer as $cmd): ?>
+                        <a href="contenu.php?id=<?= $cmd['id'] ?>" class="pas-souligner">
                         <div class="ticket-commande">
                             <div class="haut-du-ticket">
                                 <span class="nom-client"><?php echo htmlspecialchars($cmd['prenom'] . " " . $cmd['nom']); ?></span>
@@ -141,6 +142,7 @@ foreach ($commandes_brutes as $cmd) {
                                 <?php endif; ?>
                             </form>
                         </div>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </section>
@@ -152,6 +154,7 @@ foreach ($commandes_brutes as $cmd) {
                 </div>
                 <div class="liste-tickets">
                     <?php foreach ($en_livraison as $cmd): ?>
+                        <a href="contenu.php?id=<?= $cmd['id'] ?>" class="pas-souligner">
                         <div class="ticket-commande statut-en-route">
                             <div class="haut-du-ticket">
                                 <span class="nom-client"><?php echo htmlspecialchars($cmd['prenom'] . " " . $cmd['nom']); ?></span>
@@ -168,6 +171,7 @@ foreach ($commandes_brutes as $cmd) {
                                 ?>
                             </div>
                         </div>
+                    </a>
                     <?php endforeach; ?>
                 </div>
             </section>
