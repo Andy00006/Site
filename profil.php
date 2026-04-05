@@ -113,25 +113,35 @@ if (file_exists($histo_file)) {
                     <label>Historique des commandes</label>
                 </div>
                 <ul class="liste-commandes">
-                <?php foreach ($historique_commandes as $commande): ?>
-                    <?php if (
-                    $commande["nom"] == $_SESSION["nom"] &&
-                    $commande["prenom"] == $_SESSION["prenom"])?>
-                        <li>
-                            <div>
-                                <?php foreach ($commande["panier"] as $item): ?>
-                                    <?php
-                                    if (isset($item["nom_menu"])) {
-                                        echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
-                                    } else {
-                                        echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
-                                    }
-                                    ?>
-                                <?php endforeach; ?>
-                            </div>
-                            <span class="date"><?php echo $commande["date"]; ?></span>
-                        </li>
-                <?php endforeach; ?>
+               <?php
+foreach ($historique_commandes as $commande) {
+    if (
+        $commande["nom"] == $_SESSION["nom"] &&
+        $commande["prenom"] == $_SESSION["prenom"]
+    ) {
+
+        echo "<li>";
+        echo "<div>";
+
+        foreach ($commande["panier"] as $item) {
+
+            if (isset($item["nom_menu"])) {
+                echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
+            } else {
+                echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
+            }
+
+        }
+
+        echo "</div>";
+        echo "<span class='date'>" . $commande["date"] . "</span>";
+        echo "</li>";
+
+    } else {
+
+    }
+}
+?>
                 </ul>
             </div>
             <div class="actions-profil">
