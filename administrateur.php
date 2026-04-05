@@ -109,9 +109,6 @@ $total_inscrits = count($utilisateurs);
                                 <button class="btn-action-admin orange" title="Bloquer l'utilisateur">
                                     <i class="fas fa-ban"></i>
                                 </button>
-                                <button class="btn-action-admin rouge" title="Supprimer définitivement">
-                                    <i class="fas fa-times"></i>
-                                </button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -120,6 +117,5 @@ $total_inscrits = count($utilisateurs);
             </div>
         </main>
     </div>
-
 </body>
 </html>
