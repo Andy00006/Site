@@ -110,12 +110,6 @@ $total_inscrits = count($utilisateurs);
                                 <a href="affiche_profil.php?id=<?= $user['id'] ?>" class="btn-action-admin bleu">
                                     <i class="fas fa-eye"></i>
                                 </a>
-
-                                <?php if ($user['id'] != $_SESSION['id_user']): ?>
-                                    <button class="btn-action-admin orange" title="Bloquer">
-                                        <i class="fas fa-ban"></i>
-                                    </button>
-                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
