@@ -10,6 +10,7 @@ if(isset($_POST["email"])){
 
     foreach($utilisateurs as $key){
         if ($key["email"] == $_POST["email"] && $key["mdp"] == $_POST["mdp"]) {
+            $_SESSION["id_user"] = $key["id"];
             $_SESSION["prenom"] = $key["prenom"];
             $_SESSION["nom"] = $key["nom"];
             $_SESSION["role"] = $key["role"];
