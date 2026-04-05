@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'deco.php';
 
 if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin") {
     header("Location: accueil.php");
