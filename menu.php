@@ -15,7 +15,8 @@ $menu = json_decode($json_content, true);
 if (!isset($_SESSION["panier"])) {
     $_SESSION["panier"] = [];
 }
-isset($_POST["ajouter_item"])) {
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["ajouter_item"])) {
     $item_id = $_POST["item_id"];
     $item_nom = $_POST["item_nom"];
     $item_prix = (float)$_POST["item_prix"];
@@ -37,12 +38,15 @@ isset($_POST["ajouter_item"])) {
     }
     header("Location: menu.php");
     exit();
+}
+
 if (isset($_GET["vider_panier"])) {
     $_SESSION["panier"] = [];
     header("Location: menu.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -100,60 +104,68 @@ if (isset($_GET["vider_panier"])) {
         </nav>
 
         <main class="menu">
-          <section id="menus">
-    <h2 class="titre">Menus transdimensionnels</h2>
-    <div class="grille-menus">
-        <?php foreach ($menu["groupe_plat"] as $groupe): ?>
-            <div class="plat">
-                <?php
-                $total_menu = 0;
-                $composition = $groupe["composition"];
-                $details_menu = [];
-                $tous_plats = array_merge($menu["entres"], $menu["boisson"], $menu["plats"], $menu["dessert"]);
-                $catalogue = [];
-                foreach ($tous_plats as $p) { $catalogue[$p["id"]] = $p; }
-                ?>
-                
-                <div class="contenu">
-                    <h3><?= htmlspecialchars($groupe["nom"]) ?></h3>
-                    
-                    <div class="images-menu">
-                        <?php 
-                        foreach ($composition as $categorie => $ids_categorie): 
-                            foreach ($ids_categorie as $id):
-                                if (isset($catalogue[$id])):
-                                    $plat = $catalogue[$id];
-                                    $total_menu += $plat["prix"];
-                                    $labels = ["entres" => "Entrée", "boisson" => "Boisson", "plats" => "Plat", "dessert" => "Dessert"];
-                                    $label = "Produit";
-                                    if (isset($labels[$categorie])) {
-                                        $label = $labels[$categorie];
-                                        }
-                        ?>
-                                    <div class="mini-plat">
-                                        <h4><?= $label ?></h4>
-                                        <img src="<?= $plat["img"] ?>" alt="<?= htmlspecialchars($plat["nom"]) ?>" width="100">
-                                        <p><?= htmlspecialchars($plat["nom"]) ?></p>
-                                    </div>
-                        <?php 
-                                endif;
-                            endforeach;
-                        endforeach; 
-                        ?>
-                    </div>
-
-                    <span class="prix-total"><?= number_format($total_menu, 2) ?>€</span>
-                    <form method="POST" action="menu.php">
-                        <input type="hidden" name="item_id" value="menu_<?= str_replace(' ', '_', $groupe['nom']) ?>">
-                        <input type="hidden" name="item_nom" value="<?= htmlspecialchars($groupe['nom']) ?>">
-                        <input type="hidden" name="item_prix" value="<?= $total_menu ?>">
-                        <button type="submit" name="ajouter_item" class="ajouter">AJOUTER LE MENU</button>
-                    </form>
+            <section id="menus">
+                <h2 class="titre">Menus transdimensionnels</h2>
+                <div class="grille-menus">
+                    <?php foreach ($menu["groupe_plat"] as $groupe): ?>
+                        <div class="plat">
+                            <?php
+                            $total_menu = 0;
+                            $ids = array_merge(
+                                $groupe["composition"]["entres"],
+                                $groupe["composition"]["boisson"],
+                                $groupe["composition"]["plats"],
+                                $groupe["composition"]["dessert"]
+                            );
+                            $tous_les_plats = array_merge(
+                                $menu["entres"],
+                                $menu["boisson"],
+                                $menu["plats"],
+                                $menu["dessert"]
+                            );
+                            foreach ($ids as $id) {
+                                foreach ($tous_les_plats as $p) {
+                                    if ($p["id"] == $id) { $total_menu += $p["prix"]; }
+                                }
+                            }
+                            ?>
+                            <span class="prix-total"><?= number_format($total_menu, 2) ?>€</span>
+                            <div class="contenu">
+                                <h3><?= $groupe["nom"] ?></h3>
+                                <div class="images-menu">
+                                    <?php foreach ($ids as $id): 
+                                        foreach ($tous_les_plats as $plat):
+                                            if ($plat["id"] == $id): ?>
+                                            <a href="affichage.php?id=<?= $plat['id'] ?>">
+                                                <div class="mini-plat">
+                                                        <h4>
+                                                            <?php
+                                                                if(in_array($id, $groupe["composition"]["entres"])){ echo "Entrée";}
+                                                                elseif(in_array($id, $groupe["composition"]["boisson"])){ echo "Boisson";} 
+                                                                elseif(in_array($id, $groupe["composition"]["plats"])){ echo "Plat";}
+                                                                else{ echo "Dessert";}
+                                                            ?>
+                                                        </h4>
+                                                    <img src="<?= $plat["img"] ?>" alt="<?= $plat["nom"] ?>" width="100">
+                                                    <p><?= $plat["nom"] ?></p>
+                                                </div>
+                                            </a>
+                                            <?php endif; 
+                                        endforeach;
+                                    endforeach; ?>
+                                </div>
+                                <form method="POST" action="menu.php">
+                                    <input type="hidden" name="item_id" value="menu_<?= str_replace(' ', '_', $groupe['nom']) ?>">
+                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($groupe['nom']) ?>">
+                                    <input type="hidden" name="item_prix" value="<?= $total_menu ?>">
+                                    <button type="submit" name="ajouter_item" class="ajouter">AJOUTER LE MENU</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-</section>  
+            </section>
+
             <section id='entrees'>
                 <h2 class="titre">Entrées de l'Espace</h2>
                 <div class="grille-plats">
