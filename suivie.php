@@ -1,7 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set('Europe/Paris');
-
 $commandes_file = 'commandes.json';
 $ma_commande = null;
 
@@ -13,7 +12,6 @@ if (file_exists($commandes_file)) {
         $ma_commande = end($commandes);
     }
 }
-
 $libelle_statut = [
     "a_preparer" => "En attente de préparation",
     "en_cours_de_prep" => "En cours de préparation 👨‍🍳",
@@ -21,6 +19,22 @@ $libelle_statut = [
     "en_cours_de_livr" => "Le livreur arrive ! 🏁",
     "livre" => "Commande livrée ✅"
 ];
+if (isset($_POST["valider_commande"])) {
+    $histo_file = 'histo_commande.json';
+    if (file_exists($histo_file)) {
+        $historique = json_decode(file_get_contents($histo_file), true);
+    } else {
+        $historique = [];
+    }
+    $nouvelle_commande = [
+        "nom" => $ma_commande["nom"],
+        "prenom" => $ma_commande["prenom"],
+        "date" => date("d/m/Y H:i"),
+        "panier" => $ma_commande["panier"]
+    ];
+    $historique[] = $nouvelle_commande;
+    file_put_contents($histo_file, json_encode($historique, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,9 +69,7 @@ $libelle_statut = [
                     <p>Commande <strong>#<?php echo $ma_commande['id']; ?></strong></p>
                     <p>Heure : <strong><?php echo $ma_commande['heure']; ?></strong></p>
                 </div>
-
                 <hr>
-
                 <div class="liste-articles">
                     <?php foreach ($ma_commande['panier'] as $item): ?>
                         <div class="article">
@@ -82,18 +94,16 @@ $libelle_statut = [
             </div>
 <div class="actions">
                 <?php if ($ma_commande['statut'] == 'livre'): ?>
-                    <a href="notation.php?<?php echo $ma_commande['id']; ?>" class="btn-avis">
-                        DONNER MON AVIS
-                    </a>
+                   <form action="notation.php" method="POST">
+    <button type="submit" name="valider_commande" class="btn-avis">DONNER MON AVIS</button>
+                    </form>
                 <?php endif; ?>
-                
-                <a href="notation.php" class="btn-retour">Retour à l'accueil</a>
+                <a href="accueil.php" class="btn-retour">Retour à l'accueil</a>
             </div>
-
         <?php else: ?>
             <div class="card-suivi" style="text-align: center;">
                 <p>Aucune commande en cours.</p>
-                <a href="index.php" class="btn-retour">Commander</a>
+                <a href="menu.php" class="btn-retour">Commander</a>
             </div>
         <?php endif; ?>
     </div>
