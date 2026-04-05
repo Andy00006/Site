@@ -96,6 +96,7 @@ $total_inscrits = count($utilisateurs);
                                             <option value="cuisinier" <?= ($user["role"] === "cuisinier") ? "selected" : "" ?>>Cuisinier</option>
                                             <option value="livreur" <?= ($user["role"] === "livreur") ? "selected" : "" ?>>Livreur</option>
                                             <option value="Admin" <?= ($user["role"] === "Admin") ? "selected" : "" ?>>Admin</option>
+                                            <option value="bloqué" <?= ($user["role"] === "bloqué") ? "selected" : "" ?>>🚫 BLOQUÉ</option>
                                         </select>
                                     </form>
                                 <?php else: ?>
