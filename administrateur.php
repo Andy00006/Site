@@ -57,14 +57,6 @@ $total_inscrits = count($utilisateurs);
                     <span class="etiquette">Total Inscrits</span>
                     <p class="valeur"><?php echo $total_inscrits; ?></p>
                 </div>
-                <div class="boite-stat">
-                    <span class="etiquette">Clients Actifs</span>
-                    <p class="valeur">856</p>
-                </div>
-                <div class="boite-stat">
-                    <span class="etiquette">Nouveaux (24h)</span>
-                    <p class="valeur">+12</p>
-                </div>
             </div>
 
             <div class="section-info"> <div class="entete-liste">
