@@ -41,8 +41,6 @@ $initiales = mb_strtoupper($initiale_p . $initiale_n);
         
         <div class="profil-header">
             <div class="avatar-logo"><?php echo $initiales; ?></div>
-            <h2>Mon Profil</h2>
-            <p>Heureux de vous revoir, <?php echo $profil_actuel["prenom"]; ?> !</p>
         </div>
 
         <div class="formulaire-utopik">
@@ -112,7 +110,7 @@ $initiales = mb_strtoupper($initiale_p . $initiale_n);
                     <div class="barre-progression">
                         <div class="barre-remplissage" style="width: 75%;"></div>
                     </div>
-                    <p class="fidelite">Plus que 50 points avant votre cadeau ! 🎁</p>
+                    <p class="fidelite">Plus que 50 points avant son cadeau ! 🎁</p>
                 </div>
             </div>
 
@@ -124,18 +122,6 @@ $initiales = mb_strtoupper($initiale_p . $initiale_n);
                     <li><span>1000 et une Pâte</span><span class="date">Hier</span></li>
                     <li><span>Viande de Dodo</span><span class="date">10 Fév.</span></li>
                 </ul>
-            </div>
-
-            <div class="actions-profil">
-                <a href="accueil.php">
-                    <button type="button" class="btn-principal">Retour à l'accueil</button>
-                </a>
-
-                <a href="deconnexion.php">
-                    <button type="button" class="btn-deconnexion">
-                        <i class="fas fa-sign-out-alt"></i> Se déconnecter
-                    </button>
-                </a>
             </div>
 
         </div>

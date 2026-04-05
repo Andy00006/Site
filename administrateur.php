@@ -100,9 +100,9 @@ $total_inscrits = count($utilisateurs);
                                 <span class="badge-remise"><?php echo $user["remise"] ?? "0"; ?>%</span>
                             </td>
                             <td class="cellule-actions">
-                                <button class="btn-action-admin bleu" title="Voir le profil">
+                                <a href="affiche_profil.php?id=<?= $user['id'] ?>" class="btn-action-admin bleu" title="Voir le profil">
                                     <i class="fas fa-eye"></i>
-                                </button>
+                                </a>
                                 <button class="btn-action-admin jaune" title="Modifier statut/remise">
                                     <i class="fas fa-edit"></i>
                                 </button>
