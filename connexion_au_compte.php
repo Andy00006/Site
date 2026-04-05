@@ -23,7 +23,11 @@ if(isset($_POST["email"])){
 
             if ($_SESSION["role"] === "cuisinier") {
                 header("Location: commandes.php");
-            } else {
+            } 
+            elseif ($_SESSION["role"] === "livreur") {
+                header("Location: livraison.php");
+            }  
+            else {
                 header("Location: accueil.php");
             }
             exit();
