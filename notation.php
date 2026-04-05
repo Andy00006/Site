@@ -12,9 +12,9 @@
 
     <div class="carte-notation">
         <header class="entete-avis">
-            <div class="logo">Nom</div>
+            <div class="logo">EXOTIQUE<span> DREAM</span></div>
             <h1>Commande livrée !</h1>
-            <p>Comment s'est passée votre livraison avec <strong>Thomas</strong> ?</p>
+            <p>Comment s'est passée votre livraison avec <strong>Yves Oikeudal</strong> ?</p>
         </header>
 
         <main>
@@ -46,7 +46,7 @@
                 <textarea placeholder="Un petit mot sur la livraison ? (optionnel)"></textarea>
             </div>
 
-            <button type="submit" class="valider">VALIDER MON AVIS</button>
+            <form action="accueil.php"><button type="submit" class="valider">VALIDER MON AVIS</button></form>
             <a href="accueil.php" class="bouton-passer">Passer cette étape</a>
         </main>
     </div>
