@@ -42,7 +42,8 @@ function trouverProduit($id, $menu) {
                     $c['info_livraison'] = 'Parti à ' . date('H:i');
                 }
                 break; 
-            } }
+            }
+        }
         
         $json_final = json_encode($commandes_brutes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         file_put_contents($commandes_file, $json_final);
@@ -50,7 +51,6 @@ function trouverProduit($id, $menu) {
         header("Location: commandes.php");
         exit();
     }
-
 $a_preparer = [];
 $en_livraison = [];
 
@@ -68,7 +68,7 @@ foreach ($commandes_brutes as $cmd) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>} - Gestion Cuisine</title>
+    <title>Yumland - Gestion Cuisine</title>
     <link rel="stylesheet" href="commandes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="couleur.css">
