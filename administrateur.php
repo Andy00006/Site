@@ -88,27 +88,33 @@ $total_inscrits = count($utilisateurs);
                             <td><strong><?php echo $user["prenom"] . " " . $user["nom"]; ?></strong></td>
                             <td><?php echo $user["email"]; ?></td>
                             <td>
-                                <?php 
-                                    $statut = $user["statut"] ?? "Standard";
-                                    $classe_pastille = ($user["role"] === "Admin") ? "pastille-resto" : "pastille-client";
-                                ?>
-                                <span class="pastille <?php echo $classe_pastille; ?>">
-                                    <?php echo $statut; ?>
-                                </span>
+                                <?php if ($user["id"] != $_SESSION["id_user"]): ?>
+                                    <form action="update_role.php" method="POST" style="display:inline;">
+                                        <input type="hidden" name="id_user" value="<?= $user['id'] ?>">
+                                        <select name="nouveau_role" onchange="this.form.submit()" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+                                            <option value="client" <?= ($user["role"] === "client") ? "selected" : "" ?>>Client</option>
+                                            <option value="cuisinier" <?= ($user["role"] === "cuisinier") ? "selected" : "" ?>>Cuisinier</option>
+                                            <option value="livreur" <?= ($user["role"] === "livreur") ? "selected" : "" ?>>Livreur</option>
+                                            <option value="Admin" <?= ($user["role"] === "Admin") ? "selected" : "" ?>>Admin</option>
+                                        </select>
+                                    </form>
+                                <?php else: ?>
+                                    <strong>Admin</strong>
+                                <?php endif; ?>
                             </td>
                             <td>
                                 <span class="badge-remise"><?php echo $user["remise"] ?? "0"; ?>%</span>
                             </td>
                             <td class="cellule-actions">
-                                <a href="affiche_profil.php?id=<?= $user['id'] ?>" class="btn-action-admin bleu" title="Voir le profil">
+                                <a href="affiche_profil.php?id=<?= $user['id'] ?>" class="btn-action-admin bleu">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <button class="btn-action-admin jaune" title="Modifier statut/remise">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn-action-admin orange" title="Bloquer l'utilisateur">
-                                    <i class="fas fa-ban"></i>
-                                </button>
+
+                                <?php if ($user['id'] != $_SESSION['id_user']): ?>
+                                    <button class="btn-action-admin orange" title="Bloquer">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                <?php endif; ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
