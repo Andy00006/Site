@@ -5,9 +5,9 @@ if (!isset($_SESSION["prenom"])) {
     exit();
 }
 
-$initiale_p = mb_substr($_SESSION["prenom"], 0, 1);
-$initiale_n = mb_substr($_SESSION["nom"], 0, 1);
-$initiales = mb_strtoupper($initiale_p . $initiale_n);
+$initiale_p = substr($_SESSION["prenom"], 0, 1);
+$initiale_n = substr($_SESSION["nom"], 0, 1);
+$initiales = strtoupper($initiale_p . $initiale_n);
 $histo_file = 'histo_commande.json';
 $historique_commandes = [];
 
@@ -111,27 +111,26 @@ if (file_exists($histo_file)) {
                     <label>Historique des commandes</label>
                 </div>
                 <ul class="liste-commandes">
-<?php foreach ($historique_commandes as $commande): ?>
-    <?php if (
-    $commande["nom"] == $_SESSION["nom"] &&
-    $commande["prenom"] == $_SESSION["prenom"])?>
-        <li>
-            <div>
-                <?php foreach ($commande["panier"] as $item): ?>
-                    <?php
-                    if (isset($item["nom_menu"])) {
-                        echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
-                    } else {
-                        echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
-                    }
-                    ?>
+                <?php foreach ($historique_commandes as $commande): ?>
+                    <?php if (
+                    $commande["nom"] == $_SESSION["nom"] &&
+                    $commande["prenom"] == $_SESSION["prenom"])?>
+                        <li>
+                            <div>
+                                <?php foreach ($commande["panier"] as $item): ?>
+                                    <?php
+                                    if (isset($item["nom_menu"])) {
+                                        echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
+                                    } else {
+                                        echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
+                                    }
+                                    ?>
+                                <?php endforeach; ?>
+                            </div>
+                            <span class="date"><?php echo $commande["date"]; ?></span>
+                        </li>
                 <?php endforeach; ?>
-            </div>
-            <span class="date"><?php echo $commande["date"]; ?></span>
-        </li>
-    <?php endif; ?>
-<?php endforeach; ?>
-</ul>
+                </ul>
             </div>
             <div class="actions-profil">
             <a href="suivie.php">
