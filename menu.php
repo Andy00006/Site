@@ -136,7 +136,7 @@ if (isset($_GET["vider_panier"])) {
                                     <?php foreach ($ids as $id): 
                                         foreach ($tous_les_plats as $plat):
                                             if ($plat["id"] == $id): ?>
-                                            <a href="affichage.php?id=<?= $plat['id'] ?>">
+                                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="lien-mini-plat">
                                                 <div class="mini-plat">
                                                         <h4>
                                                             <?php
