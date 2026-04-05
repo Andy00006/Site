@@ -5,21 +5,97 @@ require('getapikey.php');
 $vendeur = "MI-4_H"; 
 $api_key = getAPIKey($vendeur);
 
-$panier = $_SESSION['panier'] ?? [];
+if (isset($_SESSION['nom'])) {
+    $nom_client = $_SESSION['nom'];
+} else {
+    $nom_client = 'Nom';
+}
+
+if (isset($_SESSION['prenom'])) {
+    $prenom_client = $_SESSION['prenom'];
+} else {
+    $prenom_client = 'Prénom';
+}
+
+if (isset($_SESSION['panier'])) {
+    $panier = $_SESSION['panier'];
+} else {
+    $panier = [];
+}
 $total_panier = 0;
 foreach ($panier as $item) {
     $total_panier += $item['prix'] * $item['quantite'];
 }
 $montant = number_format($total_panier, 2, '.', '');
-
-$mode_choisi = $_POST['moment_retrait'] ?? 'immediat';
-
+if (isset($_POST['moment_retrait'])) {
+    $mode_choisi = $_POST['moment_retrait'];
+} else {
+    $mode_choisi = 'immediat';
+}
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-$retour = "http://localhost/vrai/menu.php"; 
+$retour = "http://localhost/vrai/retour_paiement.php"; 
 $concatenation = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($concatenation);
-?>
 
+if (isset($_POST['adresse_client'])){
+    
+    $commandes_file = 'commandes.json';
+    if (file_exists($commandes_file)) {
+    $contenu = file_get_contents($commandes_file);
+    $commandes = json_decode($contenu, true);
+    
+    if ($commandes === null) {
+        $commandes = [];
+    }
+} else {
+    $commandes = [];
+}
+    if ($commandes === null) $commandes = [];
+
+    $nouvel_id = 1;
+    if (!empty($commandes)) {
+        $derniere_cmd = end($commandes);
+        $nouvel_id = $derniere_cmd['id'] + 1;
+    }
+
+    $panier_cuisine = [];
+    foreach ($panier as $item) {
+        $id = $item['id'];
+        
+        if (strpos((string)$id, 'menu_') === 0) {
+            $panier_cuisine[] = [
+                'type' => 'menu',
+                'nom_menu' => $item['nom'],
+                'quantite' => $item['quantite']
+            ];
+        } else {
+            $panier_cuisine[] = [
+                'type' => 'plat',
+                'id_produit' => (int)$id,
+                'quantite' => $item['quantite']
+            ];
+        }
+    }
+
+    $nouvelle_commande = [
+        "id" => $nouvel_id,
+        "nom" => $nom_client,
+        "prenom" => $prenom_client,
+        "adresse" => $_POST['adresse_client'],
+        "heure" => date('H:i'),
+        "statut" => "a_preparer",
+        "panier" => $panier_cuisine,
+        "total" => $montant,
+        "info_livraison" => ""
+    ];
+
+    $commandes[] = $nouvelle_commande;
+    file_put_contents($commandes_file, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    
+    $_SESSION['panier'] = [];
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,7 +106,8 @@ $control = md5($concatenation);
 <body>
 
 <div class="card">
-    <h2>Résumé de ma commande</h2>
+    <h2>Résumé de la commande</h2>
+    <p>Client : <?= htmlspecialchars($prenom_client) ?> <?= htmlspecialchars($nom_client) ?></p>
 
     <?php foreach ($panier as $item): ?>
         <div class="recap-item">
@@ -40,17 +117,19 @@ $control = md5($concatenation);
     <?php endforeach; ?>
 
     <div class="total">TOTAL : <?= $montant ?> €</div>
-
     <div class="options">
         <form method="POST" action="validation.php" id="form_mode">
             <strong>Quand préparer la commande ?</strong><br><br>
-            
             <input type="radio" name="moment_retrait" value="immediat" 
-                   <?= ($mode_choisi == 'immediat') ? 'checked' : '' ?> 
+                   <?php if($mode_choisi == 'immediat'){
+    echo 'checked';
+} else {
+    echo '';
+} ?> 
                    onchange="this.form.submit()"> Immédiat
             
             <input type="radio" name="moment_retrait" value="plus_tard" 
-                   <?= ($mode_choisi == 'plus_tard') ? 'checked' : '' ?> 
+                   <?php if ($mode_choisi == 'plus_tard'){ echo 'checked';}else{ echo '';}?> 
                    onchange="this.form.submit()"> Plus tard
 
             <?php if ($mode_choisi == 'plus_tard'): ?>
@@ -63,7 +142,14 @@ $control = md5($concatenation);
         </form>
     </div>
 
-    <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
+    <form method="POST">
+        <div style="margin: 20px 0; text-align: left;">
+            <label>Adresse de livraison :</label>
+            <input type="text" name="adresse_client" required style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+        
+    </form>
+     <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
         <input type="hidden" name="transaction" value="<?= $transaction ?>">
         <input type="hidden" name="montant" value="<?= $montant ?>">
         <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
