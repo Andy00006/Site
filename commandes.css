@@ -190,8 +190,28 @@ body {
     border-top: 1px solid #eee;
 }
 
+ .bouton_vert {background-color: #27ae60; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    width: 100%; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.bouton_rouge {background-color: #e74c3c; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    width: 100%; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
 @media (max-width: 992px) {
     .zone-principale-restaurateur {
         grid-template-columns: 1fr;
     }
 }
+
+
