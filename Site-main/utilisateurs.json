@@ -1,0 +1,9 @@
+[{"id":"1","prenom":"Andy","nom":"Laloum","email":"andy.laloum8@gmail.com","date":"2026-04-17","mdp":"Azerty123456&","tel":"07 60 06 28 05","adresse":"14rue de la poste","role":"Admin"},
+{"id":"2","prenom":"test","nom":"salut","email":"test@gmail.com","date":"2026-04-30","mdp":"Wxcv1234567&","tel":"06 00 00 00 00","adresse":"2rue de test","role":"Admin"},
+{"id":"3","prenom":"Exotique","nom":"cusisinier","email":"andy.laloum8@gmail.com","date":"2026-04-18","mdp":"Cuisinier123&","tel":"07 60 06 28 05","adresse":"1rue du cuisinier","role":"cuisinier"},
+{"id":4,"prenom":"nouveau","nom":"client","email":"nouveau@gmail.com","date":"2026-04-10","mdp":"Nouveau1234&","tel":"06 56 28 41 56","adresse":"155rue du nouveau","role":"livreur"},
+{"id":5,"prenom":"Nicolas","nom":"DaSilva","email":"nicolas.dasilva@gmail.com","date":"2021-05-20","mdp":"Nicolas123456&","tel":"07 56 52 41 78","adresse":"23rue de la mer","role":"client"},
+{"id":6,"prenom":"Bon","nom":"jour","email":"bonjour@gmail.com","date":"2026-04-15","mdp":"Bonjour123456&","tel":"06 56 74 55 55","adresse":"1rue du bonjour","role":"client"},
+{"id":7,"prenom":"Info","nom":"rmatique","email":"info@gmail.com","date":"2026-04-22","mdp":"Informatique123456&","tel":"07 65 84 68 25","adresse":"3rue de l'info","role":"client"},
+{"id":8,"prenom":"Joie","nom":"De Vivre","email":"joie@gmail.com","date":"2026-04-16","mdp":"Joie123456789&","tel":"07 56 52 45 96","adresse":"56rue du pelican","role":"client"},
+{"id":9,"prenom":"Paulo","nom":"Vinzant","email":"paulo@gmail.com","date":"2026-04-22","mdp":"Paulo123456&","tel":"06 35 45 85 96","adresse":"6rue du rigolo","role":"client"}]

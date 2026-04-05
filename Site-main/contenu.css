@@ -1,0 +1,88 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--gris-fond);
+    color: #000;
+    margin: 0;
+    padding: 20px;
+}
+.oe{
+    display:inline-block; 
+    text-decoration:none; 
+    background-color:var(--fraise); 
+    color:var(--noir); 
+    font-weight:bold; 
+    padding:10px 20px; 
+    border-radius:25px; 
+}
+.ticket {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.btn-retour {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.info-commande {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.article {
+    margin-bottom: 25px;
+}
+.article-titre {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.quantite {
+    font-size: 22px;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+.menu-item {
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px solid #000;
+}
+
+.sous-produit {
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+.fin{
+    text-align: center; 
+    margin-top: 30px; 
+    border-top: 1px solid #000; 
+    padding-top: 10px; 
+    font-size: 12px;
+}
+.ingredient{
+    margin-left: 15px; 
+    font-style: italic;
+}
+
+.ingredients-liste {
+    margin: 5px 0 0 35px;
+    font-size: 15px;
+    color: #333;
+}
