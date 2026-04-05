@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$temps_limite = 1000;
+$temps_limite = 2000;
 if (isset($_SESSION["role"])) {
     if (isset($_SESSION["derniere_activite"])) {
         $temps_inactif = time() - $_SESSION["derniere_activite"];
