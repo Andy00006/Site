@@ -111,8 +111,10 @@ $initiales = mb_strtoupper($initiale_p . $initiale_n);
                     <li><span>Viande de Dodo</span><span class="date">10 Fév.</span></li>
                 </ul>
             </div>
-
             <div class="actions-profil">
+            <a href="suivie.php">
+                <button type="button" class="btn-suivie" >regarder le suivie de commande</bouton>
+            </a>
                 <a href="accueil.php">
                     <button type="button" class="btn-principal">Retour à l'accueil</button>
                 </a>
