@@ -34,7 +34,16 @@ if(isset($_POST["prenom"])){
          $contenu = file_get_contents($fichier);
          $utilisateurs = json_decode($contenu, true);
 
+        if (empty($utilisateurs)) {
+            $nouvel_id = 1;
+        } 
+        else {
+            $dernier_utilisateur = end($utilisateurs);
+            $nouvel_id = $dernier_utilisateur['id'] + 1;
+        }
+
          $nouveau = array(
+            "id" => $nouvel_id,
             "prenom" => $_POST["prenom"],
             "nom" => $_POST["nom"],
             "email" => $_POST["email"],
