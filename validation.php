@@ -22,8 +22,16 @@ if (isset($_SESSION['panier'])) {
 } else {
     $panier = [];
 }
-
-
+if (isset($_SESSION['adresse'])) {
+    $adresse = $_SESSION['adresse'];
+} else {
+    $atel = 'adresse';
+}
+if (isset($_SESSION['tel'])) {
+    $tel = $_SESSION['tel'];
+} else {
+    $tel = 'telephone';
+}
 $total_panier = 0;
 foreach ($panier as $item) {
     $total_panier += $item['prix'] * $item['quantite'];
@@ -35,68 +43,9 @@ if (isset($_POST['moment_retrait'])) {
     $mode_choisi = 'immediat';
 }
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-$retour = "http://localhost/vrai/retour_paiement.php"; 
+$retour = "http://localhost/retour_paiement.php"; 
 $concatenation = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($concatenation);
-
-if (isset($_POST['adresse_client'])){
-    
-    $commandes_file = 'commandes.json';
-    if (file_exists($commandes_file)) {
-    $contenu = file_get_contents($commandes_file);
-    $commandes = json_decode($contenu, true);
-    
-    if ($commandes === null) {
-        $commandes = [];
-    }
-} else {
-    $commandes = [];
-}
-    if ($commandes === null) $commandes = [];
-
-    $nouvel_id = 1;
-    if (!empty($commandes)) {
-        $derniere_cmd = end($commandes);
-        $nouvel_id = $derniere_cmd['id'] + 1;
-    }
-
-    $panier_cuisine = [];
-    foreach ($panier as $item) {
-        $id = $item['id'];
-        
-        if (strpos((string)$id, 'menu_') === 0) {
-            $panier_cuisine[] = [
-                'type' => 'menu',
-                'nom_menu' => $item['nom'],
-                'quantite' => $item['quantite']
-            ];
-        } else {
-            $panier_cuisine[] = [
-                'type' => 'plat',
-                'id_produit' => (int)$id,
-                'quantite' => $item['quantite']
-            ];
-        }
-    }
-
-    $nouvelle_commande = [
-        "id" => $nouvel_id,
-        "nom" => $nom_client,
-        "prenom" => $prenom_client,
-        "adresse" => $_POST['adresse_client'],
-        "heure" => date('H:i'),
-        "statut" => "a_preparer",
-        "panier" => $panier_cuisine,
-        "total" => $montant,
-        "info_livraison" => ""
-    ];
-
-    $commandes[] = $nouvelle_commande;
-    file_put_contents($commandes_file, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    
-    $_SESSION['panier'] = [];
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -106,7 +55,6 @@ if (isset($_POST['adresse_client'])){
     <link rel="stylesheet" href="validation.css">
 </head>
 <body>
-
 <div class="card">
     <h2>Résumé de la commande</h2>
     <p>Client : <?= htmlspecialchars($prenom_client) ?> <?= htmlspecialchars($nom_client) ?></p>
@@ -144,14 +92,13 @@ if (isset($_POST['adresse_client'])){
         </form>
     </div>
      <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
-        <input type="hidden" name="transaction" value="<?= $transaction ?>">
-        <input type="hidden" name="montant" value="<?= $montant ?>">
-        <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
-        <input type="hidden" name="retour" value="<?= $retour ?>">
-        <input type="hidden" name="control" value="<?= $control ?>">
-        
-        <button type="submit" class="btn-pay">CONFIRMER ET PAYER</button>
-    </form>
+    <input type="hidden" name="transaction" value="<?= $transaction ?>">
+    <input type="hidden" name="montant" value="<?= $montant ?>">
+    <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
+    <input type="hidden" name="retour" value="<?= $retour ?>">
+    <input type="hidden" name="control" value="<?= $control ?>">
+    <button type="submit" class="btn-pay">PROCÉDER AU RÈGLEMENT (<?= $montant ?>€)</button>
+</form>
 </div>
 
 </body>
