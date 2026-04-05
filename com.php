@@ -120,12 +120,12 @@ if ($est_connecte) {
                     <span>- Ella Danloss</span>
                 </div>
                 <div class="avis">
-                    <img src="photo pour les personnes/dahmer.jpeg" alt="Jean Balletoultan">
+                    <img src="photo_avatar/dahmer.jpeg" alt="Jean Balletoultan">
                     <p>"Le cocktail Rien Ne Va est une tuerie absolue ! Service au top."</p>
                     <span>- Jean Balletoultan</span>
                 </div>
                 <div class="avis">
-                    <img src="photo pour les personnes/trump.jpeg" alt="Terry Kiki">
+                    <img src="photo_avatar/trump.jpeg" alt="Terry Kiki">
                     <p>"Livraison éclair, plat encore fumant. Une vraie magie."</p>
                     <span>- Terry Kiki</span>
                 </div>
