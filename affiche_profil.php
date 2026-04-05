@@ -18,9 +18,9 @@ foreach ($profils as $profil) {
 
 $longueur_mdp = strlen($profil["mdp"]);
 $profil_actuel["mdp_masque"] = str_repeat("•", $longueur_mdp);
-$initiale_p = mb_substr($profil_actuel["prenom"], 0, 1);
-$initiale_n = mb_substr($profil_actuel["nom"], 0, 1);
-$initiales = mb_strtoupper($initiale_p . $initiale_n);
+$initiale_p = substr($profil_actuel["prenom"], 0, 1);
+$initiale_n = substr($profil_actuel["nom"], 0, 1);
+$initiales = strtoupper($initiale_p . $initiale_n);
 
 
 ?>
