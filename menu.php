@@ -288,7 +288,9 @@ if (isset($_GET["vider_panier"])) {
                 </div>
                 <?php if (!empty($_SESSION['panier'])): ?>
                     <a href="menu.php?vider_panier=1" style="display:block; text-align:center; color: var(--noir); font-size:12px; margin-bottom: 15px;">Vider le panier</a>
-                    <a href="validation.php"><button class="btn-valider">VALIDER LE RÊVE</button></a>
+                    <a href="<?= $est_connecte ? 'validation.php' : 'connexion_au_compte.php' ?>">
+                        <button class="btn-valider">VALIDER LE RÊVE</button>
+                    </a>
                 <?php endif; ?>
             </div>
         </aside>
