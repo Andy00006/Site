@@ -1,44 +1,121 @@
-.affichage{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    gap: 40px;
+.page-details {
+    max-width: 1200px;
+    margin: 120px auto 60px;
+    padding: 0 40px;
 }
-.description{
+
+.btn-retour {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: #747d8c;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-retour:hover {
+    color: var(--fraise);
+    transform: translateX(-5px);
+}
+
+.conteneur-details {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.details-gauche {
     flex: 1;
 }
-.titre{
-    font-size: 3rem;
-    margin-top: 100;
+
+.titre-geant {
+    font-size: 45px;
+    font-weight: 900;
     color: var(--noir);
     line-height: 1.1;
+    margin-bottom: 20px;
 }
-.prix{
-    font-size: 1.8rem;
-    color: var(--fraise);
-    font-weight: bold;
-    margin: 15px 0;
-}
-.ingredient{
-    font-size: 1.2rem;
-    color:var(--noir);
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-.ingredients{
-    font-size: 0.95rem;
-    color: var(--noir);
+
+.desc-detail {
+    font-size: 18px;
+    color: #747d8c;
+    margin-bottom: 40px;
     line-height: 1.6;
 }
-.img{
-    flex:1
+
+.bloc-infos {
+    margin-bottom: 30px;
 }
-.imgg{
+
+.bloc-infos h3 {
+    font-size: 18px;
+    color: var(--noir);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.liste-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.liste-tags li {
+    background-color: var(--gris-clair);
+    color: var(--noir);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.liste-tags.allergenes li {
+    background-color: var(--ombre);
+    color: var(--fraise);
+}
+
+.zone-achat {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid var(--gris-clair);
+}
+
+.prix-geant {
+    font-size: 35px;
+    font-weight: 900;
+    color: var(--fraise);
+}
+
+.btn-valider-detail {
+    background: var(--noir);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-valider-detail:hover {
+    background: var(--kiwi);
+    transform: scale(1.05);
+}
+
+.details-droite {
+    flex: 1;
+}
+
+.cadre-image-geant img {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px var(--ombre2);
+    object-fit: cover;
 }
