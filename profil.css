@@ -111,6 +111,23 @@ body {
     margin-bottom: 5px;
 }
 
+.btn-suivie {
+    width: 100%;
+    padding: 16px;
+    border-radius: 18px;
+    border: none;
+    background: var(--kiwi);
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.btn-suiviel:hover {
+    background: #cbe3ce; }
+
 .btn-principal:hover {
     background: #4b5563; 
 }
@@ -186,8 +203,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
-
+    margin-top: 8px;
+    margin-bottom: 0px;
 }
 
 .actions-profil a {
