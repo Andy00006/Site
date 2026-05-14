@@ -4,6 +4,11 @@ session_start();
 $commandes_file = 'commandes.json';
 $commande_active = null;
 
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "livreur") {
+    header("Location: accueil.php");
+    exit();
+}
+
 if (file_exists($commandes_file)) {
     $contenu = file_get_contents($commandes_file);
     $commandes = json_decode($contenu, true);

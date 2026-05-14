@@ -4,6 +4,11 @@ date_default_timezone_set('Europe/Paris');
 $commandes_file = 'commandes.json';
 $menu_file = 'menu.json';
 
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "cuisinier") {
+    header("Location: accueil.php");
+    exit();
+}
+
 if (file_exists($commandes_file)) {
     $commandes_brutes = json_decode(file_get_contents($commandes_file), true);
     if ($commandes_brutes === null) {
