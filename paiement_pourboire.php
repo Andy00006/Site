@@ -1,18 +1,26 @@
 <?php
 session_start();
 require('getapikey.php');
+
 if (!isset($_SESSION['pourboire']) || $_SESSION['pourboire'] <= 0) {
     header("Location: accueil.php");
-    exit;
+    exit();
 }
+
 $vendeur = "MI-4_H"; 
 $api_key = getAPIKey($vendeur);
 $montant_pourboire = $_SESSION['pourboire'];
 $montant = number_format($montant_pourboire, 2, '.', '');
 $transaction = substr(md5(uniqid(rand(), true)), 0, 15);
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+
+$protocol = "http://";
+if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    $protocol = "https://";
+}
+
 $host = $_SERVER['HTTP_HOST'];
-$retour = $protocol . $host . "/retour_pourboire.php"; 
+$retour = $protocol . $host . "/accueil.php"; 
+
 $chaine = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#";
 $control = md5($chaine);
 ?>
