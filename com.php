@@ -113,6 +113,7 @@ if ($est_connecte) {
 
         <section>
             <div class="grille-avis">
+                <a href="avis.php" class="btn-avis">Voir d'autre avis</a>
                 <div class="avis">
                     <img src="photo_avatar/sweety_fox.jpeg" alt="Ella Danloss">
                     <p>"Une expérience visuelle et gustative jamais vue ailleurs. J'adore !"</p>
