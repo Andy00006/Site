@@ -112,8 +112,6 @@ if ($est_connecte) {
         </section>
 
         <section>
-            <h2 class="titre2">NOTES DU RÊVE</h2>
-            <div class="note-globale">4.9/5 ★★★★★</div>
             <div class="grille-avis">
                 <div class="avis">
                     <img src="photo_avatar/sweety_fox.jpeg" alt="Ella Danloss">
