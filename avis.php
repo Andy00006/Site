@@ -121,12 +121,15 @@ if ($compteur_notes > 0) {
         </div>
         <div class="footer-section">
             <h3>LIENS UTILES</h3>
-            <a href="accueil.php">Retour à la boutique</a>
-            <a href="#">Mentions Légales</a>
+            <a href="com.php">Retour à la page de communication</a>
+            <a href="accueil.php">Retour à l'accueil</a>
+            <a href="mentions.php">Mentions Légales</a>
         </div>
         <div class="footer-section">
-            <h3>CONTACT</h3>
-            <p>Support client disponible 7j/7.</p>
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> - 12 Avenue des Saveurs, Cergy</p>
+            <p><i class="fas fa-phone"></i> - 01 23 45 67 89</p>
+            <p><i class="fas fa-envelope"></i> - contact@exotiquedream.fr</p>
         </div>
         <div class="footer-bas">
             <span>© 2026 EXOTIQUE DREAM. Tous droits réservés.</span>
