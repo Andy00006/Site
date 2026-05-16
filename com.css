@@ -164,6 +164,28 @@
     margin-bottom: 10px;
 }
 
+.btn-avis {
+    background: white;
+    color: var(--fraise);
+    border: none;
+    padding: 22px 50px;
+    border-radius: 40px;
+    font-weight: 900;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-avis:hover {
+    transform: scale(1.05);
+    background: var(--noir);
+    color: white;
+}
+
+
 .btn-postuler {
     background: white;
     color: var(--fraise);
