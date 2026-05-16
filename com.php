@@ -112,8 +112,9 @@ if ($est_connecte) {
         </section>
 
         <section>
-            <div class="grille-avis">
-                <a href="avis.php" class="btn-avis">Voir d'autre avis</a>
+        <div class="carre-avis">    
+            <a href="avis.php" class="btn-avis">Voir d'autre avis</a></div>    
+        <div class="grille-avis">
                 <div class="avis">
                     <img src="photo_avatar/sweety_fox.jpeg" alt="Ella Danloss">
                     <p>"Une expérience visuelle et gustative jamais vue ailleurs. J'adore !"</p>
@@ -130,7 +131,7 @@ if ($est_connecte) {
                     <span>- Terry Kiki</span>
                 </div>
             </div>
-        </section>
+        </section> 
 
         <section>
             <div class="postuler">
