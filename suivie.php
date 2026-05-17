@@ -13,7 +13,7 @@ if (file_exists($commandes_file)) {
     }
 }
 $libelle_statut = [
-    "a_preparer" => "En attente de préparation",
+    "a_preparer" => "En attente de préparation, vous pouvez modifier votre commande",
     "en_cours_de_prep" => "En cours de préparation 👨‍🍳",
     "en_livraison" => "En cours de livraison 🛵",
     "en_cours_de_livr" => "Le livreur arrive ! 🏁",
@@ -93,7 +93,15 @@ if (isset($_POST["valider_commande"])) {
                 <?php endif; ?>
             </div>
 <div class="actions">
-                <?php if ($ma_commande['statut'] == 'livre'): ?>
+               <?php if ($ma_commande['statut'] == 'a_preparer'): ?>
+                   <form action="modifier_commande.php" method="POST">
+                    <input type="hidden" name="id_commande" value="<?php echo $commande['id']; ?>">
+    <button type="submit" name="valider_commande" class="btn-avis">MODIFIER LA COMMANDE</button>
+                    </form>
+                <?php endif; ?>
+
+
+<?php if ($ma_commande['statut'] == 'livre'): ?>
                    <form action="notation.php" method="POST">
     <button type="submit" name="valider_commande" class="btn-avis">DONNER MON AVIS</button>
                     </form>
