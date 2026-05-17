@@ -1,13 +1,10 @@
 (function () {
-    // Appliquer le thème immédiatement pour éviter le flash
     var saved = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', saved);
 
     document.addEventListener('DOMContentLoaded', function () {
         var btn = document.getElementById('dark-toggle');
         if (!btn) return;
-
-        // Sync icônes au chargement
         updateIcons(document.documentElement.getAttribute('data-theme') === 'dark');
 
         btn.addEventListener('click', function () {
@@ -22,7 +19,12 @@
     function updateIcons(isDark) {
         var btn = document.getElementById('dark-toggle');
         if (!btn) return;
-        btn.setAttribute('aria-label', isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
-        btn.setAttribute('title',      isDark ? 'Mode clair' : 'Mode sombre');
+       if (isDark) {
+    btn.setAttribute('aria-label', 'Passer en mode clair');
+    btn.setAttribute('title', 'Mode clair');
+} else {
+    btn.setAttribute('aria-label', 'Passer en mode sombre');
+    btn.setAttribute('title', 'Mode sombre');
+}
     }
 })();
