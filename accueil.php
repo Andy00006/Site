@@ -2,7 +2,6 @@
 session_start();
 require_once 'deco.php';
 $est_connecte = isset($_SESSION["prenom"]);
-
 if ($est_connecte) {
     $initiale_prenom = strtoupper(substr($_SESSION["prenom"], 0, 1));
     $initiale_nom = strtoupper(substr($_SESSION["nom"], 0, 1));
