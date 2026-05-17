@@ -80,13 +80,6 @@ label {
     margin-left: 5px;
 }
 
-.mdp-oublie {
-    font-size: 12px;
-    color: var(--fraise);
-    text-decoration: none;
-    font-weight: 600;
-}
-
 input[type="email"], 
 input[type="password"] {
     padding: 16px 20px;
