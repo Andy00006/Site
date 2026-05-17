@@ -61,6 +61,8 @@ if(isset($_POST["email"])){
     <title>Connexion</title>
     <link rel="stylesheet" href="connexion_au_compte.css">
     <link rel="stylesheet" href="couleur.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="site.css">
     <script src="darkmode.js"></script>
 </head>
 <body>
@@ -92,9 +94,11 @@ if(isset($_POST["email"])){
             <div class="saisie">
                 <div class="label-flex">
                     <label for="mdp">Mot de passe</label>
-                    <a href="mdp_oublie.html" class="mdp-oublie">Oublié ?</a>
                 </div>
-                <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe" required>
+                <div class="conteneur-mdp">
+                    <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe" required>
+                    <i class="fas fa-eye icone-oeil" id="bascule-mdp"></i>
+                </div>
             </div>
         </div>
 
@@ -121,5 +125,21 @@ if(isset($_POST["email"])){
     </form>
 </div>
 
+<script>
+    const basculeMdp = document.getElementById('bascule-mdp');
+    const champMdp = document.getElementById('mdp');
+
+    basculeMdp.addEventListener('click', function() {
+        if (champMdp.type === 'password') {
+            champMdp.type = 'text';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        } else {
+            champMdp.type = 'password';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        }
+    });
+</script>
 </body>
 </html>
