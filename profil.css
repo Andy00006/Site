@@ -211,6 +211,104 @@ body {
     text-decoration: none;
 }
 
+.message-profil {
+    padding: 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.message-succes {
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    border: 1px solid #2ecc71;
+}
+
+.message-erreur {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid #ff4d4d;
+}
+
+.modale-fond {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modale-contenu {
+    background-color: var(--blanc);
+    padding: 25px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: apparition 0.3s ease;
+}
+
+.modale-contenu h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: var(--noir);
+}
+
+.champ-saisie-modale input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background: var(--gris-fond);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.champ-saisie-modale input:focus {
+    outline: none;
+    border-color: var(--kiwi);
+}
+
+.boutons-modale {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-annuler {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-valider {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: var(--noir);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes apparition {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 @media (max-width: 480px) {
     body {
         padding: 10px; 
