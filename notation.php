@@ -2,6 +2,7 @@
 session_start();
 $livreur = "Yves Oikeudal";
 $file = "notation.json";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
 
     if (isset($_POST["note"])) {
@@ -10,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
         $note = "0";
     }
 
-    if (isset($_POST["commentaire"])) {
-        $commentaire = $_POST["commentaire"];
+    if (isset($_POST["comment"])) {
+        $comment = $_POST["comment"];
     } else {
-        $commentaire = "";
+        $comment = "";
     }
 
     if (isset($_POST["pourboire"])) {
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
 
     $avis = array(
         "note" => $note,
-        "commentaire" => $commentaire,
+        "commentaire" => $comment,
         "livreur" => $livreur,
         "pourboire" => $pourboire
     );
@@ -37,6 +38,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
 
     $data[] = $avis;
     file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
+
+    $fichier_commandes = "commandes.json";
+    $fichier_histo = "histo_commande.json";
+
+    if (file_exists($fichier_commandes)) {
+        $commandes = json_decode(file_get_contents($fichier_commandes), true);
+    } else {
+        $commandes = array();
+    }
+
+    if (file_exists($fichier_histo)) {
+        $historique = json_decode(file_get_contents($fichier_histo), true);
+    } else {
+        $historique = array();
+    }
+
+    if (isset($_SESSION["nom"]) && isset($_SESSION["prenom"])) {
+        $nom_client = $_SESSION["nom"];
+        $prenom_client = $_SESSION["prenom"];
+        $index_commande = -1;
+
+        foreach ($commandes as $index => $cmd) {
+            if ($cmd["nom"] === $nom_client && $cmd["prenom"] === $prenom_client) {
+                $index_commande = $index;
+            }
+        }
+
+        if ($index_commande !== -1) {
+            $commande_a_deplacer = $commandes[$index_commande];
+            $commande_a_deplacer["date"] = date("d/m/Y");
+            
+            $historique[] = $commande_a_deplacer;
+            file_put_contents($fichier_histo, json_encode($historique, JSON_PRETTY_PRINT));
+
+            array_splice($commandes, $index_commande, 1);
+            file_put_contents($fichier_commandes, json_encode($commandes, JSON_PRETTY_PRINT));
+        }
+    }
 
     $_SESSION['pourboire'] = $pourboire;
 
