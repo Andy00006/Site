@@ -53,12 +53,12 @@ if (isset($_GET["vider_panier"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Carte - Exotique Dream</title>
+    <script src="darkmode.js"></script>
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="site.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="couleur.css">
-    <script src="darkmode.js"></script>
 </head>
 <body>
     <header class="header">
@@ -77,10 +77,6 @@ if (isset($_GET["vider_panier"])) {
             <?php endif; ?>
         </nav>
         <div class="droite">
-            <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre">
-                <span class="toggle-icon icon-moon">🌙</span>
-                <span class="toggle-icon icon-sun">☀️</span>
-            </button>
             <?php if ($est_connecte): ?>
                 <a href="profil.php" class="avatar-lien">
                     <div class="avatar-cercle">
@@ -96,7 +92,7 @@ if (isset($_GET["vider_panier"])) {
     </header>
 
     <div class="promo-bar">
-        🔥 OFFRE MUTANTE : -20% SUR TOUS LES DESSERTS AVEC LE CODE "NEAN20"
+        🔥 OFFRE MUTANTE : -10€ SUR TOUS LES PLATS ET MENUES AVEC LE CODE "REDUC10"
     </div>
 
     <div class="principal">
@@ -134,14 +130,14 @@ if (isset($_GET["vider_panier"])) {
                                 }
                             }
                             ?>
-                            <span class="prix-total"><?= number_format($total_menu, 2) ?>€</span>
+                            <span class="prix-total"><?php echo number_format($total_menu, 2); ?>€</span>
                             <div class="contenu">
-                                <h3><?= $groupe["nom"] ?></h3>
+                                <h3><?php echo $groupe["nom"]; ?></h3>
                                 <div class="images-menu">
                                     <?php foreach ($ids as $id): 
                                         foreach ($tous_les_plats as $plat):
                                             if ($plat["id"] == $id): ?>
-                                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="lien-mini-plat">
+                                            <a href="affichage.php?id=<?php echo $plat['id']; ?>" class="lien-mini-plat">
                                                 <div class="mini-plat">
                                                         <h4>
                                                             <?php
@@ -151,8 +147,8 @@ if (isset($_GET["vider_panier"])) {
                                                                 else{ echo "Dessert";}
                                                             ?>
                                                         </h4>
-                                                    <img src="<?= $plat["img"] ?>" alt="<?= $plat["nom"] ?>" width="100">
-                                                    <p><?= $plat["nom"] ?></p>
+                                                    <img src="<?php echo $plat["img"]; ?>" alt="<?php echo $plat["nom"]; ?>" width="100">
+                                                    <p><php echo $plat["nom"]; ?></p>
                                                 </div>
                                             </a>
                                             <?php endif; 
@@ -160,9 +156,9 @@ if (isset($_GET["vider_panier"])) {
                                     endforeach; ?>
                                 </div>
                                 <form method="POST" action="menu.php">
-                                    <input type="hidden" name="item_id" value="menu_<?= str_replace(' ', '_', $groupe['nom']) ?>">
-                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($groupe['nom']) ?>">
-                                    <input type="hidden" name="item_prix" value="<?= $total_menu ?>">
+                                    <input type="hidden" name="item_id" value="menu_<?php echo str_replace(' ', '_', $groupe['nom']); ?>">
+                                    <input type="hidden" name="item_nom" value="<?php echo htmlspecialchars($groupe['nom']); ?>">
+                                    <input type="hidden" name="item_prix" value="<?php echo $total_menu; ?>">
                                     <button type="submit" name="ajouter_item" class="ajouter">AJOUTER LE MENU</button>
                                 </form>
                             </div>
@@ -176,16 +172,16 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["entres"] as $plat): ?>
                         <div class="plat">
-                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
-                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <a href="affichage.php?id=<?php echo $plat['id']; ?>" class="image-box" style="display: block;">
+                                <img src="<?php echo $plat['img']; ?>" alt="<?php echo htmlspecialchars($plat['nom']); ?>">
                             </a>
                             <div class="contenu">
-                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
-                                <p class="description"><?= $plat["description"]?></p>
+                                <div class="titre-plat"><h3><?php echo $plat["nom"]; ?></h3><span class="prix"><?php echo $plat["prix"]; ?>€</span></div>
+                                <p class="description"><?php echo $plat["description"]; ?></p>
                                 <form method="POST" action="menu.php">
-                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
-                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
-                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <input type="hidden" name="item_id" value="<?php echo $plat['id']; ?>">
+                                    <input type="hidden" name="item_nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
+                                    <input type="hidden" name="item_prix" value="<?php echo $plat['prix']; ?>">
                                     <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
                                 </form>
                             </div>
@@ -199,16 +195,16 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["boisson"] as $plat): ?>
                         <div class="plat">
-                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
-                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <a href="affichage.php?id=<?php echo $plat['id']; ?>" class="image-box" style="display: block;">
+                                <img src="<?php echo $plat['img']; ?>" alt="<?php echo htmlspecialchars($plat['nom']); ?>">
                             </a>
                             <div class="contenu">
-                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
-                                <p class="description"><?= $plat["description"]?></p>
+                                <div class="titre-plat"><h3><?php echo $plat["nom"]; ?></h3><span class="prix"><?php echo $plat["prix"]; ?>€</span></div>
+                                <p class="description"><?php echo $plat["description"]; ?></p>
                                 <form method="POST" action="menu.php">
-                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
-                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
-                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <input type="hidden" name="item_id" value="<?php echo $plat['id']; ?>">
+                                    <input type="hidden" name="item_nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
+                                    <input type="hidden" name="item_prix" value="<?php echo $plat['prix']; ?>">
                                     <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
                                 </form>
                             </div>
@@ -222,16 +218,16 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["plats"] as $plat): ?>
                         <div class="plat">
-                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
-                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <a href="affichage.php?id=<?php echo $plat['id']; ?>" class="image-box" style="display: block;">
+                                <img src="<?php echo $plat['img']; ?>" alt="<?php echo htmlspecialchars($plat['nom']); ?>">
                             </a>
                             <div class="contenu">
-                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
-                                <p class="description"><?= $plat["description"]?></p>
+                                <div class="titre-plat"><h3><?php echo $plat["nom"]; ?></h3><span class="prix"><?php echo $plat["prix"]; ?>€</span></div>
+                                <p class="description"><?php echo $plat["description"]; ?></p>
                                 <form method="POST" action="menu.php">
-                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
-                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
-                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <input type="hidden" name="item_id" value="<?php echo $plat['id']; ?>">
+                                    <input type="hidden" name="item_nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
+                                    <input type="hidden" name="item_prix" value="<?php echo $plat['prix']; ?>">
                                     <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
                                 </form>
                             </div>
@@ -245,16 +241,16 @@ if (isset($_GET["vider_panier"])) {
                 <div class="grille-plats">
                     <?php foreach ($menu["dessert"] as $plat): ?>
                         <div class="plat">
-                            <a href="affichage.php?id=<?= $plat['id'] ?>" class="image-box" style="display: block;">
-                                <img src="<?= $plat['img'] ?>" alt="<?= htmlspecialchars($plat['nom']) ?>">
+                            <a href="affichage.php?id=<?php echo $plat['id']; ?>" class="image-box" style="display: block;">
+                                <img src="<?php echo $plat['img']; ?>" alt="<?php echo htmlspecialchars($plat['nom']); ?>">
                             </a>
                             <div class="contenu">
-                                <div class="titre-plat"><h3><?= $plat["nom"]?></h3><span class="prix"><?= $plat["prix"]?>€</span></div>
-                                <p class="description"><?= $plat["description"]?></p>
+                                <div class="titre-plat"><h3><?php echo $plat["nom"]; ?></h3><span class="prix"><?php echo $plat["prix"]; ?>€</span></div>
+                                <p class="description"><?php echo $plat["description"]; ?></p>
                                 <form method="POST" action="menu.php">
-                                    <input type="hidden" name="item_id" value="<?= $plat['id'] ?>">
-                                    <input type="hidden" name="item_nom" value="<?= htmlspecialchars($plat['nom']) ?>">
-                                    <input type="hidden" name="item_prix" value="<?= $plat['prix'] ?>">
+                                    <input type="hidden" name="item_id" value="<?php echo $plat['id']; ?>">
+                                    <input type="hidden" name="item_nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
+                                    <input type="hidden" name="item_prix" value="<?php echo $plat['prix']; ?>">
                                     <button type="submit" name="ajouter_item" class="ajouter">AJOUTER</button>
                                 </form>
                             </div>
@@ -280,20 +276,40 @@ if (isset($_GET["vider_panier"])) {
                                 $total_panier += $sous_total;
                             ?>
                             <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                                <span><?= $article['quantite'] ?>x <?= htmlspecialchars($article['nom']) ?></span>
-                                <span><?= number_format($sous_total, 2) ?>€</span>
+                                <span><?php echo $article['quantite']; ?>x <?php echo htmlspecialchars($article['nom']); ?></span>
+                                <span><?php echo number_format($sous_total, 2); ?>€</span>
                             </li>
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
                 </div>
+
+                <?php 
+                $reduction = 0;
+                if (isset($_SESSION["valeur_reduction"])) {
+                    $reduction = (float)$_SESSION["valeur_reduction"];
+                }
+                
+                if ($reduction > 0 && !empty($_SESSION['panier'])) {
+                    echo '<div style="display: flex; justify-content: space-between; color: #2ed573; font-weight: 600; font-size: 14px; margin-bottom: 5px;">';
+                    echo '<span>Code fidéliter (' . htmlspecialchars($_SESSION["code_promo_actif"]) . ')</span>';
+                    echo '<span>-' . number_format($reduction, 2) . '€</span>';
+                    echo '</div>';
+                    
+                    $total_panier = $total_panier - $reduction;
+                    if ($total_panier < 0) {
+                        $total_panier = 0;
+                    }
+                }
+                ?>
+
                 <div class="total">
                     <span>Total</span>
-                    <span><?= number_format($total_panier, 2) ?>€</span> 
+                    <span><?php echo number_format($total_panier, 2); ?>€</span> 
                 </div>
                 <?php if (!empty($_SESSION['panier'])): ?>
                     <a href="menu.php?vider_panier=1" style="display:block; text-align:center; color: var(--noir); font-size:12px; margin-bottom: 15px;">Vider le panier</a>
-                    <a href="<?= $est_connecte ? 'validation.php' : 'connexion_au_compte.php' ?>">
+                    <a href="<?php echo $est_connecte ? 'validation.php' : 'connexion_au_compte.php'; ?>">
                         <button class="btn-valider">VALIDER LE RÊVE</button>
                     </a>
                 <?php endif; ?>
