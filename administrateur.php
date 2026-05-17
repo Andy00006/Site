@@ -7,6 +7,48 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin") {
     exit();
 }
 
+$message_admin_promo = "";
+$classe_admin_promo = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn_ajouter_promo"])) {
+    $nouveau_code = strtoupper(trim($_POST["nouveau_code"]));
+    $nouvelle_valeur = (float)$_POST["nouvelle_valeur"];
+    $fichier_reduc = "reduc.json";
+
+    if ($nouveau_code !== "" && $nouvelle_valeur > 0) {
+        if (file_exists($fichier_reduc)) {
+            $les_reductions = json_decode(file_get_contents($fichier_reduc), true);
+        } else {
+            $les_reductions = array();
+        }
+
+        $code_existe = false;
+        foreach ($les_reductions as $reduc) {
+            if (isset($reduc["code"]) && strtoupper($reduc["code"]) === $nouveau_code) {
+                $code_existe = true;
+                break;
+            }
+        }
+
+        if (!$code_existe) {
+            $nouvelle_reduc = array(
+                "code" => $nouveau_code,
+                "valeur" => $nouvelle_valeur
+            );
+            $les_reductions[] = $nouvelle_reduc;
+            file_put_contents($fichier_reduc, json_encode($les_reductions, JSON_PRETTY_PRINT));
+            $message_admin_promo = "Le code promo a été ajouté avec succès !";
+            $classe_admin_promo = "promo-succes";
+        } else {
+            $message_admin_promo = "Ce code promo existe déjà.";
+            $classe_admin_promo = "promo-erreur";
+        }
+    } else {
+        $message_admin_promo = "Veuillez remplir correctement tous les champs.";
+        $classe_admin_promo = "promo-erreur";
+    }
+}
+
 $fichier = "utilisateurs.json";
 $utilisateurs = array();
 if (file_exists($fichier)) {
@@ -73,7 +115,8 @@ if ($recherche !== '') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrateur</title>
-    <link rel="stylesheet" href="administrateur.css">
+    <script src="darkmode.js"></script>
+    <link rel="stylesheet" href="administrateur.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="couleur.css">
     <script src="darkmode.js"></script>
@@ -113,6 +156,22 @@ if ($recherche !== '') {
                     <span class="etiquette">Affichés</span>
                     <p class="valeur"><?php echo count($utilisateurs_affiches); ?></p>
                 </div>
+            </div>
+
+            <div class="bloc-creation-promo">
+                <h2>Créer un nouveau code promo</h2>
+                
+                <?php if ($message_admin_promo !== ""): ?>
+                    <div class="alerte-promo <?php echo $classe_admin_promo; ?>">
+                        <?php echo $message_admin_promo; ?>
+                    </div>
+                <?php endif; ?>
+
+                <form action="administrateur.php" method="POST" class="form-admin-promo">
+                    <input type="text" name="nouveau_code" placeholder="CODE PROMO (Ex: RECON15)" required autocomplete="off">
+                    <input type="number" name="nouvelle_valeur" placeholder="Montant de la réduction (€)" min="1" step="0.01" required>
+                    <button type="submit" name="btn_ajouter_promo">Générer le code</button>
+                </form>
             </div>
 
             <div class="section-info">
@@ -178,7 +237,7 @@ if ($recherche !== '') {
                                             $roles_dispo = array(
                                                 'client'    => 'Client',
                                                 'cuisinier' => 'Cuisinier',
-                                                'livreur'   => 'Livreur',
+                                                'livreur'   => 'Livreurs',
                                                 'Admin'     => 'Admin',
                                                 'bloqué'    => 'BLOQUÉ',
                                             );
