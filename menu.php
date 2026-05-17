@@ -118,7 +118,7 @@ $tous_les_plats_json = json_encode($tous_les_plats);
     </header>
 
     <div class="promo-bar">
-        🔥 OFFRE MUTANTE : -20% SUR TOUS LES DESSERTS AVEC LE CODE "NEAN20"
+        🔥 OFFRE MUTANTE : -10€ SUR TOUS LES PLATS ET MENUES AVEC LE CODE "REDUC10"
     </div>
 
     <div class="principal">
@@ -257,6 +257,24 @@ $tous_les_plats_json = json_encode($tous_les_plats);
                         </ul>
                     <?php endif; ?>
                 </div>
+                <?php 
+                $reduction = 0;
+                if (isset($_SESSION["valeur_reduction"])) {
+                    $reduction = (float)$_SESSION["valeur_reduction"];
+                }
+                
+                if ($reduction > 0 && !empty($_SESSION['panier'])) {
+                    echo '<div style="display: flex; justify-content: space-between; color: #2ed573; font-weight: 600; font-size: 14px; margin-bottom: 5px;">';
+                    echo '<span>Code fidéliter (' . htmlspecialchars($_SESSION["code_promo_actif"]) . ')</span>';
+                    echo '<span>-' . number_format($reduction, 2) . '€</span>';
+                    echo '</div>';
+                    
+                    $total_panier = $total_panier - $reduction;
+                    if ($total_panier < 0) {
+                        $total_panier = 0;
+                    }
+                }
+                ?>
                 <div class="total">
                     <span>Total</span>
                     <span><?php echo number_format($total_panier, 2); ?>€</span>
