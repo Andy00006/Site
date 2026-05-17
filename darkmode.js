@@ -9,7 +9,13 @@
 
         btn.addEventListener('click', function () {
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            var next = isDark ? 'light' : 'dark';
+            var next;
+
+if (isDark) {
+    next = 'light';
+} else {
+    next = 'dark';
+}
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
             updateIcons(!isDark);
