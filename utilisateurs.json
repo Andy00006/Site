@@ -18,6 +18,16 @@
         "mdp":"$2y$12$xaRJ6F6zXBooiyH\/zHHGxODAglegpSeQKtgnfLweUFlgKirax4fz2",
         "tel":"0760062805",
         "adresse":"6 rue de la poste",
-        "role":"client"
+        "role":"livreur"
 }
+{
+        "id":3,
+        "prenom":"jack",
+        "nom":"parot",
+        "email":"jack@gmail.com",
+        "date":"1935-06-25",
+        "mdp":"$2y$12$bsectHFa2ADV0eRO0IYPheMtI2OtQJOyNW7feKdHyXno5rqIZd2Qu",
+        "tel":"0625854596",
+        "adresse":"89 rue du cuisinier",
+        "role":"cuisinier"}
 ]
