@@ -51,6 +51,14 @@ if ($est_une_modification) {
     foreach ($panier_affichage as $item) {
         $total_panier += $item['prix'] * $item['quantite'];
     }
+
+    if (isset($_SESSION["valeur_reduction"])) {
+        $reduction = (float)$_SESSION["valeur_reduction"];
+        $total_panier = $total_panier - $reduction;
+        if ($total_panier < 0) {
+            $total_panier = 0;
+        }
+    }
 }
 
 $montant = number_format($total_panier, 2, '.', '');
@@ -97,6 +105,8 @@ $control = md5($chaine);
 <head>
     <meta charset="UTF-8">
     <title>Validation - Exotique Dream</title>
+    <script src="darkmode.js"></script>
+    <link rel="stylesheet" href="couleur.css">
     <link rel="stylesheet" href="validation.css">
     <link rel="stylesheet" href="site.css">
 </head>
@@ -118,6 +128,13 @@ $control = md5($chaine);
                 <span><?php echo number_format($item['prix'] * $item['quantite'], 2); ?>€</span>
             </div>
         <?php endforeach; ?>
+        
+        <?php if (!$est_une_modification && isset($_SESSION["valeur_reduction"]) && !empty($_SESSION['panier'])): ?>
+            <div class="recap-item" style="color: #2ed573; font-weight: bold;">
+                <span>Code fidéliter (<?php echo htmlspecialchars($_SESSION["code_promo_actif"]); ?>)</span>
+                <span>-<?php echo number_format($_SESSION["valeur_reduction"], 2); ?>€</span>
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="total">
@@ -151,11 +168,10 @@ $control = md5($chaine);
         <input type="hidden" name="retour" value="<?php echo $retour; ?>">
         <input type="hidden" name="control" value="<?php echo $control; ?>">
 
-        <button type="submit" class="btn-pay" <?php if ($total_panier <= 0) { echo 'disabled'; } ?>>
+        <button type="submit" class="btn-pay">
             PROCÉDER AU PAIEMENT (<?php echo $_SESSION['heure_choisie']; ?>)
         </button>
     </form>
 </div>
-
 </body>
 </html>
