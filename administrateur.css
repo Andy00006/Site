@@ -231,3 +231,72 @@ body {
     font-weight: bold;
 }
 
+.bloc-creation-promo {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.bloc-creation-promo h2 {
+    font-size: 18px;
+    color: var(--noir);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.form-admin-promo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-admin-promo input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    min-width: 200px;
+}
+
+.form-admin-promo input:focus {
+    border-color: var(--fraise);
+}
+
+.form-admin-promo button {
+    background: var(--noir);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-admin-promo button:hover {
+    background: var(--fraise);
+}
+
+.alerte-promo {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.promo-succes {
+    background: rgba(46, 213, 115, 0.1);
+    color: #2ed573;
+    border-left: 4px solid #2ed573;
+}
+
+.promo-erreur {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    border-left: 4px solid #ff4d4d;
+}
