@@ -8,7 +8,7 @@
         "tel": "0100000000",
         "adresse": "1 d",
         "role": "Admin"
-    }
+    };
 {
         "id":2,
         "prenom":"Andy",
@@ -19,7 +19,7 @@
         "tel":"0760062805",
         "adresse":"6 rue de la poste",
         "role":"livreur"
-}
+};
 {
         "id":3,
         "prenom":"jack",
@@ -29,18 +29,16 @@
         "mdp":"$2y$12$bsectHFa2ADV0eRO0IYPheMtI2OtQJOyNW7feKdHyXno5rqIZd2Qu",
         "tel":"0625854596",
         "adresse":"89 rue du cuisinier",
-        "role":"cuisinier"}
-{
-        "id":4,
+        "role":"cuisinier"};
+        {"id":10,
         "prenom":"a",
         "nom":"a",
-        "email":"a@gmail.com",
-        "date":"1900-01-15",
-        "mdp":"$2y$12$bsectHFa2ADV0eRO0IYPheMtI2OtQJOyNW7feKdHyXno5rqIZd2Qu",
+        "email":"b@gmail.com",
+        "date":"1000-10-10",
+        "mdp":"$2y$10$TTUFLIAfB2hhW6edxNyQUe5Pyw5viYWgcXX8EZ71YsZa1Jm.bHOo6",
         "tel":"0607060706",
-        "adresse":"1 caca",
-        "role":"client"
-}
+        "adresse":"1 a",
+        "role":"client"},
 {
         "id":5,
         "prenom":"paulo",
