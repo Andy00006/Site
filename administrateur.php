@@ -11,14 +11,64 @@ $fichier = "utilisateurs.json";
 $utilisateurs = array();
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
-    $utilisateurs = json_decode($contenu, true) ?? [];
+    $decoded = json_decode($contenu, true);
+    if ($decoded !== null) {
+        $utilisateurs = $decoded;
+    }
 }
 
 $total_inscrits = count($utilisateurs);
+
+if (isset($_GET['filtre'])) {
+    $filtre = $_GET['filtre'];
+} else {
+    $filtre = 'tous';
+}
+
+$roles_map = array(
+    'tous'      => null,
+    'client'    => 'client',
+    'cuisinier' => 'cuisinier',
+    'livreur'   => 'livreur',
+    'admin'     => 'Admin',
+    'bloque'    => 'bloqué',
+);
+
+if (isset($roles_map[$filtre])) {
+    $role_filtre = $roles_map[$filtre];
+} else {
+    $role_filtre = null;
+}
+
+if ($role_filtre !== null) {
+    $utilisateurs_affiches = array_filter($utilisateurs, function($u) use ($role_filtre) {
+        if (isset($u['role'])) {
+            return $u['role'] === $role_filtre;
+        }
+        return false;
+    });
+} else {
+    $utilisateurs_affiches = $utilisateurs;
+}
+
+if (isset($_GET['recherche'])) {
+    $recherche = trim($_GET['recherche']);
+} else {
+    $recherche = '';
+}
+
+if ($recherche !== '') {
+    $recherche_lower = mb_strtolower($recherche);
+    $utilisateurs_affiches = array_filter($utilisateurs_affiches, function($u) use ($recherche_lower) {
+        $nom_complet = mb_strtolower($u['prenom'] . ' ' . $u['nom']);
+        $email       = mb_strtolower($u['email']);
+        return str_contains($nom_complet, $recherche_lower) || str_contains($email, $recherche_lower);
+    });
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,19 +109,44 @@ $total_inscrits = count($utilisateurs);
                     <span class="etiquette">Total Inscrits</span>
                     <p class="valeur"><?php echo $total_inscrits; ?></p>
                 </div>
+                <div class="boite-stat">
+                    <span class="etiquette">Affichés</span>
+                    <p class="valeur"><?php echo count($utilisateurs_affiches); ?></p>
+                </div>
             </div>
 
-            <div class="section-info"> <div class="entete-liste">
+            <div class="section-info">
+                <div class="entete-liste">
                     <h2>Base de données</h2>
-                    <div class="elements">
-                        <input type="text" placeholder="Rechercher..." class="recherche-admin">
-                        <select class="selection-filtre">
-                            <option>Tous les profils</option>
-                            <option>Clients</option>
-                            <option>Restaurateurs</option>
-                            <option>Livreurs</option>
+                    <form method="GET" action="administrateur.php" class="elements" id="form-filtre">
+                        <input
+                            type="text"
+                            name="recherche"
+                            placeholder="Rechercher..."
+                            class="recherche-admin"
+                            value="<?php echo htmlspecialchars($recherche); ?>"
+                            oninput="clearTimeout(this._t); this._t=setTimeout(function(){ document.getElementById('form-filtre').submit(); }, 300)"
+                        >
+                        <select name="filtre" class="selection-filtre" onchange="this.form.submit()">
+                            <?php
+                            $options = array(
+                                'tous'      => 'Tous les profils',
+                                'client'    => 'Clients',
+                                'cuisinier' => 'Cuisiniers',
+                                'livreur'   => 'Livreurs',
+                                'admin'     => 'Administrateurs',
+                                'bloque'    => 'Bloqués',
+                            );
+                            foreach ($options as $valeur => $label) {
+                                echo '<option value="' . $valeur . '"';
+                                if ($filtre === $valeur) {
+                                    echo ' selected';
+                                }
+                                echo '>' . $label . '</option>';
+                            }
+                            ?>
                         </select>
-                    </div>
+                    </form>
                 </div>
 
                 <table class="tableau-utilisateurs">
@@ -85,20 +160,36 @@ $total_inscrits = count($utilisateurs);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($utilisateurs as $user): ?>
+                        <?php if (empty($utilisateurs_affiches)): ?>
+                        <tr>
+                            <td colspan="5" style="text-align:center; padding:40px; color:#a4b0be;">Aucun utilisateur trouvé.</td>
+                        </tr>
+                        <?php else: ?>
+                        <?php foreach ($utilisateurs_affiches as $user): ?>
                         <tr>
                             <td><strong><?php echo $user["prenom"] . " " . $user["nom"]; ?></strong></td>
                             <td><?php echo $user["email"]; ?></td>
                             <td>
                                 <?php if ($user["id"] != $_SESSION["id_user"]): ?>
                                     <form action="update_role.php" method="POST" style="display:inline;">
-                                        <input type="hidden" name="id_user" value="<?= $user['id'] ?>">
+                                        <input type="hidden" name="id_user" value="<?php echo $user['id']; ?>">
                                         <select name="nouveau_role" onchange="this.form.submit()" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
-                                            <option value="client" <?= ($user["role"] === "client") ? "selected" : "" ?>>Client</option>
-                                            <option value="cuisinier" <?= ($user["role"] === "cuisinier") ? "selected" : "" ?>>Cuisinier</option>
-                                            <option value="livreur" <?= ($user["role"] === "livreur") ? "selected" : "" ?>>Livreur</option>
-                                            <option value="Admin" <?= ($user["role"] === "Admin") ? "selected" : "" ?>>Admin</option>
-                                            <option value="bloqué" <?= ($user["role"] === "bloqué") ? "selected" : "" ?>>🚫 BLOQUÉ</option>
+                                            <?php
+                                            $roles_dispo = array(
+                                                'client'    => 'Client',
+                                                'cuisinier' => 'Cuisinier',
+                                                'livreur'   => 'Livreur',
+                                                'Admin'     => 'Admin',
+                                                'bloqué'    => 'BLOQUÉ',
+                                            );
+                                            foreach ($roles_dispo as $val => $nom_role) {
+                                                echo '<option value="' . $val . '"';
+                                                if ($user["role"] === $val) {
+                                                    echo ' selected';
+                                                }
+                                                echo '>' . $nom_role . '</option>';
+                                            }
+                                            ?>
                                         </select>
                                     </form>
                                 <?php else: ?>
@@ -106,15 +197,23 @@ $total_inscrits = count($utilisateurs);
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <span class="badge-remise"><?php echo $user["remise"] ?? "0"; ?>%</span>
+                                <?php
+                                if (isset($user["remise"])) {
+                                    $remise = $user["remise"];
+                                } else {
+                                    $remise = "0";
+                                }
+                                ?>
+                                <span class="badge-remise"><?php echo $remise; ?>%</span>
                             </td>
                             <td class="cellule-actions">
-                                <a href="affiche_profil.php?id=<?= $user['id'] ?>" class="btn-action-admin bleu">
+                                <a href="affiche_profil.php?id=<?php echo $user['id']; ?>" class="btn-action-admin bleu">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
