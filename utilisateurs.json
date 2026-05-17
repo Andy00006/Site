@@ -8,7 +8,7 @@
         "tel": "0100000000",
         "adresse": "1 d",
         "role": "Admin"
-    };
+    },
 {
         "id":2,
         "prenom":"Andy",
@@ -19,7 +19,7 @@
         "tel":"0760062805",
         "adresse":"6 rue de la poste",
         "role":"livreur"
-};
+},
 {
         "id":3,
         "prenom":"jack",
@@ -29,7 +29,7 @@
         "mdp":"$2y$12$bsectHFa2ADV0eRO0IYPheMtI2OtQJOyNW7feKdHyXno5rqIZd2Qu",
         "tel":"0625854596",
         "adresse":"89 rue du cuisinier",
-        "role":"cuisinier"};
+        "role":"cuisinier"},
         {"id":10,
         "prenom":"a",
         "nom":"a",
