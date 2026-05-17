@@ -307,5 +307,50 @@ body {
 }
 /*Fin Footer*/
 
+/*Mot de passe*/
 
+.liste-criteres {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 5px;
+    font-size: 13px;
+}
 
+.liste-criteres li {
+    margin-bottom: 4px;
+    transition: color 0.2s ease;
+}
+
+.critere-invalide {
+    color: #ff4d4d;
+}
+
+.critere-valide {
+    color: #2ecc71;
+}
+
+.conteneur-mdp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.conteneur-mdp input {
+    width: 100%;
+    padding-right: 45px;
+    background-color: #f1f2f6; 
+    border-radius: 20px; 
+    padding: 15px 20px; 
+    font-size: 16px;
+    outline: none;
+}
+
+.icone-oeil {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #747d8c;
+    font-size: 16px;
+    z-index: 10;
+}
