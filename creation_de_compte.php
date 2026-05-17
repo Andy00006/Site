@@ -5,6 +5,7 @@ $classe_erreur = "";
 if(isset($_POST["prenom"])){
     $mdp = $_POST["mdp1"];
     $confirmation = $_POST["mdp2"];
+    $email = $_POST["email"];
 
     if($mdp !== $confirmation){
         $erreur = "Les mots de passe ne sont pas identiques.";
@@ -28,39 +29,54 @@ if(isset($_POST["prenom"])){
             $classe_erreur = "input-erreur";
         }
     }
-    if($erreur == "" && isset($_POST["mdp1"])){
-        $fichier = "utilisateurs.json";
-                    
-         $contenu = file_get_contents($fichier);
-         $utilisateurs = json_decode($contenu, true);
 
-        if (empty($utilisateurs)) {
-            $nouvel_id = 1;
-        } 
-        else {
-            $dernier_utilisateur = end($utilisateurs);
-            $nouvel_id = $dernier_utilisateur['id'] + 1;
+    if($erreur == ""){
+        $fichier = "utilisateurs.json";
+        $contenu = file_get_contents($fichier);
+        $utilisateurs = json_decode($contenu, true);
+
+        if (!empty($utilisateurs)) {
+            foreach($utilisateurs as $user){
+                if($user['email'] === $email){
+                    $erreur = "Cette adresse email est déjà utilisée pour un autre compte.";
+                    $classe_erreur = "input-erreur";
+                    break;
+                }
+            }
         }
 
-         $nouveau = array(
-            "id" => $nouvel_id,
-            "prenom" => $_POST["prenom"],
-            "nom" => $_POST["nom"],
-            "email" => $_POST["email"],
-            "date" => $_POST["anniversaire"],
-            "mdp" => $_POST["mdp1"],
-            "tel" => $_POST["tel"],
-            "adresse" => $_POST["numero"]."".$_POST["rue"],
-            "role" => "client"
-        );
+        if($erreur == "" && isset($_POST["mdp1"])){
+            if (empty($utilisateurs)) {
+                $nouvel_id = 1;
+            } 
+            else {
+                $dernier_utilisateur = end($utilisateurs);
+                $nouvel_id = $dernier_utilisateur['id'] + 1;
+            }
 
-        $utilisateurs[] = $nouveau;
-                    
-        $json_final = json_encode($utilisateurs);
-        file_put_contents($fichier, $json_final);
+            $nouveau = array(
+                "id" => $nouvel_id,
+                "prenom" => $_POST["prenom"],
+                "nom" => $_POST["nom"],
+                "email" => $email,
+                "date" => $_POST["anniversaire"],
+                "mdp" => password_hash($mdp, PASSWORD_DEFAULT),
+                "tel" => str_replace(" ", "", $_POST["tel"]),
+                "adresse" => $_POST["numero"]." ".$_POST["rue"],
+                "role" => "client"
+            );
 
-        header("Location: connexion_au_compte.php");
-        exit();
+            $utilisateurs[] = $nouveau;
+                        
+            $json_final = json_encode($utilisateurs);
+            file_put_contents($fichier, $json_final);
+
+            session_start();
+            $_SESSION['success_inscription'] = "Votre compte a bien été créé ! Vous pouvez maintenant vous connecter.";
+
+            header("Location: connexion_au_compte.php");
+            exit();
+        }
     }
 }
 ?>
@@ -73,6 +89,24 @@ if(isset($_POST["prenom"])){
     <title>Création de compte</title>
     <link rel="stylesheet" href="creation_de_compte.css">
     <link rel="stylesheet" href="couleur.css">
+    <style>
+        .liste-criteres {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 5px;
+            font-size: 13px;
+        }
+        .liste-criteres li {
+            margin-bottom: 4px;
+            transition: color 0.2s ease;
+        }
+        .critere-invalide {
+            color: #ff4d4d;
+        }
+        .critere-valide {
+            color: #2ecc71;
+        }
+    </style>
 </head>
 <body>
 
@@ -112,7 +146,7 @@ if(isset($_POST["prenom"])){
             </div>
             <div class="saisie">
                 <label for="tel">Numéro de téléphone</label>
-                <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" required>
+                <input type="tel" id="tel" name="tel" placeholder="0600000000" maxlength="14" required>
             </div>
         </div>
 
@@ -164,6 +198,14 @@ if(isset($_POST["prenom"])){
                 echo "<p style='color: #ff4d4d; font-size: 14px; margin-bottom: 10px; margin-left: 5px;'> $erreur </p>  ";     
             }
             ?>
+            
+            <ul class="liste-criteres">
+                <li id="critere-longueur" class="critere-invalide">❌ 12 caractères minimum</li>
+                <li id="critere-majuscule" class="critere-invalide">❌ Au moins 1 majuscule</li>
+                <li id="critere-chiffre" class="critere-invalide">❌ Au moins 1 chiffre</li>
+                <li id="critere-special" class="critere-invalide">❌ Au moins 1 caractère spécial</li>
+                <li id="critere-identique" class="critere-invalide">❌ Mots de passe identiques</li>
+            </ul>
         </div>
 
         <div class="consentement">
@@ -186,6 +228,58 @@ if(isset($_POST["prenom"])){
         </div>
     </form>
 </div>
+
+<script>
+let mdp1Input = document.getElementById("mdp1");
+let mdp2Input = document.getElementById("mdp2");
+
+let cLongueur = document.getElementById("critere-longueur");
+let cMajuscule = document.getElementById("critere-majuscule");
+let cChiffre = document.getElementById("critere-chiffre");
+let cSpecial = document.getElementById("critere-special");
+let cIdentique = document.getElementById("critere-identique");
+
+function validerCritere(element, estValide, texte) {
+    if (estValide) {
+        element.className = "critere-valide";
+        element.textContent = "✅ " + texte;
+    } else {
+        element.className = "critere-invalide";
+        element.textContent = "❌ " + texte;
+    }
+}
+
+function verifierFormulaire() {
+    let mdp1 = mdp1Input.value;
+    let mdp2 = mdp2Input.value;
+
+    let vLongueur = mdp1.length >= 12;
+    let vMajuscule = /[A-Z]/.test(mdp1);
+    let vChiffre = /[0-9]/.test(mdp1);
+    let vSpecial = /[^A-Za-z0-9]/.test(mdp1);
+    let vIdentique = mdp1 === mdp2 && mdp1 !== "";
+
+    validerCritere(cLongueur, vLongueur, "12 caractères minimum");
+    validerCritere(cMajuscule, vMajuscule, "Au moins 1 majuscule");
+    validerCritere(cChiffre, vChiffre, "Au moins 1 chiffre");
+    validerCritere(cSpecial, vSpecial, "Au moins 1 caractère spécial");
+    validerCritere(cIdentique, vIdentique, "Mots de passe identiques");
+
+    return vLongueur && vMajuscule && vChiffre && vSpecial && vIdentique;
+}
+
+mdp1Input.addEventListener("input", verifierFormulaire);
+mdp1Input.addEventListener("keyup", verifierFormulaire);
+mdp2Input.addEventListener("input", verifierFormulaire);
+mdp2Input.addEventListener("keyup", verifierFormulaire);
+
+document.querySelector("form").addEventListener("submit", function(e) {
+    let formulaireValide = verifierFormulaire();
+    if (!formulaireValide) {
+        e.preventDefault();
+    }
+});
+</script>
 
 </body>
 </html>
