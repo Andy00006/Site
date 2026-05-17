@@ -45,23 +45,57 @@ if ($status === 'accepted' && $mon_control === $control_banque) {
         $commandes = array();
     }
 
+    $est_une_modification = false;
     if (isset($_SESSION['id_commande_en_cours'])) {
-        $id_cmd_cible = $_SESSION['id_commande_en_cours'];
-        
-        foreach ($commandes as $index => $cmd) {
-            if (isset($cmd['id']) && $cmd['id'] == $id_cmd_cible) {
-                if (isset($_SESSION['heure_choisie'])) {
-                    $commandes[$index]['heure'] = $_SESSION['heure_choisie'];
+        $est_une_modification = true;
+    } else {
+        if (!isset($_SESSION['panier']) || empty($_SESSION['panier'])) {
+            $est_une_modification = true;
+        }
+    }
+
+    if ($est_une_modification) {
+        if (isset($_SESSION['id_commande_en_cours'])) {
+            $id_cmd_cible = $_SESSION['id_commande_en_cours'];
+            foreach ($commandes as $index => $cmd) {
+                if (isset($cmd['id']) && $cmd['id'] == $id_cmd_cible) {
+                    if (isset($_SESSION['heure_choisie'])) {
+                        $commandes[$index]['heure'] = $_SESSION['heure_choisie'];
+                    }
+                    break;
                 }
-                break;
+            }
+        } else {
+            if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+                $nom_recherche = $_SESSION['nom'];
+                $prenom_recherche = $_SESSION['prenom'];
+                $index_derniere_commande = -1;
+                
+                foreach ($commandes as $index => $cmd) {
+                    if ($cmd['nom'] === $nom_recherche && $cmd['prenom'] === $prenom_recherche && $cmd['statut'] === 'a_preparer') {
+                        $index_derniere_commande = $index;
+                    }
+                }
+                
+                if ($index_derniere_commande !== -1 && isset($_SESSION['heure_choisie'])) {
+                    $commandes[$index_derniere_commande]['heure'] = $_SESSION['heure_choisie'];
+                }
             }
         }
         
-        unset($_SESSION['montant_complement_a_payer']);
-        unset($_SESSION['id_commande_en_cours']);
-        unset($_SESSION['panier_modif']);
+        if (isset($_SESSION['montant_complement_a_payer'])) {
+            unset($_SESSION['montant_complement_a_payer']);
+        }
+        if (isset($_SESSION['id_commande_en_cours'])) {
+            unset($_SESSION['id_commande_en_cours']);
+        }
+        if (isset($_SESSION['panier_modif'])) {
+            unset($_SESSION['panier_modif']);
+        }
         
         $message = "Merci ! Votre modification a été payée et prise en compte.";
+        file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT));
+        
     } else {
         if (isset($_SESSION['nom'])) {
             $nom_c = $_SESSION['nom'];
@@ -118,9 +152,9 @@ if ($status === 'accepted' && $mon_control === $control_banque) {
         $commandes[] = $nouvelle_commande;
         unset($_SESSION['panier']);
         $message = "Merci ! Votre paiement a été accepté. Votre commande est en préparation.";
+        file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT));
     }
 
-    file_put_contents($fichier, json_encode($commandes, JSON_PRETTY_PRINT));
 } else {
     $message = "Le paiement a été refusé ou les données ont été altérées.";
 }
