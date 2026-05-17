@@ -1,6 +1,12 @@
 <?php
 session_start();
 $erreur = "";
+$message_succes = "";
+
+if (isset($_SESSION['success_inscription'])) {
+    $message_succes = $_SESSION['success_inscription'];
+    unset($_SESSION['success_inscription']); 
+}
 
 if(isset($_POST["email"])){
     $fichier = "utilisateurs.json";
@@ -9,7 +15,7 @@ if(isset($_POST["email"])){
     $utilisateurs = json_decode($contenu, true);
 
     foreach($utilisateurs as $key){
-        if ($key["email"] == $_POST["email"] && $key["mdp"] == $_POST["mdp"]) {
+        if ($key["email"] == $_POST["email"] && password_verify($_POST["mdp"], $key["mdp"])) {
             
             if ($key["role"] === "bloqué") {
                 $erreur = "Votre compte a été suspendu par l'administrateur.";
@@ -69,6 +75,12 @@ if(isset($_POST["email"])){
             <h1>Bon retour !</h1>
             <p>Heureux de vous revoir parmi nous.</p>
         </div>
+
+        <?php if ($message_succes !== ""): ?>
+            <p style="color: #2ecc71; background-color: rgba(46, 204, 113, 0.1); padding: 10px; border-radius: 5px; font-size: 14px; margin-bottom: 15px; border: 1px solid #2ecc71;">
+                <?php echo $message_succes; ?>
+            </p>
+        <?php endif; ?>
 
         <div class="section">
             <div class="saisie">
