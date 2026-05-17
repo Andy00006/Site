@@ -1,5 +1,5 @@
 [{
-        "id": 10,
+        "id": 1,
         "prenom": "b",
         "nom": "b",
         "email": "b@gmail.com",
@@ -9,4 +9,15 @@
         "adresse": "1 d",
         "role": "Admin"
     }
+{
+        "id":2,
+        "prenom":"Andy",
+        "nom":"Laloum",
+        "email":"a@gmail.com",
+        "date":"2006-01-31",
+        "mdp":"$2y$12$xaRJ6F6zXBooiyH\/zHHGxODAglegpSeQKtgnfLweUFlgKirax4fz2",
+        "tel":"0760062805",
+        "adresse":"6 rue de la poste",
+        "role":"client"
+}
 ]
