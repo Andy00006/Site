@@ -136,8 +136,8 @@ if ($est_connecte) {
         <section>
             <div class="postuler">
                 <h2>REJOINS L'AVENTURE DU MONDE INCONSCIENT</h2>
-                <p>Tu es un créatif, un cuisinier hors pair ou un as du guidon ?</p>
-                <button class="btn-postuler">POSTULER MAINTENANT</button>
+                <p>Tu es un créatif, un cuisinier hors pair ou un as du guidon ? Envoie nous un mail à contact@exotiquedream.fr :)</p>
+                <button class="btn-postuler" onclick="window.location.href='https://mail.google.com/mail'">POSTULER MAINTENANT</button>
             </div>
         </section>
     </main>
