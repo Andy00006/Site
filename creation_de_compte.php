@@ -223,7 +223,7 @@ if(isset($_POST["prenom"])){
             <button type="submit" class="btn-principal">Créer mon compte</button>
             <div class="btn-secondaires">
                 <button type="reset" class="btn-lien">Réinitialiser</button>
-                <a href="accueil.html" class="btn-lien">Retour à l'accueil</a>
+                <a href="accueil.php" class="btn-lien">Retour à l'accueil</a>
             </div>
         </div>
     </form>
