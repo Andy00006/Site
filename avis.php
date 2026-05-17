@@ -29,6 +29,7 @@ if ($compteur_notes > 0) {
     <link rel="stylesheet" href="couleur.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="avis.css">
+    <script src="darkmode.js"></script>
 </head>
 <body>
     <header class="header">
@@ -38,6 +39,10 @@ if ($compteur_notes > 0) {
             <a href="avis.php" class="active">Avis Livrraisons</a>
         </nav>
         <div class="droite">
+            <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre">
+                <span class="toggle-icon icon-moon">🌙</span>
+                <span class="toggle-icon icon-sun">☀️</span>
+            </button>
             <div class="avatar-cercle">ED</div>
         </div>
     </header>

@@ -15,7 +15,7 @@ body {
 
 .barre-laterale {
     width: 260px;
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     padding: 30px 20px;
     display: flex;
@@ -46,7 +46,7 @@ body {
 }
 
 .navigation-admin a {
-    color: #a4b0be;
+    color: var(--texte-faible);
     text-decoration: none;
     padding: 15px;
     border-radius: 12px;
@@ -112,7 +112,7 @@ body {
 
 .boite-stat .etiquette {
     font-size: 13px;
-    color: #888;
+    color: var(--texte-secondaire);
     text-transform: uppercase;
 }
 
@@ -159,7 +159,7 @@ body {
     text-align: left;
     padding: 15px;
     border-bottom: 2px solid var(--gris-fond);
-    color: #a4b0be;
+    color: var(--texte-faible);
     font-size: 14px;
 }
 
@@ -177,11 +177,11 @@ body {
 }
 
 .pastille-client { 
-    background: #e3f2fd; color: #1e88e5; 
+    background: rgba(30,136,229,0.15); color: #4fa3e0; 
 }
 
 .pastille-resto { 
-    background: #f3e5f5; color: #8e24aa; 
+    background: rgba(142,36,170,0.15); color: #ba68c8; 
 }
 
 .bouton-action {

@@ -7,7 +7,7 @@ body {
 }
 
 .card { 
-    background: white; 
+    background: var(--carte); 
     padding: 25px; 
     border-radius: 12px; 
     width: 450px; 

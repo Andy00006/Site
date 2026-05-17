@@ -122,7 +122,7 @@ body {
 }
 
 .role-livreur {
-    color: #747d8c;
+    color: var(--texte-secondaire);
     font-size: 14px;
     font-weight: 500;
     margin-top: 5px;
@@ -130,7 +130,7 @@ body {
 
 .carte-stat-note h3 {
     font-size: 18px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     margin-bottom: 10px;
 }
 
@@ -142,7 +142,7 @@ body {
 
 .note-chiffre span {
     font-size: 20px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     font-weight: 500;
 }
 
@@ -152,11 +152,11 @@ body {
 }
 
 .or { color: var(--or); }
-.gris { color: #dcdde1; }
+.gris { color: var(--texte-faible); }
 
 .total-avis {
     font-size: 14px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
 }
 
 .section-avis-liste h2 {
@@ -203,8 +203,8 @@ body {
 .avatar-client {
     width: 35px;
     height: 35px;
-    background: #f1f2f6;
-    color: #a4b0be;
+    background: var(--gris-fond);
+    color: var(--texte-faible);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -222,7 +222,7 @@ body {
 }
 
 .commentaire-texte {
-    color: #57606f;
+    color: var(--texte-secondaire);
     font-size: 14.5px;
     line-height: 1.6;
 }
@@ -232,13 +232,13 @@ body {
     background: var(--blanc);
     padding: 50px;
     border-radius: 20px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
 }
 
 .aucun-avis i {
     font-size: 40px;
     margin-bottom: 15px;
-    color: #ccc;
+    color: var(--texte-faible);
 }
 
 .footer {
@@ -260,7 +260,7 @@ body {
 
 .footer-section p, 
 .footer-section a {
-    color: #747d8c;
+    color: var(--texte-secondaire);
     text-decoration: none;
     margin-bottom: 12px;
     display: block;
@@ -281,7 +281,7 @@ body {
     padding-top: 40px;
     margin-top: 40px;
     border-top: 1px solid #f1f2f6;
-    color: #ced4da;
+    color: var(--texte-faible);
     font-size: 12px;
 }
 

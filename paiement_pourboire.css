@@ -10,7 +10,7 @@ body {
 }
 
 .card { 
-    background: white; 
+    background: var(--carte); 
     padding: 25px; 
     border-radius: 12px; 
     width: 450px; 
@@ -36,12 +36,12 @@ body {
 
 h2 {
     font-size: 22px;
-    color: #333;
+    color: var(--noir);
     margin-bottom: 10px;
 }
 
 p {
-    color: #666;
+    color: var(--texte-secondaire);
     margin-bottom: 25px;
     line-height: 1.5;
 }
@@ -77,7 +77,7 @@ p {
 .link-cancel {
     display: inline-block;
     margin-top: 20px;
-    color: #999;
+    color: var(--texte-faible);
     text-decoration: none;
     font-size: 14px;
 }

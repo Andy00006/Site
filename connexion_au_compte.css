@@ -51,7 +51,7 @@ h1 {
 }
 
 p { 
-    color: #747d8c; 
+    color: var(--texte-secondaire); 
     font-size: 14px; 
     margin-top: 5px; 
 }
@@ -100,7 +100,7 @@ input[type="password"] {
 
 input:focus {
     border-color: var(--fraise);
-    background: #fff;
+    background: var(--input-focus);
     box-shadow: 0 8px 20px var(--ombre);
 }
 
@@ -121,7 +121,7 @@ input:focus {
 .case-cocher label { 
     font-weight: 500; 
     font-size: 13px; 
-    color: #747d8c; 
+    color: var(--texte-secondaire); 
     cursor: pointer; 
 }
 
@@ -148,7 +148,7 @@ input:focus {
 .texte-bas {
     text-align: center;
     font-size: 13px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
 }
 
 .texte-bas a {

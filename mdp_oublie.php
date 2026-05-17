@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="changement_mot_de_passe.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="couleur.css">
+    <script src="darkmode.js"></script>
 </head>
 <body>
     <div class="connexion">

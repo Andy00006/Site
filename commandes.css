@@ -22,7 +22,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     padding: 20px 40px;
     border-radius: 20px;
@@ -74,7 +74,7 @@ body {
 }
 
 .compteur-commandes {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     width: 35px;
     height: 35px;
@@ -135,11 +135,11 @@ body {
 .item-commande p {
     margin: 5px 0;
     font-size: 16px;
-    color: #444;
+    color: var(--noir);
 }
 
 .item-commande small {
-    color: #666;
+    color: var(--texte-secondaire);
     font-style: italic;
     font-size: 0.85em;
     display: block;
@@ -177,7 +177,7 @@ body {
 
 .nom-livreur {
     font-weight: 700;
-    color: #777;
+    color: var(--texte-secondaire);
     font-size: 14px;
 }
 .pas-souligner{

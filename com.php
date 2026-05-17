@@ -21,6 +21,7 @@ if ($est_connecte) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="couleur.css">
+    <script src="darkmode.js"></script>
 </head>
 <body>
     <header class="header">
@@ -39,6 +40,10 @@ if ($est_connecte) {
             <?php endif; ?>
         </nav>
         <div class="droite">
+            <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre">
+                <span class="toggle-icon icon-moon">🌙</span>
+                <span class="toggle-icon icon-sun">☀️</span>
+            </button>
             <?php if ($est_connecte): ?>
                 <a href="profil.php" class="avatar-lien">
                     <div class="avatar-cercle">

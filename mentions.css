@@ -37,7 +37,7 @@
 
 .mentions-bloc > p {
     font-size: 16px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     line-height: 1.8;
     margin-bottom: 40px;
 }
@@ -54,7 +54,7 @@
 
 .mentions-bloc h2 + p {
     font-size: 15px;
-    color: #57606f;
+    color: var(--texte-secondaire);
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -151,7 +151,7 @@
 
 .mentions-bloc > p {
     font-size: 16px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     line-height: 1.8;
     margin-bottom: 40px;
 }
@@ -168,7 +168,7 @@
 
 .mentions-bloc h2 + p {
     font-size: 15px;
-    color: #57606f;
+    color: var(--texte-secondaire);
     line-height: 1.7;
     margin-bottom: 20px;
 }

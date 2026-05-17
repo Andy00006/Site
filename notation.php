@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
 <link rel="stylesheet" href="notation.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="couleur.css">
+    <script src="darkmode.js"></script>
 </head>
 <body>
 <div class="carte-notation">

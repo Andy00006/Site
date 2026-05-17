@@ -19,14 +19,14 @@
 }
 
 .histoire {
-    background: white;
+    background: var(--carte);
     padding: 40px;
     border-radius: 40px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     line-height: 1.8;
     font-size: 18px;
     text-align: center;
-    color: #555;
+    color: var(--texte-secondaire);
 } 
 .grille-team {
     display: grid;
@@ -35,7 +35,7 @@
 }
 
 .membre {
-    background: white;
+    background: var(--carte);
     padding: 30px;
     border-radius: 40px;
     text-align: center;
@@ -117,7 +117,7 @@
 }
 
 .avis {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     padding: 35px;
     border-radius: 35px;
@@ -126,7 +126,7 @@
 }
 
 .avis:hover {
-    background: #1a1a1a;
+    background: var(--fond-sombre);
 }
 
 .avis img {
@@ -185,7 +185,7 @@
     width: 320px;
     height: 80px;
 
-    background: white;
+    background: var(--carte);
     color: var(--fraise);
 
     border-radius: 40px;
@@ -202,14 +202,14 @@
 }
 
 .btn-avis:hover {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     transform: scale(1.05);
 }
 
 
 .btn-postuler {
-    background: white;
+    background: var(--carte);
     color: var(--fraise);
     border: none;
     padding: 22px 50px;
@@ -225,7 +225,7 @@
 
 .btn-postuler:hover {
     transform: scale(1.05);
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
 }
 

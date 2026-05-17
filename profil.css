@@ -72,7 +72,7 @@ body {
 
 .texte-info span {
     font-size: 10px;
-    color: #888;
+    color: var(--texte-secondaire);
     text-transform: uppercase;
     display: block;
 }
@@ -178,7 +178,7 @@ body {
 
 .fidelite { 
     font-size: 11px; 
-    color: #777; 
+    color: var(--texte-secondaire); 
     margin-top: 8px; 
 }
 
@@ -196,7 +196,7 @@ body {
 }
 
 .date { 
-    color: #aaa; 
+    color: var(--texte-faible); 
 }
 
 .actions-profil {

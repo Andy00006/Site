@@ -48,14 +48,14 @@ h1 {
 }
 
 p { 
-    color: #747d8c; 
+    color: var(--texte-secondaire); 
     font-size: 14px; 
 }
 
 .section {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px dashed #dfe4ea;
+    border-bottom: 1px dashed var(--bordure);
 }
 
 .groupe-ligne {
@@ -97,7 +97,7 @@ input[type="date"] {
 
 input:focus {
     border-color: var(--fraise);
-    background: #fff;
+    background: var(--input-focus);
     box-shadow: 0 5px 15px var(--ombre);
 }
 
@@ -179,7 +179,7 @@ input:focus {
 .btn-lien {
     background: none;
     border: none;
-    color: #a4b0be;
+    color: var(--texte-faible);
     font-size: 13px;
     text-decoration: none;
     cursor: pointer;
@@ -191,7 +191,7 @@ input:focus {
 
 .input-erreur {
     border: 2px solid #ff4d4d !important;
-    background-color: #fff5f5 !important;
+    background-color: var(--fond-erreur) !important;
 }
 
 @media (max-width: 600px) {

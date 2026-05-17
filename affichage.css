@@ -8,7 +8,7 @@
     display: inline-block;
     margin-bottom: 30px;
     text-decoration: none;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     font-weight: 600;
     transition: 0.3s;
 }
@@ -38,7 +38,7 @@
 
 .desc-detail {
     font-size: 18px;
-    color: #747d8c;
+    color: var(--texte-secondaire);
     margin-bottom: 40px;
     line-height: 1.6;
 }
@@ -93,7 +93,7 @@
 }
 
 .btn-valider-detail {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     border: none;
     padding: 15px 30px;

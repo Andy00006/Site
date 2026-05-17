@@ -61,6 +61,7 @@ if(isset($_POST["email"])){
     <title>Connexion</title>
     <link rel="stylesheet" href="connexion_au_compte.css">
     <link rel="stylesheet" href="couleur.css">
+    <script src="darkmode.js"></script>
 </head>
 <body>
 

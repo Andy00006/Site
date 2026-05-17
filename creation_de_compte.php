@@ -107,6 +107,7 @@ if(isset($_POST["prenom"])){
             color: #2ecc71;
         }
     </style>
+    <script src="darkmode.js"></script>
 </head>
 <body>
 

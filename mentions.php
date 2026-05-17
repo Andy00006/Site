@@ -22,6 +22,7 @@ $telephone_hebergeur= "04 99 99 99 99";
     <link rel="stylesheet" href="mentions.css">
     <link rel="stylesheet" href="site.css">
     <title>Mentions Légales - <?php echo $nom_site; ?></title>
+    <script src="darkmode.js"></script>
 </head>
 <body>
 <main class="page-mentions">   

@@ -16,7 +16,7 @@ body {
 }
 
 .entete-livreur {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     padding: 20px;
     display: flex;
@@ -58,7 +58,7 @@ body {
 
 .ville { 
     font-size: 16px; 
-    color: #747d8c; 
+    color: var(--texte-secondaire); 
     margin: 5px 0 20px 0; 
 }
 
@@ -73,7 +73,7 @@ body {
 }
 
 .fas_fa-box-open{font-size: 50px; 
-    color: #ccc;
+    color: var(--texte-faible);
 }
 
 .bouton-gps {
@@ -102,7 +102,7 @@ body {
 }
 
 .inter { 
-    color: #747d8c; 
+    color: var(--texte-secondaire); 
     font-weight: 600;
  }
 
@@ -113,7 +113,7 @@ body {
 
 .commentaire-livreur {
     margin-top: 15px;
-    background: #fff9e6;
+    background: var(--fond-note);
     padding: 15px;
     border-radius: 12px;
     border-left: 5px solid #ffa502;
@@ -128,7 +128,7 @@ body {
 }
 
 .bouton-appel {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white;
     text-decoration: none;
     padding: 25px;

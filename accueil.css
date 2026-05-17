@@ -141,7 +141,7 @@
 }
 
 .recherche {
-    background: white;
+    background: var(--carte);
     padding: 8px;
     border-radius: 60px;
     display: flex;
@@ -150,7 +150,7 @@
 }
 
 .recherche i { 
-    color: #ccc; 
+    color: var(--texte-faible); 
     align-self: center; 
     margin-left: 20px; 
     font-size: 18px; 
@@ -166,7 +166,7 @@
 }
 
 .bouton-recherche {
-    background: var(--noir);
+    background: var(--fond-sombre);
     color: white; 
     border: none;
     padding: 15px 35px;
