@@ -31,3 +31,14 @@
         "adresse":"89 rue du cuisinier",
         "role":"cuisinier"}
 ]
+{
+        "id":4,
+        "prenom":"a",
+        "nom":"a",
+        "email":"a@gmail.com",
+        "date":"1900-01-15",
+        "mdp":"$2y$12$bsectHFa2ADV0eRO0IYPheMtI2OtQJOyNW7feKdHyXno5rqIZd2Qu",
+        "tel":"0607060706",
+        "adresse":"1 caca",
+        "role":"client"
+}]
