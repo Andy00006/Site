@@ -1,6 +1,12 @@
 <?php
+date_default_timezone_set('Europe/Paris');
 session_start();
+require_once 'deco.php';
 
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "livreur") {
+    header("Location: accueil.php");
+    exit();
+}
 $commandes_file = 'commandes.json';
 $commande_active = null;
 
@@ -55,7 +61,6 @@ if (isset($_POST['finaliser_commande'])) {
     <link rel="stylesheet" href="livraison.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="couleur.css">
-    <script src="darkmode.js"></script>
 </head>
 <body>
 

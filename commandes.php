@@ -1,6 +1,12 @@
 <?php
 date_default_timezone_set('Europe/Paris');
+session_start();
+require_once 'deco.php';
 
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "Admin" && $_SESSION["role"] !== "cuisinier") {
+    header("Location: accueil.php");
+    exit();
+}
 $commandes_file = 'commandes.json';
 $menu_file = 'menu.json';
 
@@ -77,7 +83,6 @@ foreach ($commandes_brutes as $cmd) {
     <link rel="stylesheet" href="commandes.css">
     <link rel="stylesheet" href="couleur.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="darkmode.js"></script>
 </head>
 <body>
     <div class="restaurateur">
