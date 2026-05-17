@@ -76,6 +76,43 @@ if (isset($_POST["modifier_champ"])) {
     }
 }
 
+$message_promo = "";
+$classe_promo = "";
+
+if (isset($_POST["btn_valider_promo"])) {
+    $code_entre = strtoupper(trim($_POST["code_promo_saisi"]));
+    $fichier_reduc = "reduc.json";
+
+    if (file_exists($fichier_reduc)) {
+        $les_reductions = json_decode(file_get_contents($fichier_reduc), true);
+    } else {
+        $les_reductions = array();
+    }
+
+    $code_trouve = false;
+    $valeur_reduction = 0;
+
+    foreach ($les_reductions as $reduc) {
+        if (isset($reduc["code"]) && strtoupper($reduc["code"]) === $code_entre) {
+            $code_trouve = true;
+            if (isset($reduc["valeur"])) {
+                $valeur_reduction = $reduc["valeur"];
+            }
+            break;
+        }
+    }
+
+    if ($code_trouve) {
+        $_SESSION["code_promo_actif"] = $code_entre;
+        $_SESSION["valeur_reduction"] = $valeur_reduction;
+        $message_promo = "Code promo activé ! Réduction de " . $valeur_reduction . "€ appliquée à votre prochain paiement.";
+        $classe_promo = "promo-succes";
+    } else {
+        $message_promo = "Le code promo saisi est invalide ou expiré.";
+        $classe_promo = "promo-erreur";
+    }
+}
+
 $initiale_p = substr($_SESSION["prenom"], 0, 1);
 $initiale_n = substr($_SESSION["nom"], 0, 1);
 $initiales = strtoupper($initiale_p . $initiale_n);
@@ -87,15 +124,14 @@ if (file_exists($histo_file)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil</title>
-    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="profil.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="couleur.css">
-    <script src="darkmode.js"></script>
 </head>
 <body>
 
@@ -183,14 +219,19 @@ if (file_exists($histo_file)) {
 
             <div class="section">
                 <div class="categorie">
-                    <label>Fidélité</label>
-                    <span class="badge-points">450 pts</span>
-                </div>
-                <div class="fidelite-container">
-                    <div class="barre-progression">
-                        <div class="barre-remplissage" style="width: 75%;"></div>
-                    </div>
-                    <p class="fidelite">Plus que 50 points avant votre cadeau ! 🎁</p>
+                <div class="zone-code-promo">
+                    <p class="titre-promo">Activer un code fidéliter</p>
+                    
+                    <?php if ($message_promo !== ""): ?>
+                        <div class="statut-promo <?php echo $classe_promo; ?>">
+                            <?php echo $message_promo; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="profil.php" method="POST" class="form-promo">
+                        <input type="text" name="code_promo_saisi" placeholder="Ex: REDUC10, FIDELITE5..." required autocomplete="off">
+                        <button type="submit" name="btn_valider_promo">Appliquer</button>
+                    </form>
                 </div>
             </div>
 
@@ -199,43 +240,33 @@ if (file_exists($histo_file)) {
                     <label>Historique des commandes</label>
                 </div>
                 <ul class="liste-commandes">
-               <?php
-foreach ($historique_commandes as $commande) {
-    if (
-        $commande["nom"] == $_SESSION["nom"] &&
-        $commande["prenom"] == $_SESSION["prenom"]
-    ) {
-
-        echo "<li>";
-        echo "<div>";
-
-        foreach ($commande["panier"] as $item) {
-
-            if (isset($item["nom_menu"])) {
-                echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
-            } else {
-                echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
-            }
-
-        }
-
-        echo "</div>";
-        echo "<span class='date'>" . $commande["date"] . "</span>";
-        echo "</li>";
-
-    } 
-}
-?>
+                <?php
+                foreach ($historique_commandes as $commande) {
+                    if ($commande["nom"] == $_SESSION["nom"] && $commande["prenom"] == $_SESSION["prenom"]) {
+                        echo "<li>";
+                        echo "<div>";
+                        foreach ($commande["panier"] as $item) {
+                            if (isset($item["nom_menu"])) {
+                                echo $item["quantite"] . "x " . $item["nom_menu"] . "<br>";
+                            } else {
+                                echo $item["quantite"] . "x " . $item["nom_plat"] . "<br>";
+                            }
+                        }
+                        echo "</div>";
+                        echo "<span class='date'>" . $commande["date"] . "</span>";
+                        echo "</li>";
+                    } 
+                }
+                ?>
                 </ul>
             </div>
             <div class="actions-profil">
-            <a href="suivie.php">
-                <button type="button" class="btn-suivie" >regarder le suivie de commande</button>
-            </a>
+                <a href="suivie.php">
+                    <button type="button" class="btn-suivie">regarder le suivie de commande</button>
+                </a>
                 <a href="accueil.php">
                     <button type="button" class="btn-principal">Retour à l'accueil</button>
                 </a>
-
                 <a href="deconnexion.php">
                     <button type="button" class="btn-deconnexion">
                         <i class="fas fa-sign-out-alt"></i> Se déconnecter
