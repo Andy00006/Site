@@ -89,24 +89,8 @@ if(isset($_POST["prenom"])){
     <title>Création de compte</title>
     <link rel="stylesheet" href="creation_de_compte.css">
     <link rel="stylesheet" href="couleur.css">
-    <style>
-        .liste-criteres {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 5px;
-            font-size: 13px;
-        }
-        .liste-criteres li {
-            margin-bottom: 4px;
-            transition: color 0.2s ease;
-        }
-        .critere-invalide {
-            color: #ff4d4d;
-        }
-        .critere-valide {
-            color: #2ecc71;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="site.css">
     <script src="darkmode.js"></script>
 </head>
 <body>
@@ -188,11 +172,17 @@ if(isset($_POST["prenom"])){
             <div class="groupe-ligne">
                 <div class="saisie">
                     <label for="mdp1">Mot de passe</label>
-                    <input type="password" id="mdp1" name="mdp1" class="<?php echo $classe_erreur; ?>" placeholder="Mot de passe" required>
+                    <div class="conteneur-mdp">
+                        <input type="password" id="mdp1" name="mdp1" class="<?php echo $classe_erreur; ?>" placeholder="Mot de passe" required>
+                        <i class="fas fa-eye icone-oeil" id="bascule-mdp1"></i>
+                    </div>
                 </div>
                 <div class="saisie">
                     <label for="mdp2">Confirmation</label>
-                    <input type="password" id="mdp2" name="mdp2" class="<?php echo $classe_erreur; ?>" placeholder="Confirmer" required >
+                    <div class="conteneur-mdp">
+                        <input type="password" id="mdp2" name="mdp2" class="<?php echo $classe_erreur; ?>" placeholder="Confirmer" required >
+                        <i class="fas fa-eye icone-oeil" id="bascule-mdp2"></i>
+                    </div>
                 </div>
             </div>
             <?php if($erreur !== ""){
@@ -268,6 +258,26 @@ function verifierFormulaire() {
 
     return vLongueur && vMajuscule && vChiffre && vSpecial && vIdentique;
 }
+
+function configurerBasculeMdp(idIcone, idInput) {
+    const icone = document.getElementById(idIcone);
+    const input = document.getElementById(idInput);
+    
+    icone.addEventListener('click', function() {
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        }
+    });
+}
+
+configurerBasculeMdp('bascule-mdp1', 'mdp1');
+configurerBasculeMdp('bascule-mdp2', 'mdp2');
 
 mdp1Input.addEventListener("input", verifierFormulaire);
 mdp1Input.addEventListener("keyup", verifierFormulaire);
