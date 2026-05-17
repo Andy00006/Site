@@ -40,4 +40,15 @@
         "tel":"0607060706",
         "adresse":"1 caca",
         "role":"client"
+}
+{
+        "id":5,
+        "prenom":"paulo",
+        "nom":"kiki",
+        "email":"p@gmail.com",
+        "date":"1998-12-05",
+        "mdp":"$2y$12$NV5DpWD27aXlfPEdqqPZ0.wkGtoTmfE5tG0YfjPV2NgFcUAbQfY2G",
+        "tel":"0645639642",
+        "adresse":"6 rue du nouveau",
+        "role":"client"
 }]
