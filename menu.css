@@ -326,3 +326,85 @@ body{
 .lien-mini-plat {
     text-decoration: none;        
 }
+
+.barre-filtres {
+    background: var(--blanc);
+    border-radius: 24px;
+    box-shadow: 0 8px 30px var(--ombre2);
+    padding: 24px 30px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.filtres-ligne {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.filtres-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--texte-secondaire);
+    min-width: 110px;
+}
+.btn-filtre {
+    border: 2px solid var(--gris-fond);
+    background: var(--gris-fond);
+    color: var(--noir);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.btn-filtre:hover {
+    border-color: var(--fraise);
+    color: var(--fraise);
+}
+.btn-filtre.actif {
+    background: var(--fraise);
+    border-color: var(--fraise);
+    color: white;
+}
+.btn-filtre.actif-allergo {
+    background: var(--kiwi);
+    border-color: var(--kiwi);
+    color: white;
+}
+.select-tri {
+    border: 2px solid var(--gris-fond);
+    background: var(--gris-fond);
+    color: var(--noir);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 0.25s;
+}
+.select-tri:focus {
+    border-color: var(--fraise);
+}
+#zone-resultats {
+    min-height: 200px;
+    position: relative;
+}
+.titre-section-filtre {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--noir);
+    margin: 30px 0 18px 0;
+    border-left: 5px solid var(--fraise);
+    padding-left: 16px;
+}
+.aucun-resultat {
+    text-align: center;
+    padding: 60px;
+    color: var(--texte-secondaire);
+    font-style: italic;
+}
