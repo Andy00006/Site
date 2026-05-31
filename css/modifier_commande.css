@@ -1,0 +1,271 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--gris);
+    color:var(--noir);
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
+    padding:0 40px;
+    background:var(--blanc);
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    box-shadow:0 4px 25px rgba(0,0,0,0.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    color:var(--fraise);
+}
+
+.logo span{
+    color:var(--noir);
+}
+
+.milieu{
+    display:flex;
+    gap:25px;
+}
+
+.milieu a{
+    text-decoration:none;
+    color:var(--noir);
+    font-weight:600;
+    font-size:17px;
+    transition:0.3s;
+}
+
+.milieu a:hover{
+    color:var(--fraise);
+}
+
+.droite{
+    display:flex;
+    align-items:center;
+}
+
+.avatar-cercle{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:var(--fraise);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    box-shadow:0 5px 15px var(--ombre);
+}
+
+/* ================= MAIN ================= */
+
+.page-modification{
+    padding:120px 20px 50px;
+    display:flex;
+    justify-content:center;
+}
+
+.conteneur-modification{
+    width:100%;
+    max-width:1200px;
+    background:var(--blanc);
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.06);
+}
+
+h2{
+    font-size:32px;
+    color:var(--fraise);
+    margin-bottom:10px;
+}
+
+h3{
+    margin-top:35px;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+h4{
+    margin-top:35px;
+    margin-bottom:20px;
+    font-size:22px;
+    color:var(--fraise);
+}
+
+p{
+    color:#555;
+    line-height:1.5;
+}
+
+/* ================= PANIER ================= */
+
+.panier-container{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.ligne-panier{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fafafa;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid #eee;
+    transition:0.3s;
+    flex-wrap:wrap;
+}
+
+.ligne-panier:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ================= BOUTONS ================= */
+
+button{
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.btn-quantite{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--fraise);
+    color:white;
+    font-size:18px;
+}
+
+.btn-supprimer{
+    padding:10px 15px;
+    border-radius:12px;
+    background:#222;
+    color:white;
+}
+
+.btn-ajout{
+    margin-top:10px;
+    padding:12px 18px;
+    border-radius:14px;
+    background:var(--fraise);
+    color:white;
+    box-shadow:0 8px 20px var(--ombre);
+}
+
+.btn-validation{
+    margin-top:30px;
+    width:100%;
+    padding:18px;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--fraise),#ff758f);
+    color:white;
+    font-size:18px;
+    font-weight:700;
+}
+
+/* ================= TOTAL ================= */
+
+.resume-total{
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    background:#fff5f7;
+    border:1px solid #ffd7df;
+}
+
+.resume-total p{
+    margin-bottom:10px;
+}
+
+/* ================= PRODUITS ================= */
+
+.grille-produits{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.carte-produit{
+    background:white;
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.carte-produit:hover{
+    transform:translateY(-5px);
+}
+
+.image-produit{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media screen and (max-width:900px){
+
+    .header{
+        flex-direction:column;
+        height:auto;
+        padding:15px;
+        gap:10px;
+    }
+
+    .milieu{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .ligne-panier{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .conteneur-modification{
+        padding:20px;
+    }
+}
+
+@media screen and (max-width:600px){
+
+    h2{
+        font-size:24px;
+    }
+
+    h3{
+        font-size:20px;
+    }
+
+    .btn-ajout{
+        width:100%;
+    }
+}

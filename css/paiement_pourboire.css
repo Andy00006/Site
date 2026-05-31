@@ -1,0 +1,87 @@
+body { 
+    font-family: sans-serif; 
+    background: #f4f4f4; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.card { 
+    background: var(--carte); 
+    padding: 25px; 
+    border-radius: 12px; 
+    width: 450px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    text-align: center; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.logo span {
+    color: #ff6b6b;
+}
+
+.icon-pourboire {
+    font-size: 50px;
+    color: #2ecc71;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 22px;
+    color: var(--noir);
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--texte-secondaire);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.total { 
+    font-size: 26px; 
+    font-weight: bold; 
+    text-align: center; 
+    margin: 20px 0 30px 0;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+}
+
+.btn-pay { 
+    background: #000; 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    width: 100%; 
+    border-radius: 6px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background 0.2s ease;
+}
+
+.btn-pay:hover {
+    background: #222;
+}
+
+.link-cancel {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--texte-faible);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.link-cancel:hover {
+    text-decoration: underline;
+}
