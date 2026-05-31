@@ -290,6 +290,14 @@ document.querySelector("form").addEventListener("submit", function(e) {
         e.preventDefault();
     }
 });
+
+document.getElementById('tel').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+document.getElementById('ville').addEventListener('input', function() {
+    this.value = this.value.replace(/[0-9]/g, '');
+});
 </script>
 
 </body>
