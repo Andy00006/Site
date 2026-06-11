@@ -3,7 +3,7 @@ session_start();
 $livreur = "Yves Oikeudal";
 $file = "../json/notation.json";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["btn-valider"])) {
+if (isset($_POST["btn-valider"])) {
 
     if (isset($_POST["note"])) {
         $note = $_POST["note"];
